@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atelier Italien — PC &amp; Tablette (Drive)</title>
+<title>Atelier Italien — GitHub, PC &amp; Tablette</title>
 
 <style>
 :root {
@@ -250,6 +250,13 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     flex-wrap: wrap;
 }
 
+#score {
+    text-align: center;
+    font-size: 20px;
+    margin: 12px 0;
+    font-weight: bold;
+}
+
 .container {
     display: flex;
     gap: 20px;
@@ -345,8 +352,8 @@ button.primary-btn {
 
 <header>
     <div>
-        <h1>Atelier Italien — PC &amp; Tablette (Dossier Drive)</h1>
-        <div class="header-sub">Fonctionne hors-ligne • Dictionnaire FR ↔ IT, catégories, préremplissage &amp; suivi</div>
+        <h1>Atelier Italien — LGD2607/Italien_DG</h1>
+        <div class="header-sub">Chargement auto des JSON depuis GitHub • Dictionnaire FR ↔ IT &amp; séquence `:free`</div>
     </div>
     <div style="font-size:13px; background:rgba(255,255,255,0.12); padding:6px 12px; border-radius:8px;">
         Cadre CECRL (A1–C2)
@@ -354,14 +361,12 @@ button.primary-btn {
 </header>
 
 <div class="seance-bar">
-    <button type="button" class="btn-ouverture" onclick="ouvertureSeanceFichiers()">Charger depuis Drive (.json)</button>
-    <button type="button" id="btnOuvrirDossierPc" class="btn-ajout-dico" onclick="ouvertureSeanceDossier()">Ouvrir dossier (PC)</button>
-    <button type="button" class="btn-save" onclick="enregistrerSauvegarde()">Enregistrer la sauvegarde</button>
-    <button type="button" class="btn-ajout-dico" onclick="ouvrirFormulaireAjoutDico()">+ Ajouter un mot / catégorie</button>
-    <button type="button" id="btnExporterFicheCourante" class="btn-ajout-dico" onclick="exporterFicheCourante()" style="display:none;">Exporter dictionnaire (.json)</button>
-    <input type="file" id="inputOuvertureDossier" webkitdirectory directory multiple style="display:none" onchange="traiterOuvertureJson(event)">
+    <button type="button" class="btn-ouverture" onclick="chargerJsonDepuisGitHub()">Sync GitHub (.json)</button>
+    <button type="button" class="btn-ajout-dico" onclick="ouvertureSeanceFichiers()">Charger local (.json)</button>
+    <button type="button" class="btn-save" onclick="enregistrerSauvegarde()">Enregistrer sauvegarde (.json)</button>
+    <button type="button" class="btn-ajout-dico" onclick="ouvrirFormulaireAjoutDico()">+ Ajouter un mot</button>
     <input type="file" id="inputOuvertureJson" accept=".json,application/json" multiple style="display:none" onchange="traiterOuvertureJson(event)">
-    <span id="statutSeance" class="statut-seance">Socle prêt. Sur Drive/Tablette : cliquez sur « Charger depuis Drive (.json) » pour importer votre sauvegarde ou dictionnaire.</span>
+    <span id="statutSeance" class="statut-seance">Initialisation...</span>
 </div>
 
 <div id="ajoutDicoBox" class="drawer-box">
@@ -444,11 +449,11 @@ button.primary-btn {
     <div class="form-grid">
         <div class="form-champ">
             <label for="dicoMotIt"><b>Mot / expression en italien *</b></label>
-            <input type="text" id="dicoMotIt" placeholder="Ex : il preventivo, rimandare, le braccia...">
+            <input type="text" id="dicoMotIt" placeholder="Ex : il preventivo, rimandare...">
         </div>
         <div class="form-champ">
             <label for="dicoTradFr"><b>Traduction en français *</b></label>
-            <input type="text" id="dicoTradFr" placeholder="Ex : le devis, reporter, les bras...">
+            <input type="text" id="dicoTradFr" placeholder="Ex : le devis, reporter...">
         </div>
         <div class="form-champ">
             <label for="dicoCat"><b>Catégorie *</b></label>
@@ -468,7 +473,7 @@ button.primary-btn {
         </div>
         <div class="form-champ">
             <label for="dicoAccords"><b>Accords</b></label>
-            <input type="text" id="dicoAccords" placeholder="Ex : m. sg. il braccio → f. pl. le braccia">
+            <input type="text" id="dicoAccords" placeholder="Ex : m. sg. ... → f. pl. ...">
         </div>
         <div class="form-champ full">
             <label for="dicoPhraseIt"><b>Petite phrase d'exemple en italien</b></label>
@@ -502,6 +507,8 @@ button.primary-btn {
         <option value="A2">A2</option>
         <option value="B1">B1</option>
         <option value="B2">B2</option>
+        <option value="C1">C1</option>
+        <option value="C2">C2</option>
     </select>
     <label for="selectFiche"><b>Activité :</b></label>
     <select id="selectFiche" onchange="changerFiche()"></select>
@@ -521,8 +528,19 @@ button.primary-btn {
             <label for="filtreSousType"><b>Sous-catégorie :</b></label>
             <select id="filtreSousType" onchange="appliquerFiltres()"></select>
         </div>
+        <div>
+            <label for="filtreSens"><b>Sens :</b></label>
+            <select id="filtreSens" onchange="appliquerFiltres()">
+                <option value="FR_IT">Français → Italien</option>
+                <option value="IT_FR">Italien → Français</option>
+                <option value="MIXTE">Aléatoire (FR ↔ IT)</option>
+            </select>
+        </div>
+        <span id="compteurFiltre" style="font-size:13px; color:#555; font-weight:bold;"></span>
     </div>
 </div>
+
+<div id="score"><span id="bonnes">0</span> / <span id="total">0</span></div>
 
 <div class="container">
     <div class="panel">
@@ -536,6 +554,10 @@ button.primary-btn {
 </div>
 
 <script>
+const GITHUB_OWNER = "LGD2607";
+const GITHUB_REPO  = "Italien_DG";
+const GITHUB_REF   = "HEAD";
+
 const LISTE_MODELES_FREE_PAR_DEFAUT = [
     "openrouter/free",
     "meta-llama/llama-3.3-70b-instruct:free",
@@ -558,50 +580,45 @@ const SOCLE_FICHES_DEFAUT = [
     "titre": "Vocabulaire & Dictionnaire personnel (FR ↔ IT)",
     "description": "Répertoire unifié de vocabulaire et dictionnaire personnel.",
     "categories": [
-      { "valeur": "corps_sante", "label": "Corps humain & santé", "sousCategories": [] },
-      { "valeur": "atelier_mecanique", "label": "Atelier & mécanique", "sousCategories": [] },
-      { "valeur": "maison_logement", "label": "Maison & logement", "sousCategories": [] },
-      { "valeur": "quotidien_cuisine", "label": "Quotidien & cuisine", "sousCategories": [] },
-      { "valeur": "administration_demarches", "label": "Administration & démarches", "sousCategories": [] },
-      { "valeur": "voyages_deplacements", "label": "Voyages & déplacements", "sousCategories": [] },
-      { "valeur": "expressions_verbes", "label": "Verbes & expressions", "sousCategories": [] }
+      { "valeur": "general", "label": "Général", "sousCategories": [] }
     ],
     "items": [
-      { "id": "voc_001", "cat": "corps_sante", "mot": "la testa", "traduction": "la tête" }
+      { "id": "voc_001", "cat": "general", "mot": "la testa", "traduction": "la tête" }
     ]
   }
 ];
 
 let fiches = [];
 let ficheActuelle = null;
+let itemsFiltres = [];
 let courant = null;
+let sensCourant = "FR_IT";
+let bonnes = 0;
+let total = 0;
 
 document.getElementById("dicoDateAjout").value = new Date().toISOString().slice(0, 10);
 
+function normaliser(txt){
+    return (txt || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[.,!?;:()«»"']/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function slugifier(txt){
+    return (txt || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "") || "element";
+}
+
 function pauseMs(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function obtenirListeModelesFree(){
-    const txt = (document.getElementById("apiListeFreeTextarea")?.value || "").trim();
-    if(!txt) return LISTE_MODELES_FREE_PAR_DEFAUT.slice();
-    return txt
-        .split(/\r?\n/)
-        .map(l => l.trim())
-        .filter(Boolean);
-}
-
-function reinitialiserListeFree(){
-    const ta = document.getElementById("apiListeFreeTextarea");
-    if(ta){
-        ta.value = LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
-    }
-    sauvegarderConfigApi();
-    const statut = document.getElementById("statutAutoFill");
-    if(statut){
-        statut.style.color = "#003366";
-        statut.textContent = `Liste de ${LISTE_MODELES_FREE_PAR_DEFAUT.length} modèles \`:free\` réinitialisée.`;
-    }
 }
 
 function toggleDrawer(id){
@@ -609,8 +626,378 @@ function toggleDrawer(id){
     el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
+// ============================================================================
+// NORMALISATION & CHARGEMENT GITHUB (FICHES + DERNIÈRE SAUVEGARDE UNIQUEMENT)
+// ============================================================================
+
+function normaliserCategories(rawCats){
+    if(!Array.isArray(rawCats) || rawCats.length === 0){
+        return [{ valeur: "general", label: "Général", sousCategories: [] }];
+    }
+    return rawCats.map(c => ({
+        valeur: c.valeur || slugifier(c.label),
+        label: c.label || c.valeur,
+        sousCategories: Array.isArray(c.sousCategories)
+            ? c.sousCategories.map(sc => ({
+                valeur: sc.valeur || slugifier(sc.label),
+                label: sc.label || sc.valeur
+            }))
+            : []
+    }));
+}
+
+function normaliserFicheJson(raw){
+    if(!raw || !Array.isArray(raw.items)) return null;
+    const id = raw.id || ((raw.activite || "activite") + "_" + (raw.niveau || "A2"));
+    const categories = normaliserCategories(raw.categories);
+    const items = raw.items.map((it, idx) => {
+        const motIt = it.mot || it.solution || it.reponse || "";
+        const tradFr = it.traduction || it.depart || "";
+        const cible = it.cible || it.formeCible || it.temps || "";
+        return {
+            id: it.id || `${id}_${idx + 1}`,
+            cat: it.cat || categories[0].valeur,
+            sousCat: it.sousCat || "",
+            mot: motIt,
+            traduction: tradFr,
+            depart: it.depart || tradFr,
+            solution: it.solution || it.reponse || motIt,
+            cible: cible,
+            variantesFr: Array.isArray(it.variantesFr) ? it.variantesFr : [],
+            variantesIt: Array.isArray(it.variantesIt) ? it.variantesIt : (Array.isArray(it.variantes) ? it.variantes : []),
+            phrase: it.phrase || it.exemple || "",
+            traductionPhrase: it.traductionPhrase || "",
+            accords: it.accords || "",
+            irreguliersConjugaison: it.irreguliersConjugaison || "",
+            note: it.note || ""
+        };
+    }).filter(it => (it.depart && it.solution) || (it.mot && it.traduction));
+
+    if(!items.length) return null;
+    return {
+        id,
+        activite: raw.activite || id,
+        niveau: raw.niveau || "A2",
+        titre: raw.titre || id,
+        description: raw.description || "",
+        categories,
+        items
+    };
+}
+
+function ajouterOuRemplacerFiche(ficheNorm){
+    const idx = fiches.findIndex(f => f.id === ficheNorm.id);
+    if(idx !== -1) fiches[idx] = ficheNorm;
+    else fiches.push(ficheNorm);
+}
+
+function appliquerSauvegardeJson(data){
+    if(!data || typeof data !== "object") return;
+    if(typeof data.bonnes === "number") bonnes = data.bonnes;
+    if(typeof data.total === "number") total = data.total;
+    if(Array.isArray(data.fiches)){
+        data.fiches.forEach(rawF => {
+            const norm = normaliserFicheJson(rawF);
+            if(norm) ajouterOuRemplacerFiche(norm);
+        });
+    }
+    const sc = document.getElementById("bonnes");
+    const st = document.getElementById("total");
+    if(sc) sc.textContent = String(bonnes);
+    if(st) st.textContent = String(total);
+}
+
+async function chargerJsonDepuisGitHub(){
+    const statutEl = document.getElementById("statutSeance");
+    if(statutEl){
+        statutEl.textContent = "Récupération des fiches et de la dernière sauvegarde depuis GitHub...";
+    }
+
+    try {
+        const treeUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${GITHUB_REF}?recursive=1`;
+        const treeResp = await fetch(treeUrl, { cache: "no-store" });
+        if(!treeResp.ok){
+            throw new Error(`API GitHub HTTP ${treeResp.status}`);
+        }
+
+        const treeData = await treeResp.json();
+        const blobs = Array.isArray(treeData.tree) ? treeData.tree : [];
+
+        const cheminsFiches = blobs
+            .filter(b => b.type === "blob" && /^fiches\/[^/]+\.json$/i.test(b.path))
+            .map(b => b.path)
+            .sort();
+
+        const cheminsSauvegardes = blobs
+            .filter(b => b.type === "blob" && /^Sauvegardes\/[^/]+\.json$/i.test(b.path))
+            .map(b => b.path)
+            .sort();
+
+        const derniereSauvegardePath = cheminsSauvegardes.length
+            ? cheminsSauvegardes[cheminsSauvegardes.length - 1]
+            : null;
+
+        let nbFiches = 0;
+        for(const chemin of cheminsFiches){
+            const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_REF}/${chemin}`;
+            const resp = await fetch(rawUrl, { cache: "no-store" });
+            if(!resp.ok) continue;
+            const data = await resp.json();
+            const ficheNorm = normaliserFicheJson(data);
+            if(ficheNorm){
+                ajouterOuRemplacerFiche(ficheNorm);
+                nbFiches++;
+            }
+        }
+
+        let nomSavChargee = "";
+        if(derniereSauvegardePath){
+            const rawSavUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_REF}/${derniereSauvegardePath}`;
+            const savResp = await fetch(rawSavUrl, { cache: "no-store" });
+            if(savResp.ok){
+                const savData = await savResp.json();
+                appliquerSauvegardeJson(savData);
+                nomSavChargee = derniereSauvegardePath.split("/").pop();
+            }
+        }
+
+        peuplerSelectFiches();
+        changerFiche();
+
+        if(statutEl){
+            statutEl.textContent = nomSavChargee
+                ? `GitHub OK : ${nbFiches} fiche(s) + sauvegarde la plus récente (${nomSavChargee}).`
+                : `GitHub OK : ${nbFiches} fiche(s) chargée(s).`;
+        }
+    } catch(err){
+        peuplerSelectFiches();
+        changerFiche();
+        if(statutEl){
+            statutEl.textContent = `GitHub indisponible (${err.message}) — socle local actif.`;
+        }
+    }
+}
+
+function ouvertureSeanceFichiers(){
+    document.getElementById("inputOuvertureJson").click();
+}
+
+async function traiterOuvertureJson(event){
+    const files = Array.from(event.target.files || []);
+    if(!files.length) return;
+    let nb = 0;
+    for(const f of files){
+        try {
+            const data = JSON.parse(await f.text());
+            if(Array.isArray(data.fiches)){
+                appliquerSauvegardeJson(data);
+                nb++;
+            } else {
+                const norm = normaliserFicheJson(data);
+                if(norm){ ajouterOuRemplacerFiche(norm); nb++; }
+            }
+        } catch(_){}
+    }
+    peuplerSelectFiches();
+    changerFiche();
+    document.getElementById("statutSeance").textContent = `${nb} fichier(s) JSON local(aux) chargé(s).`;
+    event.target.value = "";
+}
+
+function enregistrerSauvegarde(){
+    const payload = {
+        dateSauvegarde: new Date().toISOString().slice(0, 10),
+        bonnes,
+        total,
+        fiches
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `sauvegarde_italien_${payload.dateSauvegarde}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+}
+
+// ============================================================================
+// NAVIGATION, FILTRES & EXERCICE
+// ============================================================================
+
+function peuplerSelectFiches(){
+    const cecrl = document.getElementById("filtreCecrl").value;
+    const sel = document.getElementById("selectFiche");
+    const ancienId = sel.value;
+    const visibles = cecrl === "TOUS" ? fiches : fiches.filter(f => f.niveau === cecrl);
+    const liste = visibles.length ? visibles : fiches;
+
+    sel.innerHTML = "";
+    liste.forEach(f => {
+        const opt = document.createElement("option");
+        opt.value = f.id;
+        opt.textContent = `[${f.niveau}] ${f.titre} (${f.items.length})`;
+        sel.appendChild(opt);
+    });
+
+    if(ancienId && liste.some(f => f.id === ancienId)){
+        sel.value = ancienId;
+    }
+}
+
+function filtrerParCecrl(){
+    peuplerSelectFiches();
+    changerFiche();
+}
+
+function changerFiche(){
+    const idSel = document.getElementById("selectFiche").value;
+    ficheActuelle = fiches.find(f => f.id === idSel) || fiches[0] || null;
+    if(!ficheActuelle) return;
+
+    document.getElementById("ficheDescription").textContent = ficheActuelle.description || "";
+
+    const selCat = document.getElementById("filtreType");
+    selCat.innerHTML = `<option value="TOUTES">Toutes les catégories</option>`;
+    (ficheActuelle.categories || []).forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.valeur;
+        opt.textContent = c.label;
+        selCat.appendChild(opt);
+    });
+
+    onChangementCategorieFiltre();
+}
+
+function onChangementCategorieFiltre(){
+    const catVal = document.getElementById("filtreType").value;
+    const blocSous = document.getElementById("blocSousCategorie");
+    const selSous = document.getElementById("filtreSousType");
+    const catObj = (ficheActuelle?.categories || []).find(c => c.valeur === catVal);
+    const sousCats = catObj?.sousCategories || [];
+
+    if(catVal !== "TOUTES" && sousCats.length){
+        selSous.innerHTML = `<option value="TOUTES">Toutes les sous-catégories</option>`;
+        sousCats.forEach(sc => {
+            const opt = document.createElement("option");
+            opt.value = sc.valeur;
+            opt.textContent = sc.label;
+            selSous.appendChild(opt);
+        });
+        blocSous.style.display = "inline-block";
+    } else {
+        selSous.innerHTML = `<option value="TOUTES">Toutes les sous-catégories</option>`;
+        blocSous.style.display = "none";
+    }
+
+    appliquerFiltres();
+}
+
+function appliquerFiltres(){
+    if(!ficheActuelle) return;
+    const catVal = document.getElementById("filtreType").value;
+    const sousVal = document.getElementById("filtreSousType").value;
+
+    itemsFiltres = (ficheActuelle.items || []).filter(it => {
+        if(catVal !== "TOUTES" && it.cat !== catVal) return false;
+        if(sousVal !== "TOUTES" && it.sousCat !== sousVal) return false;
+        return true;
+    });
+
+    document.getElementById("compteurFiltre").textContent = `${itemsFiltres.length} élément(s)`;
+    nouvelleQuestion();
+}
+
+function nouvelleQuestion(){
+    if(!itemsFiltres.length){
+        courant = null;
+        document.getElementById("phraseDepart").textContent = "Aucun élément dans ce filtre";
+        document.getElementById("formeCible").textContent = "";
+        return;
+    }
+
+    courant = itemsFiltres[Math.floor(Math.random() * itemsFiltres.length)];
+    const sensConfig = document.getElementById("filtreSens").value;
+    sensCourant = sensConfig === "MIXTE"
+        ? (Math.random() < 0.5 ? "FR_IT" : "IT_FR")
+        : sensConfig;
+
+    const estDico = Boolean(courant.mot && courant.traduction);
+    let departTxt = "";
+    let cibleTxt = "";
+
+    if(estDico){
+        if(sensCourant === "IT_FR"){
+            departTxt = courant.mot;
+            cibleTxt = "Traduire en français";
+        } else {
+            departTxt = courant.traduction;
+            cibleTxt = "Traduire en italien";
+        }
+    } else {
+        departTxt = courant.depart;
+        cibleTxt = courant.cible || "Réponse attendue";
+    }
+
+    document.getElementById("phraseDepart").textContent = departTxt;
+    document.getElementById("formeCible").textContent = cibleTxt;
+    document.getElementById("reponse").value = "";
+    document.getElementById("message").textContent = "";
+    document.getElementById("message").className = "";
+    document.getElementById("reponse").focus();
+}
+
+function obtenirReponsesAcceptees(item){
+    const estDico = Boolean(item.mot && item.traduction);
+    if(estDico){
+        if(sensCourant === "IT_FR"){
+            return [item.traduction, ...(item.variantesFr || [])].filter(Boolean);
+        }
+        return [item.mot, ...(item.variantesIt || [])].filter(Boolean);
+    }
+    return [item.solution, ...(item.variantesIt || [])].filter(Boolean);
+}
+
+function verifier(){
+    if(!courant) return;
+    const saisie = normaliser(document.getElementById("reponse").value);
+    const attendues = obtenirReponsesAcceptees(courant);
+    const ok = attendues.some(a => normaliser(a) === saisie);
+
+    total++;
+    if(ok) bonnes++;
+    document.getElementById("bonnes").textContent = String(bonnes);
+    document.getElementById("total").textContent = String(total);
+
+    const msg = document.getElementById("message");
+    msg.className = ok ? "success" : "error";
+    const extra = [
+        courant.phrase ? `Exemple : <i>${courant.phrase}</i>` : "",
+        courant.accords ? `Accords : ${courant.accords}` : "",
+        courant.note ? `Note : ${courant.note}` : ""
+    ].filter(Boolean).join("<br>");
+
+    msg.innerHTML = ok
+        ? `<b>Correct !</b> (${attendues[0]})${extra ? "<br>" + extra : ""}`
+        : `<b>Attendu :</b> ${attendues.join(" / ")}${extra ? "<br>" + extra : ""}`;
+}
+
+// ============================================================================
+// DICTIONNAIRE, CONFIGURATION API & SÉQUENCE :FREE
+// ============================================================================
+
 const CLE_TOKENS_STORAGE = "atelier_it_tokens_liste";
 const CLE_TOKEN_ACTIF_STORAGE = "atelier_it_token_actif_id";
+
+function obtenirListeModelesFree(){
+    const txt = (document.getElementById("apiListeFreeTextarea")?.value || "").trim();
+    if(!txt) return LISTE_MODELES_FREE_PAR_DEFAUT.slice();
+    return txt.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+}
+
+function reinitialiserListeFree(){
+    const ta = document.getElementById("apiListeFreeTextarea");
+    if(ta) ta.value = LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
+    sauvegarderConfigApi();
+}
 
 function lireListeTokens(){
     try { return JSON.parse(localStorage.getItem(CLE_TOKENS_STORAGE) || "[]"); } catch(e){ return []; }
@@ -912,6 +1299,7 @@ Entrée : "${motSaisi}" | Direction : ${sens}`;
         document.getElementById("dicoEstIrreg").checked = Boolean(fiche.est_irregulier);
         if(fiche.categorie_suggeree && dico.categories.some(c => c.valeur === fiche.categorie_suggeree)){
             document.getElementById("dicoCat").value = fiche.categorie_suggeree;
+            actualiserSelectSousCatFormulaire(fiche.sous_categorie_suggeree || null);
         }
         if(modeleUtilise !== modelePrincipal){
             document.getElementById("apiModelInput").value = modeleUtilise;
@@ -927,64 +1315,81 @@ Entrée : "${motSaisi}" | Direction : ${sens}`;
 }
 
 function obtenirOuCreerDictionnairePerso(){
-    if(!fiches.length) fiches = SOCLE_FICHES_DEFAUT.slice();
-    return fiches[0];
+    let dico = fiches.find(f => f.activite === "dictionnaire");
+    if(!dico){
+        dico = normaliserFicheJson(SOCLE_FICHES_DEFAUT[0]);
+        fiches.push(dico);
+    }
+    return dico;
 }
+
 function ouvrirFormulaireAjoutDico(){
     const dico = obtenirOuCreerDictionnairePerso();
     const s = document.getElementById("dicoCat");
     s.innerHTML = "";
-    dico.categories.forEach(c => { const o = document.createElement("option"); o.value = c.valeur; o.textContent = c.label; s.appendChild(o); });
+    dico.categories.forEach(c => {
+        const o = document.createElement("option");
+        o.value = c.valeur;
+        o.textContent = c.label;
+        s.appendChild(o);
+    });
+    actualiserSelectSousCatFormulaire();
     toggleDrawer("ajoutDicoBox");
 }
+
+function actualiserSelectSousCatFormulaire(sousSel = null){
+    const dico = obtenirOuCreerDictionnairePerso();
+    const cat = dico.categories.find(c => c.valeur === document.getElementById("dicoCat").value);
+    const sel = document.getElementById("dicoSousCat");
+    sel.innerHTML = `<option value="">(Aucune sous-catégorie)</option>`;
+    (cat?.sousCategories || []).forEach(sc => {
+        const o = document.createElement("option");
+        o.value = sc.valeur;
+        o.textContent = sc.label;
+        sel.appendChild(o);
+    });
+    if(sousSel) sel.value = sousSel;
+}
+
 function ajouterEntreeDictionnaire(){
     const mot = document.getElementById("dicoMotIt").value.trim();
     const traduction = document.getElementById("dicoTradFr").value.trim();
     if(!mot || !traduction) return;
+
     const dico = obtenirOuCreerDictionnairePerso();
-    dico.items.unshift({ id: "voc_" + Date.now(), cat: document.getElementById("dicoCat").value, mot, traduction });
+    dico.items.unshift({
+        id: "voc_" + Date.now(),
+        cat: document.getElementById("dicoCat").value,
+        sousCat: document.getElementById("dicoSousCat").value,
+        mot,
+        traduction,
+        depart: traduction,
+        solution: mot,
+        phrase: document.getElementById("dicoPhraseIt").value.trim(),
+        traductionPhrase: document.getElementById("dicoPhraseFr").value.trim(),
+        accords: document.getElementById("dicoAccords").value.trim(),
+        irreguliersConjugaison: document.getElementById("dicoIrregConj").value.trim(),
+        note: document.getElementById("dicoNote").value.trim()
+    });
+
     document.getElementById("msgAjoutDico").textContent = `Ajouté : ${mot} ↔ ${traduction}`;
+    peuplerSelectFiches();
     changerFiche();
 }
+
+document.getElementById("reponse").addEventListener("keydown", function(e){
+    if(e.key === "Enter") verifier();
+});
+
 function initialiserApplication(){
-    fiches = SOCLE_FICHES_DEFAUT.slice();
-    const sel = document.getElementById("selectFiche");
-    sel.innerHTML = "";
-    fiches.forEach(f => { const o = document.createElement("option"); o.value = f.id; o.textContent = `[${f.niveau}] ${f.titre}`; sel.appendChild(o); });
+    fiches = SOCLE_FICHES_DEFAUT.map(normaliserFicheJson).filter(Boolean);
+    peuplerSelectFiches();
     changerFiche();
 }
-function changerFiche(){
-    ficheActuelle = fiches[0];
-    document.getElementById("ficheDescription").textContent = ficheActuelle.description;
-    const selCat = document.getElementById("filtreType");
-    selCat.innerHTML = `<option value="TOUTES">Toutes les catégories</option>`;
-    ficheActuelle.categories.forEach(c => { const o = document.createElement("option"); o.value = c.valeur; o.textContent = c.label; selCat.appendChild(o); });
-    courant = ficheActuelle.items[0] || null;
-    if(courant){
-        document.getElementById("phraseDepart").textContent = courant.traduction;
-        document.getElementById("formeCible").textContent = "Traduire en italien";
-    }
-}
-function verifier(){
-    if(!courant) return;
-    const rep = document.getElementById("reponse").value.trim().toLowerCase();
-    const ok = rep === courant.mot.toLowerCase();
-    document.getElementById("message").className = ok ? "success" : "error";
-    document.getElementById("message").textContent = ok ? "Correct !" : `Attendu : ${courant.mot}`;
-}
-function nouvelleQuestion(){ changerFiche(); document.getElementById("reponse").value = ""; document.getElementById("message").textContent = ""; }
-function actualiserSelectSousCatFormulaire(){}
-function onChangementCategorieFiltre(){}
-function appliquerFiltres(){}
-function filtrerParCecrl(){}
-function ouvertureSeanceFichiers(){ document.getElementById("inputOuvertureJson").click(); }
-function ouvertureSeanceDossier(){ document.getElementById("inputOuvertureDossier").click(); }
-function traiterOuvertureJson(){}
-function enregistrerSauvegarde(){}
-function exporterFicheCourante(){}
 
 chargerConfigApi();
 initialiserApplication();
+chargerJsonDepuisGitHub();
 </script>
 
 </body>
