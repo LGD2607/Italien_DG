@@ -112,54 +112,6 @@ button.btn-ajout-dico:hover {
     margin-top: 2px;
 }
 
-.rappel-revisions {
-    max-width: 960px;
-    margin: 14px auto 0 auto;
-    padding: 12px 18px;
-    background: var(--ambre-fond);
-    border: 1px solid #ebd18a;
-    border-radius: 10px;
-    display: none;
-    font-size: 14px;
-    line-height: 1.45;
-}
-
-.rappel-revisions-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 6px;
-}
-
-.rappel-revisions ul {
-    margin: 6px 0 0 0;
-    padding-left: 18px;
-}
-
-.btn-lien-fiche {
-    background: none;
-    border: none;
-    color: var(--bleu-fonce);
-    text-decoration: underline;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0 2px;
-    font-size: 14px;
-}
-
-.nav-bar {
-    background: white;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--bordure);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
 select, input[type="text"], input[type="password"], input[type="date"], textarea {
     padding: 8px 11px;
     font-size: 15px;
@@ -169,34 +121,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     font-family: inherit;
 }
 
-#selectFiche {
-    font-weight: bold;
-    color: var(--bleu-fonce);
-    background: var(--bleu-clair);
-    min-width: 260px;
-    max-width: 100%;
-}
-
-.btn-regles, .btn-liste-complete {
-    padding: 8px 13px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-regles {
-    background: var(--bleu-fonce);
-    color: white;
-    border: none;
-    font-weight: bold;
-}
-
-.btn-liste-complete {
-    background: #f0f4f8;
-    color: var(--bleu-fonce);
-    border: 1px solid #b8c7d9;
-}
-
 .fiche-meta {
     max-width: 960px;
     margin: 12px auto 0 auto;
@@ -204,13 +128,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     text-align: center;
     font-size: 14px;
     color: #445;
-}
-
-.derniere-date {
-    display: inline-block;
-    margin-top: 4px;
-    font-size: 12px;
-    color: #5a6772;
 }
 
 .drawer-box {
@@ -278,35 +195,38 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     background: #dce8f7;
 }
 
-.nouvelle-cat-panel {
-    display: none;
-    background: #f5f9ff;
-    border: 1px solid #bfd4ec;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-top: 8px;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.regles-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.regles-table th, .regles-table td {
+.pill-check {
+    background: #f5f7fa;
     border: 1px solid var(--bordure);
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.regles-table th {
-    background: var(--bleu-clair);
+.pill-check input {
+    width: auto;
+    margin: 0;
+}
+
+.nav-bar {
+    background: white;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--bordure);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#selectFiche {
+    font-weight: bold;
     color: var(--bleu-fonce);
+    background: var(--bleu-clair);
+    min-width: 260px;
+    max-width: 100%;
 }
 
 .filtres {
@@ -330,45 +250,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     flex-wrap: wrap;
 }
 
-.filtres label {
-    font-size: 14px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.pill-check {
-    background: #f5f7fa;
-    border: 1px solid var(--bordure);
-    padding: 6px 12px;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.pill-check input {
-    width: auto;
-    margin: 0;
-}
-
-#score {
-    text-align: center;
-    font-size: 22px;
-    margin: 14px 0 16px 0;
-    font-weight: bold;
-}
-
-.badge-mode {
-    display: inline-block;
-    background: #ffe8a1;
-    color: #5a3e00;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 13px;
-    margin-left: 8px;
-    vertical-align: middle;
-}
-
 .container {
     display: flex;
     gap: 20px;
@@ -388,13 +269,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     box-sizing: border-box;
 }
 
-.consigne {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
 #phraseDepart {
     font-size: 23px;
     font-weight: bold;
@@ -403,19 +277,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     background: var(--bleu-clair);
     padding: 14px;
     border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.phrase-contexte-box {
-    display: none;
-    text-align: center;
-    background: #f7faf8;
-    border: 1px solid #cde2d4;
-    color: #1f4d30;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-style: italic;
     margin-bottom: 10px;
 }
 
@@ -429,79 +290,6 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-.tags-question {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-    min-height: 22px;
-}
-
-.tag {
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: #eef1f5;
-    color: #445;
-}
-
-.audio-box {
-    background: #f5f8fc;
-    border: 1px solid #cfe0f2;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-bottom: 14px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.audio-boutons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-button.btn-audio {
-    background: #ffffff;
-    color: var(--bleu-fonce);
-    border: 1px solid #9ab4cf;
-    padding: 7px 12px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button.btn-audio:hover {
-    background: #e3eef9;
-}
-
-.audio-voix-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #445;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.audio-voix-row select {
-    font-size: 12px;
-    padding: 4px 7px;
-    max-width: 240px;
-}
-
-.audio-statut {
-    font-size: 12px;
-    color: #556;
 }
 
 input#reponse {
@@ -525,10 +313,6 @@ button.action-btn {
     font-size: 14px;
 }
 
-button.action-btn:hover {
-    background: #ececec;
-}
-
 button.primary-btn {
     background: var(--vert-italie);
     color: white;
@@ -536,65 +320,14 @@ button.primary-btn {
     font-weight: bold;
 }
 
-button.primary-btn:hover {
-    background: #007036;
-}
-
 #message {
-    min-height: 110px;
-    margin-top: 18px;
+    min-height: 80px;
+    margin-top: 16px;
     line-height: 1.45;
 }
 
-.success {
-    color: #0b6e29;
-}
-
-.error {
-    color: #b00000;
-}
-
-#revision {
-    background: #fff8dc;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #f0dfa0;
-}
-
-.revision-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
-}
-
-.revision-actions button {
-    font-size: 13px;
-    padding: 6px 10px;
-    cursor: pointer;
-    border-radius: 6px;
-    border: 1px solid #d4be74;
-    background: #fff;
-}
-
-#listeRevision {
-    margin: 8px 0 0 0;
-    padding-left: 18px;
-}
-
-#listeRevision li {
-    margin-bottom: 10px;
-}
-
-.item-revision-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
+.success { color: #0b6e29; }
+.error { color: #b00000; }
 
 .btn-voir-rep {
     font-size: 12px;
@@ -604,27 +337,6 @@ button.primary-btn:hover {
     border: 1px solid #d4be74;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.reponse-cachee {
-    margin-top: 4px;
-    padding: 6px 8px;
-    background: #fffdf2;
-    border-left: 3px solid #d4a017;
-    font-size: 13px;
-    color: #222;
-}
-
-.hint {
-    font-size: 12px;
-    color: #666;
-    margin-top: 10px;
-}
-
-@media (max-width: 600px) {
-    header h1 { font-size: 18px; }
-    .seance-bar button { flex: 1 1 44%; }
-    #selectFiche { min-width: 100%; }
 }
 </style>
 </head>
@@ -670,7 +382,7 @@ button.primary-btn:hover {
         </div>
 
         <details style="margin-top:8px; font-size:13px;" open>
-            <summary style="cursor:pointer; color:#003366; font-weight:bold;">Configuration API (Tokens, Modèles &amp; Diagnostic — mémorisée sur cet appareil)</summary>
+            <summary style="cursor:pointer; color:#003366; font-weight:bold;">Configuration API (Tokens, Modèles gratuits enchaînés &amp; Diagnostic)</summary>
             <div style="display:grid; gap:8px; margin-top:8px;">
                 <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
                     <select id="apiTokenSelect" onchange="changerTokenSelectionne()" style="flex:1; min-width:180px;">
@@ -701,10 +413,29 @@ button.primary-btn:hover {
                     <button type="button" class="btn-mini" onclick="testerConnexionApi()">Tester API</button>
                 </div>
 
-                <label class="pill-check" style="align-self:flex-start;">
-                    <input type="checkbox" id="apiFallbackAuto" checked onchange="sauvegarderConfigApi()">
-                    Bascule automatique vers les autres modèles `:free` si erreur ou réponse vide
-                </label>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                    <label class="pill-check">
+                        <input type="checkbox" id="apiFallbackAuto" checked onchange="sauvegarderConfigApi()">
+                        Tester la liste complète `:free` à la suite en cas d'erreur / 429
+                    </label>
+                    <label class="pill-check">
+                        Pause entre essais :
+                        <select id="apiDelaiFallback" onchange="sauvegarderConfigApi()" style="padding:3px 6px; font-size:12px;">
+                            <option value="0">0 s</option>
+                            <option value="1000" selected>1 s</option>
+                            <option value="2000">2 s</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-champ" style="margin-top:2px;">
+                    <label for="apiListeFreeTextarea"><b>Liste ordonnée de modèles `:free` testés à la suite (un par ligne) :</b></label>
+                    <textarea id="apiListeFreeTextarea" rows="6" style="font-size:12px; font-family:monospace;" onchange="sauvegarderConfigApi()"></textarea>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;">
+                        <button type="button" class="btn-mini" onclick="reinitialiserListeFree()">Réinitialiser la liste `:free`</button>
+                        <button type="button" class="btn-mini" onclick="testerSequenceFree()">Tester la séquence `:free`</button>
+                    </div>
+                </div>
             </div>
         </details>
         <div id="statutAutoFill" style="font-size:12px; color:#003366; margin-top:6px;"></div>
@@ -805,6 +536,20 @@ button.primary-btn:hover {
 </div>
 
 <script>
+const LISTE_MODELES_FREE_PAR_DEFAUT = [
+    "openrouter/free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
+    "google/gemma-3-27b-it:free",
+    "qwen/qwen3-coder:free",
+    "google/gemma-4-31b-it:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "inclusionai/ling-3.2-flash:free",
+    "baidu/ernie-5.5-flash-preview:free",
+    "nvidia/nemotron-3.5-lightning:free"
+];
+
 const SOCLE_FICHES_DEFAUT = [
   {
     "id": "vocabulaire_dictionnaire_A2",
@@ -833,8 +578,30 @@ let courant = null;
 
 document.getElementById("dicoDateAjout").value = new Date().toISOString().slice(0, 10);
 
-function slugifier(txt){
-    return (txt || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "") || "element";
+function pauseMs(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function obtenirListeModelesFree(){
+    const txt = (document.getElementById("apiListeFreeTextarea")?.value || "").trim();
+    if(!txt) return LISTE_MODELES_FREE_PAR_DEFAUT.slice();
+    return txt
+        .split(/\r?\n/)
+        .map(l => l.trim())
+        .filter(Boolean);
+}
+
+function reinitialiserListeFree(){
+    const ta = document.getElementById("apiListeFreeTextarea");
+    if(ta){
+        ta.value = LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
+    }
+    sauvegarderConfigApi();
+    const statut = document.getElementById("statutAutoFill");
+    if(statut){
+        statut.style.color = "#003366";
+        statut.textContent = `Liste de ${LISTE_MODELES_FREE_PAR_DEFAUT.length} modèles \`:free\` réinitialisée.`;
+    }
 }
 
 function toggleDrawer(id){
@@ -844,15 +611,6 @@ function toggleDrawer(id){
 
 const CLE_TOKENS_STORAGE = "atelier_it_tokens_liste";
 const CLE_TOKEN_ACTIF_STORAGE = "atelier_it_token_actif_id";
-const MODELES_FREE_ACTIFS = [
-    "openrouter/free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "mistralai/mistral-small-3.1-24b-instruct:free",
-    "google/gemma-3-27b-it:free",
-    "qwen/qwen3-coder:free",
-    "google/gemma-4-31b-it:free",
-    "google/gemma-4-26b-a4b-it:free"
-];
 
 function lireListeTokens(){
     try { return JSON.parse(localStorage.getItem(CLE_TOKENS_STORAGE) || "[]"); } catch(e){ return []; }
@@ -931,18 +689,28 @@ function onChangementChampModeleManuel(){
     sauvegarderConfigApi();
 }
 function chargerConfigApi(){
+    const ta = document.getElementById("apiListeFreeTextarea");
     try {
         const savedToken = localStorage.getItem("atelier_it_token");
         const savedUrl = localStorage.getItem("atelier_it_url");
         const savedModel = localStorage.getItem("atelier_it_model");
         const savedFallback = localStorage.getItem("atelier_it_fallback");
+        const savedDelai = localStorage.getItem("atelier_it_delai_fallback");
+        const savedListe = localStorage.getItem("atelier_it_liste_free");
+
         if(savedToken) document.getElementById("apiTokenInput").value = savedToken;
         if(savedUrl) document.getElementById("apiUrlInput").value = savedUrl.trim();
         const modeleInitial = (savedModel && savedModel.trim()) ? savedModel.trim() : "openrouter/free";
         document.getElementById("apiModelInput").value = modeleInitial;
         synchroniserSelectAvecModele(modeleInitial);
         if(savedFallback !== null) document.getElementById("apiFallbackAuto").checked = (savedFallback === "true");
-    } catch(e){}
+        if(savedDelai !== null) document.getElementById("apiDelaiFallback").value = savedDelai;
+        if(ta){
+            ta.value = (savedListe && savedListe.trim()) ? savedListe : LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
+        }
+    } catch(e){
+        if(ta) ta.value = LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
+    }
     rafraichirSelectTokens();
 }
 function sauvegarderConfigApi(){
@@ -954,6 +722,8 @@ function sauvegarderConfigApi(){
         localStorage.setItem("atelier_it_url", (document.getElementById("apiUrlInput").value || "").trim());
         localStorage.setItem("atelier_it_model", modeleActif);
         localStorage.setItem("atelier_it_fallback", String(Boolean(document.getElementById("apiFallbackAuto")?.checked)));
+        localStorage.setItem("atelier_it_delai_fallback", document.getElementById("apiDelaiFallback")?.value || "1000");
+        localStorage.setItem("atelier_it_liste_free", document.getElementById("apiListeFreeTextarea")?.value || "");
     } catch(e){}
 }
 
@@ -1012,6 +782,31 @@ async function appelerUnModele(apiUrl, token, modele, promptComplet){
     return extraireObjetJsonDepuisTexte(String(texte));
 }
 
+function construireCandidatsOrdonnes(modelePrincipal, fallbackAuto){
+    const listeFree = obtenirListeModelesFree();
+    if(!fallbackAuto) return [modelePrincipal];
+    const fusion = [modelePrincipal, ...listeFree];
+    return fusion.filter((m, idx) => m && fusion.indexOf(m) === idx);
+}
+
+async function executerAvecSequenceFree(apiUrl, token, candidats, promptComplet, delaiMs, onEtape){
+    let derniereErreur = null;
+    for(let i = 0; i < candidats.length; i++){
+        const modele = candidats[i];
+        if(onEtape) onEtape(i + 1, candidats.length, modele);
+        try {
+            const resultat = await appelerUnModele(apiUrl, token, modele, promptComplet);
+            return { resultat, modeleUtilise: modele };
+        } catch(err){
+            derniereErreur = err;
+            if(i < candidats.length - 1 && delaiMs > 0){
+                await pauseMs(delaiMs);
+            }
+        }
+    }
+    throw derniereErreur || new Error("Aucun modèle disponible");
+}
+
 async function testerConnexionApi(){
     const token = document.getElementById("apiTokenInput").value.trim();
     const apiUrl = document.getElementById("apiUrlInput").value.trim();
@@ -1021,12 +816,7 @@ async function testerConnexionApi(){
         : document.getElementById("apiModelInput").value.trim();
     const statut = document.getElementById("statutAutoFill");
 
-    if(!token){
-        statut.style.color = "#b00000";
-        statut.textContent = "Renseigne d'abord une clé API pour lancer le test.";
-        return;
-    }
-
+    if(!token){ statut.style.color = "#b00000"; statut.textContent = "Renseigne d'abord une clé API."; return; }
     sauvegarderConfigApi();
     statut.style.color = "#003366";
     statut.textContent = `Test de connexion avec « ${modele} »...`;
@@ -1041,6 +831,39 @@ async function testerConnexionApi(){
     }
 }
 
+async function testerSequenceFree(){
+    const token = document.getElementById("apiTokenInput").value.trim();
+    const apiUrl = document.getElementById("apiUrlInput").value.trim();
+    const delaiMs = Number(document.getElementById("apiDelaiFallback")?.value || "1000");
+    const statut = document.getElementById("statutAutoFill");
+
+    if(!token){ statut.style.color = "#b00000"; statut.textContent = "Renseigne d'abord une clé API."; return; }
+    sauvegarderConfigApi();
+    const sequence = obtenirListeModelesFree();
+
+    try {
+        const { modeleUtilise } = await executerAvecSequenceFree(
+            apiUrl,
+            token,
+            sequence,
+            'Réponds UNIQUEMENT par {"ok":"pret"}',
+            delaiMs,
+            (idx, total, m) => {
+                statut.style.color = "#003366";
+                statut.textContent = `Test séquence :free (${idx}/${total}) → ${m}...`;
+            }
+        );
+        document.getElementById("apiModelInput").value = modeleUtilise;
+        synchroniserSelectAvecModele(modeleUtilise);
+        sauvegarderConfigApi();
+        statut.style.color = "#0b6e29";
+        statut.textContent = `Modèle fonctionnel trouvé : « ${modeleUtilise} » (sélectionné).`;
+    } catch(err){
+        statut.style.color = "#b00000";
+        statut.textContent = `Aucun modèle de la séquence n'a répondu (${sequence.length} testés). Dernière erreur → ${err.message}`;
+    }
+}
+
 async function preremplirFicheAuto(){
     const motSaisi = document.getElementById("dicoMotAuto").value.trim();
     const sens = document.getElementById("dicoSensAuto").value;
@@ -1051,6 +874,7 @@ async function preremplirFicheAuto(){
         ? selectModele.value.trim()
         : document.getElementById("apiModelInput").value.trim();
     const fallbackAuto = Boolean(document.getElementById("apiFallbackAuto")?.checked);
+    const delaiMs = Number(document.getElementById("apiDelaiFallback")?.value || "1000");
     const statut = document.getElementById("statutAutoFill");
 
     if(!motSaisi){ statut.style.color = "#b00000"; statut.textContent = "Saisis d'abord un mot."; return; }
@@ -1063,41 +887,43 @@ async function preremplirFicheAuto(){
 {"mot_it":"...","traduction_fr":"...","categorie_suggeree":"${listeCats}","sous_categorie_suggeree":"","phrase_it":"...","phrase_fr":"...","accords":"","irreguliers_conjugaison":"","est_irregulier":false,"note":""}
 Entrée : "${motSaisi}" | Direction : ${sens}`;
 
-    const candidats = fallbackAuto
-        ? [modelePrincipal, ...MODELES_FREE_ACTIFS.filter(m => m !== modelePrincipal)]
-        : [modelePrincipal];
+    const candidats = construireCandidatsOrdonnes(modelePrincipal, fallbackAuto);
 
-    let derniereErreur = null;
-    for(const modele of candidats){
-        try {
-            statut.style.color = "#003366";
-            statut.textContent = `Analyse linguistique via ${modele}...`;
-            const fiche = await appelerUnModele(apiUrl, token, modele, promptComplet);
-            document.getElementById("dicoMotIt").value = fiche.mot_it || "";
-            document.getElementById("dicoTradFr").value = fiche.traduction_fr || "";
-            document.getElementById("dicoPhraseIt").value = fiche.phrase_it || "";
-            document.getElementById("dicoPhraseFr").value = fiche.phrase_fr || "";
-            document.getElementById("dicoAccords").value = fiche.accords || "";
-            document.getElementById("dicoIrregConj").value = fiche.irreguliers_conjugaison || "";
-            document.getElementById("dicoNote").value = fiche.note || "";
-            document.getElementById("dicoEstIrreg").checked = Boolean(fiche.est_irregulier);
-            if(fiche.categorie_suggeree && dico.categories.some(c => c.valeur === fiche.categorie_suggeree)){
-                document.getElementById("dicoCat").value = fiche.categorie_suggeree;
+    try {
+        const { resultat: fiche, modeleUtilise } = await executerAvecSequenceFree(
+            apiUrl,
+            token,
+            candidats,
+            promptComplet,
+            delaiMs,
+            (idx, total, m) => {
+                statut.style.color = "#003366";
+                statut.textContent = `Essai ${idx}/${total} via ${m}...`;
             }
-            if(modele !== modelePrincipal){
-                document.getElementById("apiModelInput").value = modele;
-                synchroniserSelectAvecModele(modele);
-                sauvegarderConfigApi();
-            }
-            statut.style.color = "#0b6e29";
-            statut.textContent = `Fiche préremplie avec « ${modele} ».`;
-            return;
-        } catch(err){
-            derniereErreur = err;
+        );
+
+        document.getElementById("dicoMotIt").value = fiche.mot_it || "";
+        document.getElementById("dicoTradFr").value = fiche.traduction_fr || "";
+        document.getElementById("dicoPhraseIt").value = fiche.phrase_it || "";
+        document.getElementById("dicoPhraseFr").value = fiche.phrase_fr || "";
+        document.getElementById("dicoAccords").value = fiche.accords || "";
+        document.getElementById("dicoIrregConj").value = fiche.irreguliers_conjugaison || "";
+        document.getElementById("dicoNote").value = fiche.note || "";
+        document.getElementById("dicoEstIrreg").checked = Boolean(fiche.est_irregulier);
+        if(fiche.categorie_suggeree && dico.categories.some(c => c.valeur === fiche.categorie_suggeree)){
+            document.getElementById("dicoCat").value = fiche.categorie_suggeree;
         }
+        if(modeleUtilise !== modelePrincipal){
+            document.getElementById("apiModelInput").value = modeleUtilise;
+            synchroniserSelectAvecModele(modeleUtilise);
+            sauvegarderConfigApi();
+        }
+        statut.style.color = "#0b6e29";
+        statut.textContent = `Fiche préremplie avec « ${modeleUtilise} ».`;
+    } catch(err){
+        statut.style.color = "#b00000";
+        statut.textContent = `Échec après ${candidats.length} modèle(s) → ${err.message}`;
     }
-    statut.style.color = "#b00000";
-    statut.textContent = `Échec → ${derniereErreur ? derniereErreur.message : "Erreur inconnue"}`;
 }
 
 function obtenirOuCreerDictionnairePerso(){
