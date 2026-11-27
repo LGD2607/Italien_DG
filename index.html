@@ -3,42 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atelier Italien — PC &amp; Tablette</title>
+<title>Atelier Italien — Dictionnaire</title>
 <style>
 :root { --bleu-fonce: #003366; --bleu-clair: #eef4fb; --vert-italie: #008c45; --fond: #f4f6f9; --bordure: #d5dde6; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--fond); margin: 0; padding: 0; color: #222; }
-header { background: var(--bleu-fonce); color: white; padding: 14px 20px; border-bottom: 4px solid var(--vert-italie); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+header { background: var(--bleu-fonce); color: white; padding: 14px 20px; border-bottom: 4px solid var(--vert-italie); }
 header h1 { margin: 0; font-size: 20px; }
-.seance-bar { background: #fffdf5; border-bottom: 1px solid #e6d79c; padding: 11px 16px; display: flex; justify-content: center; align-items: center; gap: 9px; flex-wrap: wrap; font-size: 14px; }
-button.btn-ouverture { background: var(--bleu-fonce); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-button.btn-save { background: var(--vert-italie); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-button.btn-ajout-dico { background: #ffffff; color: var(--bleu-fonce); border: 1px solid var(--bleu-fonce); padding: 8px 13px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-.statut-seance { font-size: 13px; color: #4a3b00; width: 100%; text-align: center; margin-top: 2px; }
-.drawer-box { display: none; background: white; border: 1px solid var(--bordure); border-radius: 10px; padding: 16px 20px; max-width: 960px; margin: 14px auto; box-shadow: 0 2px 10px rgba(0,0,0,.08); line-height: 1.5; }
-.auto-fill-box { background: #f0f6ff; border: 1px solid #b8d0eb; border-radius: 8px; padding: 12px; margin-top: 12px; }
+.seance-bar { background: #fffdf5; border-bottom: 1px solid #e6d79c; padding: 11px 16px; display: flex; justify-content: center; align-items: center; gap: 9px; flex-wrap: wrap; }
+button.btn-ouverture { background: var(--bleu-fonce); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+button.btn-save { background: var(--vert-italie); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+button.btn-ajout-dico { background: #ffffff; color: var(--bleu-fonce); border: 1px solid var(--bleu-fonce); padding: 8px 13px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.drawer-box { display: none; background: white; border: 1px solid var(--bordure); border-radius: 10px; padding: 20px; max-width: 960px; margin: 14px auto; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
 .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 12px; }
 .form-champ { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
 .form-champ.full { grid-column: 1 / -1; }
-input, select { padding: 8px 11px; font-size: 15px; border-radius: 7px; border: 1px solid #99aabb; background: #fff; font-family: inherit; }
+input, select { padding: 8px 11px; font-size: 14px; border-radius: 7px; border: 1px solid #99aabb; font-family: inherit; }
 .btn-mini { background: var(--bleu-clair); color: var(--bleu-fonce); border: 1px solid #9ab4cf; border-radius: 6px; padding: 7px 10px; font-size: 12px; font-weight: bold; cursor: pointer; }
-button.action-btn { padding: 10px 15px; margin: 4px 6px 4px 0; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #f9f9f9; font-size: 14px; }
-button.primary-btn { background: var(--vert-italie); color: white; border: none; font-weight: bold; }
+button.action-btn { padding: 10px 15px; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #f9f9f9; font-weight: bold; }
+button.primary-btn { background: var(--vert-italie); color: white; border: none; }
+.container { max-width: 960px; margin: 20px auto; padding: 0 16px; }
+.dico-item { background: white; padding: 15px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.05); border-left: 4px solid var(--bleu-fonce); }
+.dico-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px; }
+.dico-mot { font-size: 18px; font-weight: bold; color: var(--bleu-fonce); }
+.dico-trad { font-size: 16px; color: #444; }
+.dico-meta { font-size: 12px; color: #666; margin-top: 6px; }
+.dico-phrase { font-size: 14px; font-style: italic; color: #555; margin-top: 8px; background: #f9f9f9; padding: 8px; border-radius: 4px; }
+.badge { background: #e0e0e0; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: normal; margin-left: 8px; }
 </style>
 </head>
 <body>
 
 <header>
-    <div>
-        <h1>Atelier Italien</h1>
-        <div style="font-size:13px; opacity:0.9;">Connecté à GitHub • Synchronisation manuelle</div>
-    </div>
+    <h1>Atelier Italien</h1>
 </header>
 
 <div class="seance-bar">
-    <button type="button" class="btn-ouverture" onclick="chargerDictionnaireDepuisGithub()">📥 Charger le dictionnaire depuis GitHub</button>
+    <button type="button" class="btn-ouverture" onclick="chargerDictionnaireDepuisGithub()">📥 Charger depuis GitHub</button>
     <button type="button" class="btn-save" onclick="telechargerSauvegarde()">💾 Télécharger la sauvegarde</button>
-    <button type="button" class="btn-ajout-dico" onclick="document.getElementById('ajoutDicoBox').style.display='block'">+ Ajouter un mot</button>
-    <span id="statutSeance" class="statut-seance">Prêt. Le dictionnaire par défaut est chargé.</span>
+    <button type="button" class="btn-ajout-dico" onclick="ouvrirFormulaire()">+ Ajouter un mot</button>
+    <span id="statutSeance" style="font-size:13px; color:#4a3b00; width:100%; text-align:center; margin-top:8px;">Prêt.</span>
 </div>
 
 <div id="ajoutDicoBox" class="drawer-box">
@@ -47,14 +50,14 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
         <button type="button" class="btn-mini" onclick="document.getElementById('ajoutDicoBox').style.display='none'">Fermer</button>
     </div>
 
-    <div class="auto-fill-box">
-        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
-            <input type="password" id="apiTokenInput" placeholder="Clé API OpenRouter (sk-or-v1-...)" style="flex:1;" onchange="sauvegarderConfigApi()">
+    <div style="background:#f0f6ff; padding:12px; border-radius:8px; border:1px solid #b8d0eb;">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+            <input type="password" id="apiTokenInput" placeholder="Clé API OpenRouter (pour l'IA)" style="flex:1;" onchange="sauvegarderConfigApi()">
             <button type="button" class="btn-mini" onclick="testerConnexionApi()">Tester API</button>
         </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <input type="text" id="dicoMotAuto" placeholder="Mot en français ou italien..." style="flex:1;">
-            <button type="button" class="action-btn primary-btn" style="margin:0;" onclick="preremplirFicheAuto()">✨ Préremplir avec l'IA</button>
+            <button type="button" class="action-btn primary-btn" onclick="preremplirFicheAuto()">✨ Préremplir avec l'IA</button>
         </div>
         <div id="statutAutoFill" style="font-size:12px; color:#003366; margin-top:6px;"></div>
     </div>
@@ -62,8 +65,16 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
     <div class="form-grid">
         <div class="form-champ"><label>Mot Italien *</label><input type="text" id="dicoMotIt"></div>
         <div class="form-champ"><label>Traduction Français *</label><input type="text" id="dicoTradFr"></div>
-        <div class="form-champ"><label>Catégorie</label><select id="dicoCat"></select></div>
-        <div class="form-champ"><label>Phrase d'exemple (IT)</label><input type="text" id="dicoPhraseIt"></div>
+        <div class="form-champ">
+            <label>Catégorie</label>
+            <select id="dicoCat" onchange="actualiserSousCategories()"></select>
+        </div>
+        <div class="form-champ">
+            <label>Sous-catégorie</label>
+            <select id="dicoSousCat"></select>
+        </div>
+        <div class="form-champ full"><label>Phrase d'exemple (Italien)</label><input type="text" id="dicoPhraseIt"></div>
+        <div class="form-champ full"><label>Traduction de la phrase (Français)</label><input type="text" id="dicoPhraseFr"></div>
         <div class="form-champ full" style="margin-top:10px;">
             <button type="button" class="action-btn primary-btn" onclick="ajouterEntreeDictionnaire()">Ajouter au dictionnaire</button>
             <span id="msgAjoutDico" style="font-size:13px; color:#0b6e29; font-weight:bold; margin-left:10px;"></span>
@@ -71,104 +82,170 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
     </div>
 </div>
 
-<div class="container" style="max-width:960px; margin: 20px auto; padding: 0 16px;">
-    <h2>Mon Dictionnaire</h2>
-    <ul id="listeDico" style="background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.05); line-height:1.6;"></ul>
+<div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+        <h2 style="margin:0;">Mon Dictionnaire (<span id="nbMots">0</span> mots)</h2>
+        <input type="text" id="rechercheMot" placeholder="Rechercher un mot..." onkeyup="afficherDictionnaire()" style="width:250px;">
+    </div>
+    <div id="listeDico"></div>
 </div>
 
 <script>
-// Variables globales
-let dico = { categories: ["Général", "Atelier", "Maison", "Voyage"], items: [] };
+let dico = { categories: [], items: [] };
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
-// --- GESTION DU DICTIONNAIRE ET DE GITHUB ---
-
-// Charge le fichier JSON depuis ton dépôt GitHub
+// 1. CHARGER DEPUIS GITHUB
 async function chargerDictionnaireDepuisGithub() {
     const statut = document.getElementById("statutSeance");
-    statut.textContent = "Chargement depuis GitHub...";
+    statut.textContent = "Chargement...";
     
     try {
-        // On cherche le fichier dans ton dossier 'fiches/'
-        const resp = await fetch('fiches/dictionnaire.json'); 
-        if(!resp.ok) throw new Error("Fichier non trouvé (avez-vous mis dictionnaire.json dans le dossier fiches ?)");
+        // Ajout d'un paramètre anti-cache pour être sûr d'avoir la dernière version
+        const resp = await fetch('fiches/dictionnaire.json?t=' + new Date().getTime()); 
+        if(!resp.ok) throw new Error("Fichier introuvable dans fiches/dictionnaire.json");
         
-        const data = await resp.json();
-        if(data && data.items) {
-            dico = data;
-            statut.textContent = `Succès : ${dico.items.length} mots chargés depuis GitHub.`;
-            afficherDictionnaire();
-            mettreAJourCategories();
-        }
+        dico = await resp.json();
+        statut.textContent = `Succès : ${dico.items.length} mots chargés depuis GitHub.`;
+        
+        initialiserFormulaire();
+        afficherDictionnaire();
     } catch(err) {
-        statut.textContent = `Erreur : ${err.message}. L'application utilise les données locales.`;
-        // Fallback sur la mémoire du navigateur si le fichier n'est pas sur GitHub
-        const local = localStorage.getItem("atelier_dico");
-        if(local) { dico = JSON.parse(local); afficherDictionnaire(); mettreAJourCategories(); }
+        statut.textContent = `Erreur : ${err.message}`;
+        console.error(err);
     }
 }
 
+// 2. AFFICHER LE DICTIONNAIRE
 function afficherDictionnaire() {
-    const ul = document.getElementById("listeDico");
-    ul.innerHTML = "";
-    if(dico.items.length === 0) {
-        ul.innerHTML = "<li>Aucun mot pour le moment. Ajoutez-en ou chargez depuis GitHub.</li>";
-        return;
-    }
+    const div = document.getElementById("listeDico");
+    const recherche = document.getElementById("rechercheMot").value.toLowerCase();
+    div.innerHTML = "";
+    
+    let compteur = 0;
+    
     dico.items.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `<b>${item.mot_it}</b> = ${item.trad_fr} <span style="color:#888; font-size:12px;">(${item.cat || 'Général'})</span>`;
-        ul.appendChild(li);
+        // Filtre de recherche
+        if(recherche && !item.mot.toLowerCase().includes(recherche) && !item.traduction.toLowerCase().includes(recherche)) return;
+        
+        compteur++;
+        const el = document.createElement("div");
+        el.className = "dico-item";
+        
+        // Trouver le label de la catégorie
+        const catObj = dico.categories.find(c => c.valeur === item.cat);
+        const catLabel = catObj ? catObj.label : item.cat;
+        
+        el.innerHTML = `
+            <div class="dico-header">
+                <div>
+                    <span class="dico-mot">${item.mot}</span>
+                    <span class="dico-trad"> = ${item.traduction}</span>
+                </div>
+                <span class="badge">${catLabel}</span>
+            </div>
+            ${item.phrase ? `<div class="dico-phrase">🇮🇹 ${item.phrase}<br>🇫🇷 ${item.traductionPhrase || ''}</div>` : ''}
+            ${item.accords ? `<div class="dico-meta">📝 <b>Accords :</b> ${item.accords}</div>` : ''}
+            ${item.note ? `<div class="dico-meta">💡 <b>Note :</b> ${item.note}</div>` : ''}
+        `;
+        div.appendChild(el);
     });
+    
+    document.getElementById("nbMots").textContent = compteur;
 }
 
-function mettreAJourCategories() {
-    const select = document.getElementById("dicoCat");
-    select.innerHTML = "";
+// 3. FORMULAIRE D'AJOUT
+function ouvrirFormulaire() {
+    document.getElementById("ajoutDicoBox").style.display = "block";
+    if(dico.categories.length === 0) {
+        alert("Veuillez d'abord charger le dictionnaire depuis GitHub.");
+    }
+}
+
+function initialiserFormulaire() {
+    const selectCat = document.getElementById("dicoCat");
+    selectCat.innerHTML = "";
     dico.categories.forEach(c => {
         const opt = document.createElement("option");
-        opt.value = c; opt.textContent = c;
-        select.appendChild(opt);
+        opt.value = c.valeur;
+        opt.textContent = c.label;
+        selectCat.appendChild(opt);
     });
+    actualiserSousCategories();
 }
 
-// Télécharge la sauvegarde au format JSON
+function actualiserSousCategories() {
+    const catVal = document.getElementById("dicoCat").value;
+    const selectSousCat = document.getElementById("dicoSousCat");
+    selectSousCat.innerHTML = '<option value="">(Aucune)</option>';
+    
+    const catObj = dico.categories.find(c => c.valeur === catVal);
+    if(catObj && catObj.sousCategories) {
+        catObj.sousCategories.forEach(sc => {
+            const opt = document.createElement("option");
+            opt.value = sc.valeur;
+            opt.textContent = sc.label;
+            selectSousCat.appendChild(opt);
+        });
+    }
+}
+
+function ajouterEntreeDictionnaire() {
+    const mot = document.getElementById("dicoMotIt").value.trim();
+    const traduction = document.getElementById("dicoTradFr").value.trim();
+    const cat = document.getElementById("dicoCat").value;
+    const sousCat = document.getElementById("dicoSousCat").value;
+    const phrase = document.getElementById("dicoPhraseIt").value.trim();
+    const tradPhrase = document.getElementById("dicoPhraseFr").value.trim();
+
+    if(!mot || !traduction) {
+        document.getElementById("msgAjoutDico").textContent = "Mot et traduction obligatoires.";
+        return;
+    }
+
+    // Création de l'objet au format EXACT de ton dictionnaire
+    const nouvelItem = {
+        id: "voc_" + Date.now(),
+        dateAjout: new Date().toISOString().slice(0, 10),
+        cat: cat,
+        sousCat: sousCat,
+        mot: mot,
+        traduction: traduction,
+        variantesFr: [],
+        variantesIt: [],
+        phrase: phrase,
+        traductionPhrase: tradPhrase,
+        irreg: false,
+        accords: "",
+        irreguliersConjugaison: "",
+        audioMot: "",
+        audioPhrase: "",
+        ttsMot: mot,
+        ttsPhrase: phrase,
+        note: ""
+    };
+
+    dico.items.unshift(nouvelItem); // Ajoute en haut de la liste
+    afficherDictionnaire();
+    
+    document.getElementById("msgAjoutDico").textContent = `"${mot}" ajouté !`;
+    document.getElementById("dicoMotIt").value = "";
+    document.getElementById("dicoTradFr").value = "";
+    document.getElementById("dicoPhraseIt").value = "";
+    document.getElementById("dicoPhraseFr").value = "";
+}
+
+// 4. SAUVEGARDER
 function telechargerSauvegarde() {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dico, null, 2));
     const a = document.createElement("a");
     a.href = dataStr;
     a.download = "dictionnaire.json";
     a.click();
-    document.getElementById("statutSeance").textContent = "Fichier téléchargé ! Glissez-le dans votre dossier GitHub ou Drive.";
+    document.getElementById("statutSeance").textContent = "Téléchargé ! Glissez ce fichier dans GitHub (fiches/).";
 }
 
-function ajouterEntreeDictionnaire() {
-    const mot_it = document.getElementById("dicoMotIt").value.trim();
-    const trad_fr = document.getElementById("dicoTradFr").value.trim();
-    const cat = document.getElementById("dicoCat").value;
-    const phrase_it = document.getElementById("dicoPhraseIt").value.trim();
-
-    if(!mot_it || !trad_fr) {
-        document.getElementById("msgAjoutDico").textContent = "Le mot et la traduction sont obligatoires.";
-        return;
-    }
-
-    dico.items.unshift({ mot_it, trad_fr, cat, phrase_it });
-    localStorage.setItem("atelier_dico", JSON.stringify(dico)); // Sauvegarde temporaire navigateur
-    afficherDictionnaire();
-    
-    document.getElementById("msgAjoutDico").textContent = `"${mot_it}" ajouté !`;
-    document.getElementById("dicoMotIt").value = "";
-    document.getElementById("dicoTradFr").value = "";
-    document.getElementById("dicoPhraseIt").value = "";
-}
-
-// --- GESTION DE L'API ---
-
-function sauvegarderConfigApi() {
-    localStorage.setItem("atelier_token", document.getElementById("apiTokenInput").value.trim());
-}
-
+// 5. GESTION DE L'IA
+function sauvegarderConfigApi() { localStorage.setItem("atelier_token", document.getElementById("apiTokenInput").value.trim()); }
 function chargerConfigApi() {
     const token = localStorage.getItem("atelier_token");
     if(token) document.getElementById("apiTokenInput").value = token;
@@ -178,7 +255,6 @@ async function testerConnexionApi() {
     const token = document.getElementById("apiTokenInput").value.trim();
     const statut = document.getElementById("statutAutoFill");
     if(!token) { statut.textContent = "Saisissez une clé API."; return; }
-    
     statut.textContent = "Test en cours...";
     try {
         const resp = await fetch(API_URL, {
@@ -186,11 +262,9 @@ async function testerConnexionApi() {
             headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
             body: JSON.stringify({ model: "openrouter/free", messages: [{ role: "user", content: "Réponds juste: OK" }] })
         });
-        if(resp.ok) statut.textContent = "API connectée avec succès !";
-        else statut.textContent = `Erreur HTTP ${resp.status}`;
-    } catch(e) {
-        statut.textContent = "Erreur réseau. Vérifiez votre connexion ou l'URL.";
-    }
+        if(resp.ok) statut.textContent = "✅ API connectée !";
+        else statut.textContent = `❌ Erreur HTTP ${resp.status}`;
+    } catch(e) { statut.textContent = "❌ Erreur réseau."; }
 }
 
 async function preremplirFicheAuto() {
@@ -198,12 +272,14 @@ async function preremplirFicheAuto() {
     const token = document.getElementById("apiTokenInput").value.trim();
     const statut = document.getElementById("statutAutoFill");
 
-    if(!mot) { statut.textContent = "Saisissez un mot à chercher."; return; }
+    if(!mot) { statut.textContent = "Saisissez un mot."; return; }
     if(!token) { statut.textContent = "Saisissez une clé API."; return; }
 
-    statut.textContent = "Recherche en cours...";
+    statut.textContent = "L'IA réfléchit...";
     
-    const prompt = `Donne-moi la traduction en italien et un exemple de phrase pour : "${mot}". Réponds uniquement avec un objet JSON valide comme ceci : {"mot_it":"...", "trad_fr":"...", "phrase_it":"..."}`;
+    const prompt = `Pour le mot "${mot}", donne-moi sa traduction en italien (ou en français si c'est déjà de l'italien), une phrase d'exemple en italien, et sa traduction en français.
+Réponds UNIQUEMENT avec un objet JSON valide comme ceci (sans markdown) :
+{"mot_it":"...", "trad_fr":"...", "phrase_it":"...", "phrase_fr":"..."}`;
 
     try {
         const resp = await fetch(API_URL, {
@@ -216,22 +292,21 @@ async function preremplirFicheAuto() {
         if(data.error) throw new Error(data.error.message);
         
         let texte = data.choices[0].message.content;
-        texte = texte.replace(/```json/g, "").replace(/```/g, "").trim(); // Nettoyage
+        texte = texte.replace(/```json/g, "").replace(/```/g, "").trim();
         const resultat = JSON.parse(texte);
 
         document.getElementById("dicoMotIt").value = resultat.mot_it || "";
         document.getElementById("dicoTradFr").value = resultat.trad_fr || "";
         document.getElementById("dicoPhraseIt").value = resultat.phrase_it || "";
-        statut.textContent = "Fiche préremplie par l'IA !";
+        document.getElementById("dicoPhraseFr").value = resultat.phrase_fr || "";
+        statut.textContent = "✅ Fiche préremplie !";
     } catch(e) {
-        statut.textContent = "Échec de l'IA : " + e.message;
+        statut.textContent = "❌ Échec : " + e.message;
     }
 }
 
-// Initialisation
+// Lancement au démarrage
 chargerConfigApi();
-mettreAJourCategories();
-afficherDictionnaire();
 </script>
 </body>
 </html>
