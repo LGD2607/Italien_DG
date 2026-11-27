@@ -1,0 +1,167 @@
+{
+  "id": "corps-humain_A1",
+  "activite": "corps-humain",
+  "niveau": "A1",
+  "titre": "Vocabulaire : Les parties du corps (Le parti del corpo)",
+  "description": "Vocabulaire du corps humain révisable dans les deux sens (FR → IT et IT → FR) avec gestion des pluriels irréguliers en -a.",
+  "labelDepart": "Mot :",
+  "labelSaisie": "Traduction :",
+  "placeholder": "Ex : la testa / la tête...",
+  "reglesHtml": "\n      <h3>Particularités des noms du corps en italien</h3>\n      <table class=\"regles-table\">\n        <thead><tr><th>Règle</th><th>Singulier (masculin)</th><th>Pluriel (féminin en -a)</th></tr></thead>\n        <tbody>\n          <tr>\n            <td><b>Pluriels irréguliers en -a</b></td>\n            <td>il braccio • il dito • il ginocchio • il labbro</td>\n            <td><b>le braccia • le dita • le ginocchia • le labbra</b></td>\n          </tr>\n          <tr>\n            <td><b>Cas de « l'oreille »</b></td>\n            <td>l'orecchio (m.) / l'orecchia (f.)</td>\n            <td><b>le orecchie</b> (f.) / <b>gli orecchi</b> (m.)</td>\n          </tr>\n        </tbody>\n      </table>\n    ",
+  "categories": [
+    {
+      "valeur": "tete",
+      "label": "Tête & Visage"
+    },
+    {
+      "valeur": "membres",
+      "label": "Bras, Mains & Jambes"
+    },
+    {
+      "valeur": "tronc",
+      "label": "Tronc & Corps"
+    }
+  ],
+  "filtresBooleens": [
+    {
+      "cle": "irreg",
+      "label": "Pluriels irréguliers"
+    }
+  ],
+  "items": [
+    {
+      "depart": "la tête",
+      "solution": "la testa",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "Féminin régulier : la testa / le teste."
+    },
+    {
+      "depart": "les cheveux",
+      "solution": "i capelli",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "Ne pas confondre avec « i cappelli » (les chapeaux)."
+    },
+    {
+      "depart": "l'œil",
+      "solution": "l'occhio",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "l'occhio → gli occhi."
+    },
+    {
+      "depart": "les yeux",
+      "solution": "gli occhi",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "Article « gli » devant voyelle au pluriel masculin."
+    },
+    {
+      "depart": "l'oreille",
+      "solution": "l'orecchio",
+      "variantes": [
+        "l'orecchia"
+      ],
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "l'orecchio (m.) ou l'orecchia (f.)."
+    },
+    {
+      "depart": "les oreilles",
+      "solution": "le orecchie",
+      "variantes": [
+        "gli orecchi"
+      ],
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "le orecchie (courant) ou gli orecchi."
+    },
+    {
+      "depart": "le nez",
+      "solution": "il naso",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "Masculin régulier : il naso."
+    },
+    {
+      "depart": "la bouche",
+      "solution": "la bocca",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": false,
+      "note": "Pluriel : le bocche."
+    },
+    {
+      "depart": "les lèvres",
+      "solution": "le labbra",
+      "cat": "tete",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "il labbro → le labbra."
+    },
+    {
+      "depart": "le bras",
+      "solution": "il braccio",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "il braccio (m. sg.)."
+    },
+    {
+      "depart": "les bras",
+      "solution": "le braccia",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "le braccia (f. pl. en -a)."
+    },
+    {
+      "depart": "la main",
+      "solution": "la mano",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "Féminin en -o : la mano → le mani."
+    },
+    {
+      "depart": "le doigt",
+      "solution": "il dito",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "il dito (m. sg.)."
+    },
+    {
+      "depart": "les doigts",
+      "solution": "le dita",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "le dita (f. pl. en -a)."
+    },
+    {
+      "depart": "le genou",
+      "solution": "il ginocchio",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "il ginocchio (m. sg.)."
+    },
+    {
+      "depart": "les genoux",
+      "solution": "le ginocchia",
+      "cat": "membres",
+      "cible": "Traduction",
+      "irreg": true,
+      "note": "le ginocchia (f. pl. en -a)."
+    }
+  ]
+}

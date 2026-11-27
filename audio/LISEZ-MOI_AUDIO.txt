@@ -1,0 +1,5 @@
+Dossier optionnel pour fichiers audio locaux (.mp3) :
+- Alphabet : a.mp3, b.mp3... et a_ex.mp3, b_ex.mp3...
+- Dictionnaire : audio/dico/<mot>.mp3 et audio/dico/<mot>_fr.mp3
+Sur tablette Android et PC, si ces fichiers ne sont pas présents, index.html
+utilise automatiquement la synthèse vocale italienne (it-IT) du navigateur.

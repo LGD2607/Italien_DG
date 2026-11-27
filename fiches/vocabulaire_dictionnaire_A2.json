@@ -1,0 +1,389 @@
+{
+  "id": "vocabulaire_dictionnaire_A2",
+  "activite": "dictionnaire",
+  "niveau": "A2",
+  "titre": "Vocabulaire & Dictionnaire personnel (FR ↔ IT)",
+  "description": "Répertoire unifié de vocabulaire et dictionnaire personnel : révision bidirectionnelle (FR ↔ IT), classement par catégories et sous-catégories, dates d'ajout, accords et formes irrégulières.",
+  "categories": [
+    {
+      "valeur": "corps_sante",
+      "label": "Corps humain & santé",
+      "sousCategories": [
+        {
+          "valeur": "tete_visage",
+          "label": "Tête & visage"
+        },
+        {
+          "valeur": "membres",
+          "label": "Bras, mains & jambes"
+        },
+        {
+          "valeur": "tronc_organes",
+          "label": "Tronc & général"
+        }
+      ]
+    },
+    {
+      "valeur": "atelier_mecanique",
+      "label": "Atelier & mécanique",
+      "sousCategories": [
+        {
+          "valeur": "outils",
+          "label": "Outils & équipement"
+        },
+        {
+          "valeur": "moteur_entretien",
+          "label": "Moteur & entretien"
+        }
+      ]
+    },
+    {
+      "valeur": "maison_logement",
+      "label": "Maison & logement",
+      "sousCategories": [
+        {
+          "valeur": "pieces_meubles",
+          "label": "Pièces & mobilier"
+        },
+        {
+          "valeur": "travaux_bricolage",
+          "label": "Travaux & bricolage"
+        }
+      ]
+    },
+    {
+      "valeur": "quotidien_cuisine",
+      "label": "Quotidien & cuisine",
+      "sousCategories": [
+        {
+          "valeur": "aliments",
+          "label": "Aliments & boissons"
+        },
+        {
+          "valeur": "ustensiles_preparation",
+          "label": "Ustensiles & préparation"
+        }
+      ]
+    },
+    {
+      "valeur": "administration_demarches",
+      "label": "Administration & démarches",
+      "sousCategories": [
+        {
+          "valeur": "immobilier_notaire",
+          "label": "Immobilier & succession"
+        },
+        {
+          "valeur": "factures_devis",
+          "label": "Factures & devis"
+        }
+      ]
+    },
+    {
+      "valeur": "voyages_deplacements",
+      "label": "Voyages & déplacements",
+      "sousCategories": [
+        {
+          "valeur": "transports",
+          "label": "Transports & route"
+        },
+        {
+          "valeur": "hebergement",
+          "label": "Hébergement & orientation"
+        }
+      ]
+    },
+    {
+      "valeur": "expressions_verbes",
+      "label": "Verbes & expressions",
+      "sousCategories": [
+        {
+          "valeur": "verbes_courants",
+          "label": "Verbes courants"
+        },
+        {
+          "valeur": "locutions",
+          "label": "Expressions idiomatiques"
+        }
+      ]
+    }
+  ],
+  "filtresBooleens": [
+    {
+      "cle": "irreg",
+      "label": "Formes irrégulières / accords particuliers"
+    }
+  ],
+  "labelDepart": "Entrée :",
+  "labelSaisie": "Traduction attendue :",
+  "placeholder": "Écris la traduction...",
+  "reglesHtml": "\n      <h3>Vocabulaire &amp; Dictionnaire personnel (FR ↔ IT)</h3>\n      <p style=\"font-size:13px;\">Répertoire unifié de vocabulaire thématique et ajouts personnels, classés par <b>catégorie</b> et <b>sous-catégorie</b>.</p>\n      <table class=\"regles-table\">\n        <thead><tr><th>Règle / Repère</th><th>Singulier</th><th>Pluriel / Remarque</th></tr></thead>\n        <tbody>\n          <tr>\n            <td><b>Pluriels irréguliers en -a (corps humain)</b></td>\n            <td>il braccio • il dito • il ginocchio • il labbro</td>\n            <td><b>le braccia • le dita • le ginocchia • le labbra</b> (féminin pluriel)</td>\n          </tr>\n          <tr>\n            <td><b>Féminin en -o / Double genre</b></td>\n            <td>la mano • l'orecchio (m.) / l'orecchia (f.)</td>\n            <td><b>le mani</b> • <b>le orecchie</b> (f.) / <b>gli orecchi</b> (m.)</td>\n          </tr>\n        </tbody>\n      </table>\n    ",
+  "items": [
+    {
+      "id": "voc_001",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "tete_visage",
+      "mot": "la testa",
+      "traduction": "la tête",
+      "variantesFr": [
+        "tête"
+      ],
+      "variantesIt": [
+        "testa"
+      ],
+      "phrase": "Ho un po' di mal di testa stamattina.",
+      "traductionPhrase": "J'ai un peu mal à la tête ce matin.",
+      "irreg": false,
+      "accords": "f. sg. : la testa • f. pl. : le teste",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/la_testa.mp3",
+      "audioPhrase": "audio/dico/la_testa_fr.mp3",
+      "ttsMot": "la testa",
+      "ttsPhrase": "Ho un po' di mal di testa stamattina.",
+      "note": "Nom féminin régulier."
+    },
+    {
+      "id": "voc_002",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "tete_visage",
+      "mot": "i capelli",
+      "traduction": "les cheveux",
+      "variantesFr": [
+        "cheveux"
+      ],
+      "variantesIt": [
+        "il capello"
+      ],
+      "phrase": "Devo andare dal parrucchiere a tagliare i capelli.",
+      "traductionPhrase": "Je dois aller chez le coiffeur me couper les cheveux.",
+      "irreg": false,
+      "accords": "m. sg. : il capello • m. pl. : i capelli",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/i_capelli.mp3",
+      "audioPhrase": "audio/dico/i_capelli_fr.mp3",
+      "ttsMot": "i capelli",
+      "ttsPhrase": "Devo andare dal parrucchiere a tagliare i capelli.",
+      "note": "Ne pas confondre avec « i cappelli » (les chapeaux)."
+    },
+    {
+      "id": "voc_003",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "tete_visage",
+      "mot": "gli occhi",
+      "traduction": "les yeux",
+      "variantesFr": [
+        "l'œil",
+        "l'oeil"
+      ],
+      "variantesIt": [
+        "l'occhio"
+      ],
+      "phrase": "Ha gli occhi azzurri come suo padre.",
+      "traductionPhrase": "Il a les yeux bleus comme son père.",
+      "irreg": false,
+      "accords": "m. sg. : l'occhio • m. pl. : gli occhi",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/gli_occhi.mp3",
+      "audioPhrase": "audio/dico/gli_occhi_fr.mp3",
+      "ttsMot": "gli occhi",
+      "ttsPhrase": "Ha gli occhi azzurri come suo padre.",
+      "note": "Article « gli » devant voyelle au masculin pluriel."
+    },
+    {
+      "id": "voc_004",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "tete_visage",
+      "mot": "le orecchie",
+      "traduction": "les oreilles",
+      "variantesFr": [
+        "l'oreille"
+      ],
+      "variantesIt": [
+        "l'orecchio",
+        "l'orecchia",
+        "gli orecchi"
+      ],
+      "phrase": "Con questo vento freddo mi fischiano le orecchie.",
+      "traductionPhrase": "Avec ce vent froid, j'ai les oreilles qui sifflent.",
+      "irreg": true,
+      "accords": "sg. : l'orecchio (m.) / l'orecchia (f.) • pl. : le orecchie (f., courant) / gli orecchi (m.)",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/le_orecchie.mp3",
+      "audioPhrase": "audio/dico/le_orecchie_fr.mp3",
+      "ttsMot": "le orecchie",
+      "ttsPhrase": "Con questo vento freddo mi fischiano le orecchie.",
+      "note": "Double genre possible."
+    },
+    {
+      "id": "voc_005",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "tete_visage",
+      "mot": "le labbra",
+      "traduction": "les lèvres",
+      "variantesFr": [
+        "la lèvre"
+      ],
+      "variantesIt": [
+        "il labbro"
+      ],
+      "phrase": "In inverno ho sempre le labbra screpolate.",
+      "traductionPhrase": "En hiver j'ai toujours les lèvres gercées.",
+      "irreg": true,
+      "accords": "m. sg. : il labbro → f. pl. : le labbra",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/le_labbra.mp3",
+      "audioPhrase": "audio/dico/le_labbra_fr.mp3",
+      "ttsMot": "le labbra",
+      "ttsPhrase": "In inverno ho sempre le labbra screpolate.",
+      "note": "Pluriel irrégulier féminin en -a."
+    },
+    {
+      "id": "voc_006",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "membres",
+      "mot": "le braccia",
+      "traduction": "les bras",
+      "variantesFr": [
+        "le bras"
+      ],
+      "variantesIt": [
+        "il braccio"
+      ],
+      "phrase": "Mi fanno male le braccia dopo aver spostato il motore.",
+      "traductionPhrase": "J'ai mal aux bras après avoir déplacé le moteur.",
+      "irreg": true,
+      "accords": "m. sg. : il braccio → f. pl. : le braccia (corps) / m. pl. : i bracci (technique)",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/le_braccia.mp3",
+      "audioPhrase": "audio/dico/le_braccia_fr.mp3",
+      "ttsMot": "le braccia",
+      "ttsPhrase": "Mi fanno male le braccia dopo aver spostato il motore.",
+      "note": "Changement de genre au pluriel en -a."
+    },
+    {
+      "id": "voc_007",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "membres",
+      "mot": "la mano",
+      "traduction": "la main",
+      "variantesFr": [
+        "les mains"
+      ],
+      "variantesIt": [
+        "le mani"
+      ],
+      "phrase": "Dammi una mano a tenere questa chiave.",
+      "traductionPhrase": "Donne-moi un coup de main pour tenir cette clé.",
+      "irreg": true,
+      "accords": "f. sg. : la mano → f. pl. : le mani",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/la_mano.mp3",
+      "audioPhrase": "audio/dico/la_mano_fr.mp3",
+      "ttsMot": "la mano",
+      "ttsPhrase": "Dammi una mano a tenere questa chiave.",
+      "note": "Nom féminin terminé par -o."
+    },
+    {
+      "id": "voc_008",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "membres",
+      "mot": "le dita",
+      "traduction": "les doigts",
+      "variantesFr": [
+        "le doigt"
+      ],
+      "variantesIt": [
+        "il dito"
+      ],
+      "phrase": "Si è sporcato le dita di grasso.",
+      "traductionPhrase": "Il s'est sali les doigts avec de la graisse.",
+      "irreg": true,
+      "accords": "m. sg. : il dito → f. pl. : le dita",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/le_dita.mp3",
+      "audioPhrase": "audio/dico/le_dita_fr.mp3",
+      "ttsMot": "le dita",
+      "ttsPhrase": "Si è sporcato le dita di grasso.",
+      "note": "Pluriel irrégulier féminin en -a."
+    },
+    {
+      "id": "voc_009",
+      "dateAjout": "2026-11-26",
+      "cat": "corps_sante",
+      "sousCat": "membres",
+      "mot": "le ginocchia",
+      "traduction": "les genoux",
+      "variantesFr": [
+        "le genou"
+      ],
+      "variantesIt": [
+        "il ginocchio"
+      ],
+      "phrase": "Ho messo un cuscino sotto le ginocchia per lavorare.",
+      "traductionPhrase": "J'ai mis un coussin sous mes genoux pour travailler.",
+      "irreg": true,
+      "accords": "m. sg. : il ginocchio → f. pl. : le ginocchia",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/le_ginocchia.mp3",
+      "audioPhrase": "audio/dico/le_ginocchia_fr.mp3",
+      "ttsMot": "le ginocchia",
+      "ttsPhrase": "Ho messo un cuscino sotto le ginocchia per lavorare.",
+      "note": "Pluriel irrégulier féminin en -a."
+    },
+    {
+      "id": "voc_010",
+      "dateAjout": "2026-11-26",
+      "cat": "administration_demarches",
+      "sousCat": "factures_devis",
+      "mot": "il preventivo",
+      "traduction": "le devis",
+      "variantesFr": [
+        "devis"
+      ],
+      "variantesIt": [
+        "preventivo"
+      ],
+      "phrase": "Ho chiesto un preventivo dettagliato per i lavori.",
+      "traductionPhrase": "J'ai demandé un devis détaillé pour les travaux.",
+      "irreg": false,
+      "accords": "m. sg. : il preventivo • m. pl. : i preventivi",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/il_preventivo.mp3",
+      "audioPhrase": "audio/dico/il_preventivo_fr.mp3",
+      "ttsMot": "il preventivo",
+      "ttsPhrase": "Ho chiesto un preventivo dettagliato per i lavori.",
+      "note": "Vocabulaire courant pour travaux et démarches."
+    },
+    {
+      "id": "voc_011",
+      "dateAjout": "2026-11-26",
+      "cat": "expressions_verbes",
+      "sousCat": "verbes_courants",
+      "mot": "rimandare",
+      "traduction": "reporter",
+      "variantesFr": [
+        "remettre a plus tard",
+        "remettre à plus tard"
+      ],
+      "variantesIt": [],
+      "phrase": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+      "traductionPhrase": "Nous avons dû reporter la réunion à la semaine prochaine.",
+      "irreg": true,
+      "accords": "",
+      "irreguliersConjugaison": "Impératif Lei : rimandi • Participe passé : rimandato (avere)",
+      "audioMot": "audio/dico/rimandare.mp3",
+      "audioPhrase": "audio/dico/rimandare_fr.mp3",
+      "ttsMot": "rimandare",
+      "ttsPhrase": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+      "note": "Verbe transitif très fréquent."
+    }
+  ]
+}

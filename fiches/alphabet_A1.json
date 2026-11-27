@@ -1,0 +1,435 @@
+{
+  "id": "alphabet_A1",
+  "activite": "alphabet",
+  "niveau": "A1",
+  "titre": "L'alphabet italien et l'audio des lettres",
+  "description": "Nom des 21 lettres de l'alphabet italien standard + les 5 lettres d'origine étrangère (J, K, W, X, Y) dans une catégorie dédiée.",
+  "labelDepart": "Lettre et exemple :",
+  "labelSaisie": "Nom de la lettre en italien :",
+  "placeholder": "Ex : a, bi, ci, acca, i lunga...",
+  "reglesHtml": "<h3>L'alphabet italien</h3><p style='font-size:13px;'>21 lettres de base + 5 lettres étrangères (J, K, W, X, Y) filtrables à part.</p>",
+  "categories": [
+    {
+      "valeur": "voyelles",
+      "label": "Voyelles (5)"
+    },
+    {
+      "valeur": "consonnes",
+      "label": "Consonnes (16)"
+    },
+    {
+      "valeur": "etrangeres",
+      "label": "Lettres étrangères (J, K, W, X, Y)"
+    }
+  ],
+  "filtresBooleens": [
+    {
+      "cle": "irreg",
+      "label": "Cas particuliers / sons variables"
+    }
+  ],
+  "items": [
+    {
+      "depart": "Lettre A — ex. : ape (abeille)",
+      "solution": "a",
+      "variantes": [
+        "a"
+      ],
+      "cat": "voyelles",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/a.mp3",
+      "audioExemple": "audio/a_ex.mp3",
+      "ttsLettre": "a",
+      "ttsExemple": "ape",
+      "note": "Voyelle ouverte [a], claire et stable."
+    },
+    {
+      "depart": "Lettre B — ex. : barca (barque)",
+      "solution": "bi",
+      "variantes": [
+        "b"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/b.mp3",
+      "audioExemple": "audio/b_ex.mp3",
+      "ttsLettre": "bi",
+      "ttsExemple": "barca",
+      "note": "Se prononce [bi] ; devant e/i garde le son [b]."
+    },
+    {
+      "depart": "Lettre C — ex. : casa / cena (maison / dîner)",
+      "solution": "ci",
+      "variantes": [
+        "c"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/c.mp3",
+      "audioExemple": "audio/c_ex.mp3",
+      "ttsLettre": "ci",
+      "ttsExemple": "casa, cena",
+      "note": "Dur [k] devant a, o, u, h ; doux [tʃ] devant e, i."
+    },
+    {
+      "depart": "Lettre D — ex. : dado (dé)",
+      "solution": "di",
+      "variantes": [
+        "d"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/d.mp3",
+      "audioExemple": "audio/d_ex.mp3",
+      "ttsLettre": "di",
+      "ttsExemple": "dado",
+      "note": "Consonne dentale [d], plus nette qu'en français."
+    },
+    {
+      "depart": "Lettre E — ex. : erba (herbe)",
+      "solution": "e",
+      "variantes": [
+        "e"
+      ],
+      "cat": "voyelles",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/e.mp3",
+      "audioExemple": "audio/e_ex.mp3",
+      "ttsLettre": "e",
+      "ttsExemple": "erba",
+      "note": "Voyelle [e] ouverte ou fermée selon les mots."
+    },
+    {
+      "depart": "Lettre F — ex. : faro (phare)",
+      "solution": "effe",
+      "variantes": [
+        "f"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/f.mp3",
+      "audioExemple": "audio/f_ex.mp3",
+      "ttsLettre": "effe",
+      "ttsExemple": "faro",
+      "note": "Se prononce [f] comme en français."
+    },
+    {
+      "depart": "Lettre G — ex. : gatto / gelo (chat / gel)",
+      "solution": "gi",
+      "variantes": [
+        "g"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/g.mp3",
+      "audioExemple": "audio/g_ex.mp3",
+      "ttsLettre": "gi",
+      "ttsExemple": "gatto, gelo",
+      "note": "Dur [ɡ] devant a, o, u, h ; doux [dʒ] devant e, i."
+    },
+    {
+      "depart": "Lettre H — ex. : hotel (hôtel)",
+      "solution": "acca",
+      "variantes": [
+        "h"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/h.mp3",
+      "audioExemple": "audio/h_ex.mp3",
+      "ttsLettre": "acca",
+      "ttsExemple": "hotel",
+      "note": "Toujours muette ; sert surtout à durcir c/g ou distinguer des formes (ho, hai, ha, hanno)."
+    },
+    {
+      "depart": "Lettre I — ex. : isola (île)",
+      "solution": "i",
+      "variantes": [
+        "i"
+      ],
+      "cat": "voyelles",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/i.mp3",
+      "audioExemple": "audio/i_ex.mp3",
+      "ttsLettre": "i",
+      "ttsExemple": "isola",
+      "note": "Voyelle [i] franche, jamais muette en fin de mot."
+    },
+    {
+      "depart": "Lettre L — ex. : luna (lune)",
+      "solution": "elle",
+      "variantes": [
+        "l"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/l.mp3",
+      "audioExemple": "audio/l_ex.mp3",
+      "ttsLettre": "elle",
+      "ttsExemple": "luna",
+      "note": "Se prononce [l] avec la langue près des alvéoles."
+    },
+    {
+      "depart": "Lettre M — ex. : mare (mer)",
+      "solution": "emme",
+      "variantes": [
+        "m"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/m.mp3",
+      "audioExemple": "audio/m_ex.mp3",
+      "ttsLettre": "emme",
+      "ttsExemple": "mare",
+      "note": "Se prononce [m] ; doublée (mm) elle s'allonge."
+    },
+    {
+      "depart": "Lettre N — ex. : nave (navire)",
+      "solution": "enne",
+      "variantes": [
+        "n"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/n.mp3",
+      "audioExemple": "audio/n_ex.mp3",
+      "ttsLettre": "enne",
+      "ttsExemple": "nave",
+      "note": "Se prononce [n] sans nasaliser la voyelle précédente."
+    },
+    {
+      "depart": "Lettre O — ex. : ora (heure)",
+      "solution": "o",
+      "variantes": [
+        "o"
+      ],
+      "cat": "voyelles",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/o.mp3",
+      "audioExemple": "audio/o_ex.mp3",
+      "ttsLettre": "o",
+      "ttsExemple": "ora",
+      "note": "Voyelle [o] ouverte ou fermée selon le contexte."
+    },
+    {
+      "depart": "Lettre P — ex. : pane (pain)",
+      "solution": "pi",
+      "variantes": [
+        "p"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/p.mp3",
+      "audioExemple": "audio/p_ex.mp3",
+      "ttsLettre": "pi",
+      "ttsExemple": "pane",
+      "note": "Se prononce [p], sans aspiration excessive."
+    },
+    {
+      "depart": "Lettre Q — ex. : quadro (tableau)",
+      "solution": "cu",
+      "variantes": [
+        "q"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/q.mp3",
+      "audioExemple": "audio/q_ex.mp3",
+      "ttsLettre": "qu",
+      "ttsExemple": "quadro",
+      "note": "Toujours suivie de « u » + voyelle ([kw]), ex. : quadro, qui."
+    },
+    {
+      "depart": "Lettre R — ex. : rosa (rose)",
+      "solution": "erre",
+      "variantes": [
+        "r"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/r.mp3",
+      "audioExemple": "audio/r_ex.mp3",
+      "ttsLettre": "erre",
+      "ttsExemple": "rosa",
+      "note": "R roulé [r] (plus appuyé lorsqu'il est double : rr)."
+    },
+    {
+      "depart": "Lettre S — ex. : sole / rosa (soleil / rose)",
+      "solution": "esse",
+      "variantes": [
+        "s"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/s.mp3",
+      "audioExemple": "audio/s_ex.mp3",
+      "ttsLettre": "esse",
+      "ttsExemple": "sole, rosa",
+      "note": "Sourd [s] à l'initiale et devant consonne sourde ; souvent sonore [z] entre voyelles."
+    },
+    {
+      "depart": "Lettre T — ex. : treno (train)",
+      "solution": "ti",
+      "variantes": [
+        "t"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/t.mp3",
+      "audioExemple": "audio/t_ex.mp3",
+      "ttsLettre": "ti",
+      "ttsExemple": "treno",
+      "note": "Consonne dentale [t] franche."
+    },
+    {
+      "depart": "Lettre U — ex. : uva (raisin)",
+      "solution": "u",
+      "variantes": [
+        "u"
+      ],
+      "cat": "voyelles",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/u.mp3",
+      "audioExemple": "audio/u_ex.mp3",
+      "ttsLettre": "u",
+      "ttsExemple": "uva",
+      "note": "Se prononce [u] (le son « ou » français)."
+    },
+    {
+      "depart": "Lettre V — ex. : vento (vent)",
+      "solution": "vu / vi",
+      "variantes": [
+        "vu",
+        "vi",
+        "v"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": false,
+      "audioLettre": "audio/v.mp3",
+      "audioExemple": "audio/v_ex.mp3",
+      "ttsLettre": "vu",
+      "ttsExemple": "vento",
+      "note": "Se prononce [v] comme en français."
+    },
+    {
+      "depart": "Lettre Z — ex. : zio / pizza (oncle / pizza)",
+      "solution": "zeta",
+      "variantes": [
+        "z"
+      ],
+      "cat": "consonnes",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/z.mp3",
+      "audioExemple": "audio/z_ex.mp3",
+      "ttsLettre": "zeta",
+      "ttsExemple": "zio, pizza",
+      "note": "Se prononce [dz] (sonore, ex. : zero) ou [ts] (sourd, ex. : pizza)."
+    },
+    {
+      "depart": "Lettre J — ex. : jeans / jazz (jean / jazz)",
+      "solution": "i lunga",
+      "variantes": [
+        "i lunga",
+        "j"
+      ],
+      "cat": "etrangeres",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/j.mp3",
+      "audioExemple": "audio/j_ex.mp3",
+      "ttsLettre": "i lunga",
+      "ttsExemple": "jeans, jazz",
+      "note": "Lettre d'origine étrangère (« i lunga »)."
+    },
+    {
+      "depart": "Lettre K — ex. : kiwi / chilometro (kiwi / kilomètre)",
+      "solution": "cappa",
+      "variantes": [
+        "cappa",
+        "kappa",
+        "k"
+      ],
+      "cat": "etrangeres",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/k.mp3",
+      "audioExemple": "audio/k_ex.mp3",
+      "ttsLettre": "cappa",
+      "ttsExemple": "kiwi, chilometro",
+      "note": "Lettre d'origine étrangère (« cappa »)."
+    },
+    {
+      "depart": "Lettre W — ex. : web / weekend (web / week-end)",
+      "solution": "vu doppia / doppia vu",
+      "variantes": [
+        "vu doppia",
+        "doppia vu",
+        "vi doppia",
+        "doppia vi",
+        "w"
+      ],
+      "cat": "etrangeres",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/w.mp3",
+      "audioExemple": "audio/w_ex.mp3",
+      "ttsLettre": "vu doppia",
+      "ttsExemple": "web, weekend",
+      "note": "Lettre d'origine étrangère (« vu doppia » ou « doppia vu »)."
+    },
+    {
+      "depart": "Lettre X — ex. : taxi / xilofono (taxi / xylophone)",
+      "solution": "ics",
+      "variantes": [
+        "ics",
+        "x"
+      ],
+      "cat": "etrangeres",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/x.mp3",
+      "audioExemple": "audio/x_ex.mp3",
+      "ttsLettre": "ics",
+      "ttsExemple": "taxi, xilofono",
+      "note": "Lettre d'origine étrangère (« ics »), prononcée [ks]."
+    },
+    {
+      "depart": "Lettre Y — ex. : yogurt / yoga (yaourt / yoga)",
+      "solution": "ipsilon / i greca",
+      "variantes": [
+        "ipsilon",
+        "i greca",
+        "y"
+      ],
+      "cat": "etrangeres",
+      "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+      "irreg": true,
+      "audioLettre": "audio/y.mp3",
+      "audioExemple": "audio/y_ex.mp3",
+      "ttsLettre": "ipsilon",
+      "ttsExemple": "yogurt, yoga",
+      "note": "Lettre d'origine étrangère (« ipsilon » ou « i greca »)."
+    }
+  ]
+}

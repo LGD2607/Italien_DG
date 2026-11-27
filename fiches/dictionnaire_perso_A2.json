@@ -1,0 +1,115 @@
+{
+  "id": "dictionnaire_perso_A2",
+  "activite": "dictionnaire",
+  "niveau": "A2",
+  "titre": "Dictionnaire personnel (FR ↔ IT, phrases, accords & irréguliers)",
+  "description": "Carnet évolutif alimenté par l'apprenant : révision dans les deux sens (Français → Italien et Italien → Français), filtre par catégorie et date d'ajout.",
+  "categories": [
+    {
+      "valeur": "atelier_mecanique",
+      "label": "Atelier & mécanique"
+    },
+    {
+      "valeur": "maison_logement",
+      "label": "Maison & logement"
+    },
+    {
+      "valeur": "quotidien_cuisine",
+      "label": "Quotidien & cuisine"
+    },
+    {
+      "valeur": "administration_demarches",
+      "label": "Administration & démarches"
+    },
+    {
+      "valeur": "voyages_deplacements",
+      "label": "Voyages & déplacements"
+    },
+    {
+      "valeur": "expressions_idiomatiques",
+      "label": "Expressions idiomatiques"
+    }
+  ],
+  "filtresBooleens": [
+    {
+      "cle": "irreg",
+      "label": "Formes irrégulières / accords particuliers"
+    }
+  ],
+  "labelDepart": "Entrée du dictionnaire :",
+  "labelSaisie": "Traduction attendue :",
+  "placeholder": "Écris la traduction...",
+  "reglesHtml": "\n      <h3>Dictionnaire personnel bidirectionnel (FR ↔ IT)</h3>\n      <p style=\"font-size:13px;\">Ajoutez vos propres mots via le bouton <b>+ Ajouter un mot</b>. Chaque entrée conserve sa <b>date d'ajout</b>, sa <b>catégorie</b>, une <b>phrase d'exemple</b>, les <b>accords</b> (m./f., sg./pl.) et les <b>formes irrégulières</b> utiles.</p>\n    ",
+  "items": [
+    {
+      "id": "dico_001",
+      "dateAjout": "2026-11-26",
+      "cat": "administration_demarches",
+      "mot": "il preventivo",
+      "traduction": "le devis",
+      "variantesFr": [
+        "devis"
+      ],
+      "variantesIt": [
+        "preventivo"
+      ],
+      "phrase": "Ho chiesto un preventivo dettagliato per i lavori.",
+      "traductionPhrase": "J'ai demandé un devis détaillé pour les travaux.",
+      "irreg": false,
+      "accords": "m. sg. : il preventivo • m. pl. : i preventivi",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/preventivo.mp3",
+      "audioPhrase": "audio/dico/preventivo_fr.mp3",
+      "ttsMot": "il preventivo",
+      "ttsPhrase": "Ho chiesto un preventivo dettagliato per i lavori.",
+      "note": "Utile pour les démarches et devis."
+    },
+    {
+      "id": "dico_002",
+      "dateAjout": "2026-11-26",
+      "cat": "expressions_idiomatiques",
+      "mot": "rimandare",
+      "traduction": "reporter",
+      "variantesFr": [
+        "remettre a plus tard",
+        "remettre à plus tard"
+      ],
+      "variantesIt": [],
+      "phrase": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+      "traductionPhrase": "Nous avons dû reporter la réunion à la semaine prochaine.",
+      "irreg": true,
+      "accords": "",
+      "irreguliersConjugaison": "Impératif Lei : rimandi • Participe passé : rimandato (avere)",
+      "audioMot": "audio/dico/rimandare.mp3",
+      "audioPhrase": "audio/dico/rimandare_fr.mp3",
+      "ttsMot": "rimandare",
+      "ttsPhrase": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+      "note": "Verbe transitif courant à l'oral et à l'écrit."
+    },
+    {
+      "id": "dico_003",
+      "dateAjout": "2026-11-26",
+      "cat": "atelier_mecanique",
+      "mot": "le braccia",
+      "traduction": "les bras",
+      "variantesFr": [
+        "le bras",
+        "le bras / les bras"
+      ],
+      "variantesIt": [
+        "il braccio",
+        "il braccio / le braccia"
+      ],
+      "phrase": "Mi fanno male le braccia dopo aver spostato il motore.",
+      "traductionPhrase": "J'ai mal aux bras après avoir déplacé le moteur.",
+      "irreg": true,
+      "accords": "m. sg. : il braccio → f. pl. : le braccia (corps humain) / m. pl. : i bracci (sens technique)",
+      "irreguliersConjugaison": "",
+      "audioMot": "audio/dico/braccia.mp3",
+      "audioPhrase": "audio/dico/braccia_fr.mp3",
+      "ttsMot": "le braccia",
+      "ttsPhrase": "Mi fanno male le braccia dopo aver spostato il motore.",
+      "note": "Changement de genre au pluriel en -a."
+    }
+  ]
+}

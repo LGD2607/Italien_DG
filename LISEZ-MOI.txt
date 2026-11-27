@@ -1,0 +1,17 @@
+ATELIER ITALIEN — UTILISATION PC & TABLETTE (DOSSIER GOOGLE DRIVE)
+==================================================================
+
+1. Déposez le dossier « Atelier_Italien » sur votre Google Drive.
+2. Sur PC comme sur Tablette :
+   - Ouvrez index.html (avec Chrome ou Edge).
+   - L'application démarre immédiatement hors-ligne avec ses fiches de base.
+   - Cliquez sur « Charger depuis Drive (.json) » pour sélectionner en une fois
+     votre fichier sauvegarde_italien_AAAA-MM-JJ.json (et vos fiches personnalisées).
+3. En cours ou à la maison :
+   - Dans « + Ajouter un mot / catégorie », renseignez une seule fois votre clé API
+     (ex. token Hugging Face hf_...) : elle est mémorisée sur l'appareil.
+   - Saisissez un mot en français ou en italien puis cliquez sur « Préremplir la fiche »
+     pour remplir automatiquement la traduction, la phrase d'exemple, les accords,
+     les formes irrégulières et la catégorie.
+4. En fin de séance :
+   - Cliquez sur « Enregistrer la sauvegarde » et déposez le fichier JSON dans votre dossier Drive.

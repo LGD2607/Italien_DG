@@ -1,0 +1,1586 @@
+{
+  "type": "sauvegarde_atelier_italien",
+  "dateSauvegarde": "2026-11-27T06:34:40.051Z",
+  "ficheActiveId": "vocabulaire_dictionnaire_A2",
+  "bonnes": 0,
+  "total": 0,
+  "erreursActives": [],
+  "historiqueFiches": {},
+  "historiqueNotions": {},
+  "fichesIncluses": [
+    {
+      "id": "vocabulaire_dictionnaire_A2",
+      "activite": "dictionnaire",
+      "niveau": "A2",
+      "titre": "Vocabulaire & Dictionnaire personnel (FR ↔ IT)",
+      "description": "Répertoire unifié de vocabulaire et dictionnaire personnel : révision bidirectionnelle (FR ↔ IT), classement par catégories et sous-catégories, dates d'ajout, accords et formes irrégulières.",
+      "labelDepart": "Entrée :",
+      "labelSaisie": "Traduction attendue :",
+      "placeholder": "Écris la traduction...",
+      "reglesHtml": "\n      <h3>Vocabulaire &amp; Dictionnaire personnel (FR ↔ IT)</h3>\n      <p style=\"font-size:13px;\">Ce fichier remplace l'ancienne fiche vocabulaire : il regroupe le vocabulaire thématique et vos propres ajouts, classés par <b>catégorie</b> et <b>sous-catégorie</b>.</p>\n      <table class=\"regles-table\">\n        <thead><tr><th>Règle / Repère</th><th>Singulier</th><th>Pluriel / Remarque</th></tr></thead>\n        <tbody>\n          <tr>\n            <td><b>Pluriels irréguliers en -a (corps humain)</b></td>\n            <td>il braccio • il dito • il ginocchio • il labbro</td>\n            <td><b>le braccia • le dita • le ginocchia • le labbra</b> (féminin pluriel)</td>\n          </tr>\n          <tr>\n            <td><b>Féminin en -o / Double genre</b></td>\n            <td>la mano • l'orecchio (m.) / l'orecchia (f.)</td>\n            <td><b>le mani</b> • <b>le orecchie</b> (f.) / <b>gli orecchi</b> (m.)</td>\n          </tr>\n        </tbody>\n      </table>\n    ",
+      "categories": [
+        {
+          "valeur": "corps_sante",
+          "label": "Corps humain & santé",
+          "sousCategories": [
+            {
+              "valeur": "tete_visage",
+              "label": "Tête & visage"
+            },
+            {
+              "valeur": "membres",
+              "label": "Bras, mains & jambes"
+            },
+            {
+              "valeur": "tronc_organes",
+              "label": "Tronc & général"
+            }
+          ]
+        },
+        {
+          "valeur": "atelier_mecanique",
+          "label": "Atelier & mécanique",
+          "sousCategories": [
+            {
+              "valeur": "outils",
+              "label": "Outils & équipement"
+            },
+            {
+              "valeur": "moteur_entretien",
+              "label": "Moteur & entretien"
+            }
+          ]
+        },
+        {
+          "valeur": "maison_logement",
+          "label": "Maison & logement",
+          "sousCategories": [
+            {
+              "valeur": "pieces_meubles",
+              "label": "Pièces & mobilier"
+            },
+            {
+              "valeur": "travaux_bricolage",
+              "label": "Travaux & bricolage"
+            }
+          ]
+        },
+        {
+          "valeur": "quotidien_cuisine",
+          "label": "Quotidien & cuisine",
+          "sousCategories": [
+            {
+              "valeur": "aliments",
+              "label": "Aliments & boissons"
+            },
+            {
+              "valeur": "ustensiles_preparation",
+              "label": "Ustensiles & préparation"
+            }
+          ]
+        },
+        {
+          "valeur": "administration_demarches",
+          "label": "Administration & démarches",
+          "sousCategories": [
+            {
+              "valeur": "immobilier_notaire",
+              "label": "Immobilier & succession"
+            },
+            {
+              "valeur": "factures_devis",
+              "label": "Factures & devis"
+            }
+          ]
+        },
+        {
+          "valeur": "voyages_deplacements",
+          "label": "Voyages & déplacements",
+          "sousCategories": [
+            {
+              "valeur": "transports",
+              "label": "Transports & route"
+            },
+            {
+              "valeur": "hebergement",
+              "label": "Hébergement & orientation"
+            }
+          ]
+        },
+        {
+          "valeur": "expressions_verbes",
+          "label": "Verbes & expressions",
+          "sousCategories": [
+            {
+              "valeur": "verbes_courants",
+              "label": "Verbes courants"
+            },
+            {
+              "valeur": "locutions",
+              "label": "Expressions idiomatiques"
+            }
+          ]
+        }
+      ],
+      "filtresBooleens": [
+        {
+          "cle": "irreg",
+          "label": "Formes irrégulières / accords particuliers"
+        }
+      ],
+      "items": [
+        {
+          "id": "voc_001",
+          "dateAjout": "2026-11-26",
+          "mot": "la testa",
+          "traduction": "la tête",
+          "variantesFr": [
+            "tête"
+          ],
+          "variantesIt": [
+            "testa"
+          ],
+          "phrase": "Ho un po' di mal di testa stamattina.",
+          "traductionPhrase": "J'ai un peu mal à la tête ce matin.",
+          "accords": "f. sg. : la testa • f. pl. : le teste",
+          "irreguliersConjugaison": "",
+          "depart": "la tête",
+          "solution": "la testa",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "tete_visage",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/la_testa.mp3",
+          "audioExemple": "audio/dico/la_testa_fr.mp3",
+          "ttsLettre": "la testa",
+          "ttsExemple": "Ho un po' di mal di testa stamattina.",
+          "note": "Nom féminin régulier."
+        },
+        {
+          "id": "voc_002",
+          "dateAjout": "2026-11-26",
+          "mot": "i capelli",
+          "traduction": "les cheveux",
+          "variantesFr": [
+            "cheveux"
+          ],
+          "variantesIt": [
+            "il capello"
+          ],
+          "phrase": "Devo andare dal parrucchiere a tagliare i capelli.",
+          "traductionPhrase": "Je dois aller chez le coiffeur me couper les cheveux.",
+          "accords": "m. sg. : il capello • m. pl. : i capelli",
+          "irreguliersConjugaison": "",
+          "depart": "les cheveux",
+          "solution": "i capelli",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "tete_visage",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/i_capelli.mp3",
+          "audioExemple": "audio/dico/i_capelli_fr.mp3",
+          "ttsLettre": "i capelli",
+          "ttsExemple": "Devo andare dal parrucchiere a tagliare i capelli.",
+          "note": "Ne pas confondre avec « i cappelli » (les chapeaux)."
+        },
+        {
+          "id": "voc_003",
+          "dateAjout": "2026-11-26",
+          "mot": "gli occhi",
+          "traduction": "les yeux",
+          "variantesFr": [
+            "l'œil",
+            "l'oeil"
+          ],
+          "variantesIt": [
+            "l'occhio"
+          ],
+          "phrase": "Ha gli occhi azzurri come suo padre.",
+          "traductionPhrase": "Il a les yeux bleus comme son père.",
+          "accords": "m. sg. : l'occhio • m. pl. : gli occhi",
+          "irreguliersConjugaison": "",
+          "depart": "les yeux",
+          "solution": "gli occhi",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "tete_visage",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/gli_occhi.mp3",
+          "audioExemple": "audio/dico/gli_occhi_fr.mp3",
+          "ttsLettre": "gli occhi",
+          "ttsExemple": "Ha gli occhi azzurri come suo padre.",
+          "note": "Article « gli » devant voyelle au masculin pluriel."
+        },
+        {
+          "id": "voc_004",
+          "dateAjout": "2026-11-26",
+          "mot": "le orecchie",
+          "traduction": "les oreilles",
+          "variantesFr": [
+            "l'oreille"
+          ],
+          "variantesIt": [
+            "l'orecchio",
+            "l'orecchia",
+            "gli orecchi"
+          ],
+          "phrase": "Con questo vento freddo mi fischiano le orecchie.",
+          "traductionPhrase": "Avec ce vent froid, j'ai les oreilles qui sifflent.",
+          "accords": "sg. : l'orecchio (m.) / l'orecchia (f.) • pl. : le orecchie (f., courant) / gli orecchi (m.)",
+          "irreguliersConjugaison": "",
+          "depart": "les oreilles",
+          "solution": "le orecchie",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "tete_visage",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/le_orecchie.mp3",
+          "audioExemple": "audio/dico/le_orecchie_fr.mp3",
+          "ttsLettre": "le orecchie",
+          "ttsExemple": "Con questo vento freddo mi fischiano le orecchie.",
+          "note": "Double genre possible."
+        },
+        {
+          "id": "voc_005",
+          "dateAjout": "2026-11-26",
+          "mot": "le labbra",
+          "traduction": "les lèvres",
+          "variantesFr": [
+            "la lèvre"
+          ],
+          "variantesIt": [
+            "il labbro"
+          ],
+          "phrase": "In inverno ho sempre le labbra screpolate.",
+          "traductionPhrase": "En hiver j'ai toujours les lèvres gercées.",
+          "accords": "m. sg. : il labbro → f. pl. : le labbra",
+          "irreguliersConjugaison": "",
+          "depart": "les lèvres",
+          "solution": "le labbra",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "tete_visage",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/le_labbra.mp3",
+          "audioExemple": "audio/dico/le_labbra_fr.mp3",
+          "ttsLettre": "le labbra",
+          "ttsExemple": "In inverno ho sempre le labbra screpolate.",
+          "note": "Pluriel irrégulier féminin en -a."
+        },
+        {
+          "id": "voc_006",
+          "dateAjout": "2026-11-26",
+          "mot": "le braccia",
+          "traduction": "les bras",
+          "variantesFr": [
+            "le bras"
+          ],
+          "variantesIt": [
+            "il braccio"
+          ],
+          "phrase": "Mi fanno male le braccia dopo aver spostato il motore.",
+          "traductionPhrase": "J'ai mal aux bras après avoir déplacé le moteur.",
+          "accords": "m. sg. : il braccio → f. pl. : le braccia (corps) / m. pl. : i bracci (technique)",
+          "irreguliersConjugaison": "",
+          "depart": "les bras",
+          "solution": "le braccia",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "membres",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/le_braccia.mp3",
+          "audioExemple": "audio/dico/le_braccia_fr.mp3",
+          "ttsLettre": "le braccia",
+          "ttsExemple": "Mi fanno male le braccia dopo aver spostato il motore.",
+          "note": "Changement de genre au pluriel en -a."
+        },
+        {
+          "id": "voc_007",
+          "dateAjout": "2026-11-26",
+          "mot": "la mano",
+          "traduction": "la main",
+          "variantesFr": [
+            "les mains"
+          ],
+          "variantesIt": [
+            "le mani"
+          ],
+          "phrase": "Dammi una mano a tenere questa chiave.",
+          "traductionPhrase": "Donne-moi un coup de main pour tenir cette clé.",
+          "accords": "f. sg. : la mano → f. pl. : le mani",
+          "irreguliersConjugaison": "",
+          "depart": "la main",
+          "solution": "la mano",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "membres",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/la_mano.mp3",
+          "audioExemple": "audio/dico/la_mano_fr.mp3",
+          "ttsLettre": "la mano",
+          "ttsExemple": "Dammi una mano a tenere questa chiave.",
+          "note": "Nom féminin terminé par -o."
+        },
+        {
+          "id": "voc_008",
+          "dateAjout": "2026-11-26",
+          "mot": "le dita",
+          "traduction": "les doigts",
+          "variantesFr": [
+            "le doigt"
+          ],
+          "variantesIt": [
+            "il dito"
+          ],
+          "phrase": "Si è sporcato le dita di grasso.",
+          "traductionPhrase": "Il s'est sali les doigts avec de la graisse.",
+          "accords": "m. sg. : il dito → f. pl. : le dita",
+          "irreguliersConjugaison": "",
+          "depart": "les doigts",
+          "solution": "le dita",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "membres",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/le_dita.mp3",
+          "audioExemple": "audio/dico/le_dita_fr.mp3",
+          "ttsLettre": "le dita",
+          "ttsExemple": "Si è sporcato le dita di grasso.",
+          "note": "Pluriel irrégulier féminin en -a."
+        },
+        {
+          "id": "voc_009",
+          "dateAjout": "2026-11-26",
+          "mot": "le ginocchia",
+          "traduction": "les genoux",
+          "variantesFr": [
+            "le genou"
+          ],
+          "variantesIt": [
+            "il ginocchio"
+          ],
+          "phrase": "Ho messo un cuscino sotto le ginocchia per lavorare.",
+          "traductionPhrase": "J'ai mis un coussin sous mes genoux pour travailler.",
+          "accords": "m. sg. : il ginocchio → f. pl. : le ginocchia",
+          "irreguliersConjugaison": "",
+          "depart": "les genoux",
+          "solution": "le ginocchia",
+          "variantes": [],
+          "cat": "corps_sante",
+          "sousCat": "membres",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/le_ginocchia.mp3",
+          "audioExemple": "audio/dico/le_ginocchia_fr.mp3",
+          "ttsLettre": "le ginocchia",
+          "ttsExemple": "Ho messo un cuscino sotto le ginocchia per lavorare.",
+          "note": "Pluriel irrégulier féminin en -a."
+        },
+        {
+          "id": "voc_010",
+          "dateAjout": "2026-11-26",
+          "mot": "il preventivo",
+          "traduction": "le devis",
+          "variantesFr": [
+            "devis"
+          ],
+          "variantesIt": [
+            "preventivo"
+          ],
+          "phrase": "Ho chiesto un preventivo dettagliato per i lavori.",
+          "traductionPhrase": "J'ai demandé un devis détaillé pour les travaux.",
+          "accords": "m. sg. : il preventivo • m. pl. : i preventivi",
+          "irreguliersConjugaison": "",
+          "depart": "le devis",
+          "solution": "il preventivo",
+          "variantes": [],
+          "cat": "administration_demarches",
+          "sousCat": "factures_devis",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/il_preventivo.mp3",
+          "audioExemple": "audio/dico/il_preventivo_fr.mp3",
+          "ttsLettre": "il preventivo",
+          "ttsExemple": "Ho chiesto un preventivo dettagliato per i lavori.",
+          "note": "Vocabulaire courant pour travaux et démarches."
+        },
+        {
+          "id": "voc_011",
+          "dateAjout": "2026-11-26",
+          "mot": "rimandare",
+          "traduction": "reporter",
+          "variantesFr": [
+            "remettre a plus tard",
+            "remettre à plus tard"
+          ],
+          "variantesIt": [],
+          "phrase": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+          "traductionPhrase": "Nous avons dû reporter la réunion à la semaine prochaine.",
+          "accords": "",
+          "irreguliersConjugaison": "Impératif Lei : rimandi • Participe passé : rimandato (avere)",
+          "depart": "reporter",
+          "solution": "rimandare",
+          "variantes": [],
+          "cat": "expressions_verbes",
+          "sousCat": "verbes_courants",
+          "cible": "Réponse attendue",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/dico/rimandare.mp3",
+          "audioExemple": "audio/dico/rimandare_fr.mp3",
+          "ttsLettre": "rimandare",
+          "ttsExemple": "Abbiamo dovuto rimandare la riunione alla settimana prossima.",
+          "note": "Verbe transitif très fréquent."
+        }
+      ]
+    },
+    {
+      "id": "alphabet_A1",
+      "activite": "alphabet",
+      "niveau": "A1",
+      "titre": "L'alphabet italien et l'audio des lettres",
+      "description": "Nom des 21 lettres de l'alphabet italien standard + les 5 lettres d'origine étrangère (J, K, W, X, Y) dans une catégorie dédiée.",
+      "labelDepart": "Lettre et exemple :",
+      "labelSaisie": "Nom de la lettre en italien :",
+      "placeholder": "Ex : a, bi, ci, acca, i lunga...",
+      "reglesHtml": "<h3>L'alphabet italien</h3><p style='font-size:13px;'>21 lettres de base + 5 lettres étrangères (J, K, W, X, Y) filtrables à part.</p>",
+      "categories": [
+        {
+          "valeur": "voyelles",
+          "label": "Voyelles (5)",
+          "sousCategories": []
+        },
+        {
+          "valeur": "consonnes",
+          "label": "Consonnes (16)",
+          "sousCategories": []
+        },
+        {
+          "valeur": "etrangeres",
+          "label": "Lettres étrangères (J, K, W, X, Y)",
+          "sousCategories": []
+        }
+      ],
+      "filtresBooleens": [
+        {
+          "cle": "irreg",
+          "label": "Cas particuliers / sons variables"
+        }
+      ],
+      "items": [
+        {
+          "id": "alphabet_A1_1",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "a"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre A — ex. : ape (abeille)",
+          "solution": "a",
+          "variantes": [
+            "a"
+          ],
+          "cat": "voyelles",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/a.mp3",
+          "audioExemple": "audio/a_ex.mp3",
+          "ttsLettre": "a",
+          "ttsExemple": "ape",
+          "note": "Voyelle ouverte [a], claire et stable."
+        },
+        {
+          "id": "alphabet_A1_2",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "b"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre B — ex. : barca (barque)",
+          "solution": "bi",
+          "variantes": [
+            "b"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/b.mp3",
+          "audioExemple": "audio/b_ex.mp3",
+          "ttsLettre": "bi",
+          "ttsExemple": "barca",
+          "note": "Se prononce [bi] ; devant e/i garde le son [b]."
+        },
+        {
+          "id": "alphabet_A1_3",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "c"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre C — ex. : casa / cena (maison / dîner)",
+          "solution": "ci",
+          "variantes": [
+            "c"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/c.mp3",
+          "audioExemple": "audio/c_ex.mp3",
+          "ttsLettre": "ci",
+          "ttsExemple": "casa, cena",
+          "note": "Dur [k] devant a, o, u, h ; doux [tʃ] devant e, i."
+        },
+        {
+          "id": "alphabet_A1_4",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "d"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre D — ex. : dado (dé)",
+          "solution": "di",
+          "variantes": [
+            "d"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/d.mp3",
+          "audioExemple": "audio/d_ex.mp3",
+          "ttsLettre": "di",
+          "ttsExemple": "dado",
+          "note": "Consonne dentale [d], plus nette qu'en français."
+        },
+        {
+          "id": "alphabet_A1_5",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "e"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre E — ex. : erba (herbe)",
+          "solution": "e",
+          "variantes": [
+            "e"
+          ],
+          "cat": "voyelles",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/e.mp3",
+          "audioExemple": "audio/e_ex.mp3",
+          "ttsLettre": "e",
+          "ttsExemple": "erba",
+          "note": "Voyelle [e] ouverte ou fermée selon les mots."
+        },
+        {
+          "id": "alphabet_A1_6",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "f"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre F — ex. : faro (phare)",
+          "solution": "effe",
+          "variantes": [
+            "f"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/f.mp3",
+          "audioExemple": "audio/f_ex.mp3",
+          "ttsLettre": "effe",
+          "ttsExemple": "faro",
+          "note": "Se prononce [f] comme en français."
+        },
+        {
+          "id": "alphabet_A1_7",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "g"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre G — ex. : gatto / gelo (chat / gel)",
+          "solution": "gi",
+          "variantes": [
+            "g"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/g.mp3",
+          "audioExemple": "audio/g_ex.mp3",
+          "ttsLettre": "gi",
+          "ttsExemple": "gatto, gelo",
+          "note": "Dur [ɡ] devant a, o, u, h ; doux [dʒ] devant e, i."
+        },
+        {
+          "id": "alphabet_A1_8",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "h"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre H — ex. : hotel (hôtel)",
+          "solution": "acca",
+          "variantes": [
+            "h"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/h.mp3",
+          "audioExemple": "audio/h_ex.mp3",
+          "ttsLettre": "acca",
+          "ttsExemple": "hotel",
+          "note": "Toujours muette ; sert surtout à durcir c/g ou distinguer des formes (ho, hai, ha, hanno)."
+        },
+        {
+          "id": "alphabet_A1_9",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "i"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre I — ex. : isola (île)",
+          "solution": "i",
+          "variantes": [
+            "i"
+          ],
+          "cat": "voyelles",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/i.mp3",
+          "audioExemple": "audio/i_ex.mp3",
+          "ttsLettre": "i",
+          "ttsExemple": "isola",
+          "note": "Voyelle [i] franche, jamais muette en fin de mot."
+        },
+        {
+          "id": "alphabet_A1_10",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "l"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre L — ex. : luna (lune)",
+          "solution": "elle",
+          "variantes": [
+            "l"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/l.mp3",
+          "audioExemple": "audio/l_ex.mp3",
+          "ttsLettre": "elle",
+          "ttsExemple": "luna",
+          "note": "Se prononce [l] avec la langue près des alvéoles."
+        },
+        {
+          "id": "alphabet_A1_11",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "m"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre M — ex. : mare (mer)",
+          "solution": "emme",
+          "variantes": [
+            "m"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/m.mp3",
+          "audioExemple": "audio/m_ex.mp3",
+          "ttsLettre": "emme",
+          "ttsExemple": "mare",
+          "note": "Se prononce [m] ; doublée (mm) elle s'allonge."
+        },
+        {
+          "id": "alphabet_A1_12",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "n"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre N — ex. : nave (navire)",
+          "solution": "enne",
+          "variantes": [
+            "n"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/n.mp3",
+          "audioExemple": "audio/n_ex.mp3",
+          "ttsLettre": "enne",
+          "ttsExemple": "nave",
+          "note": "Se prononce [n] sans nasaliser la voyelle précédente."
+        },
+        {
+          "id": "alphabet_A1_13",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "o"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre O — ex. : ora (heure)",
+          "solution": "o",
+          "variantes": [
+            "o"
+          ],
+          "cat": "voyelles",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/o.mp3",
+          "audioExemple": "audio/o_ex.mp3",
+          "ttsLettre": "o",
+          "ttsExemple": "ora",
+          "note": "Voyelle [o] ouverte ou fermée selon le contexte."
+        },
+        {
+          "id": "alphabet_A1_14",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "p"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre P — ex. : pane (pain)",
+          "solution": "pi",
+          "variantes": [
+            "p"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/p.mp3",
+          "audioExemple": "audio/p_ex.mp3",
+          "ttsLettre": "pi",
+          "ttsExemple": "pane",
+          "note": "Se prononce [p], sans aspiration excessive."
+        },
+        {
+          "id": "alphabet_A1_15",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "q"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre Q — ex. : quadro (tableau)",
+          "solution": "cu",
+          "variantes": [
+            "q"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/q.mp3",
+          "audioExemple": "audio/q_ex.mp3",
+          "ttsLettre": "qu",
+          "ttsExemple": "quadro",
+          "note": "Toujours suivie de « u » + voyelle ([kw]), ex. : quadro, qui."
+        },
+        {
+          "id": "alphabet_A1_16",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "r"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre R — ex. : rosa (rose)",
+          "solution": "erre",
+          "variantes": [
+            "r"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/r.mp3",
+          "audioExemple": "audio/r_ex.mp3",
+          "ttsLettre": "erre",
+          "ttsExemple": "rosa",
+          "note": "R roulé [r] (plus appuyé lorsqu'il est double : rr)."
+        },
+        {
+          "id": "alphabet_A1_17",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "s"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre S — ex. : sole / rosa (soleil / rose)",
+          "solution": "esse",
+          "variantes": [
+            "s"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/s.mp3",
+          "audioExemple": "audio/s_ex.mp3",
+          "ttsLettre": "esse",
+          "ttsExemple": "sole, rosa",
+          "note": "Sourd [s] à l'initiale et devant consonne sourde ; souvent sonore [z] entre voyelles."
+        },
+        {
+          "id": "alphabet_A1_18",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "t"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre T — ex. : treno (train)",
+          "solution": "ti",
+          "variantes": [
+            "t"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/t.mp3",
+          "audioExemple": "audio/t_ex.mp3",
+          "ttsLettre": "ti",
+          "ttsExemple": "treno",
+          "note": "Consonne dentale [t] franche."
+        },
+        {
+          "id": "alphabet_A1_19",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "u"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre U — ex. : uva (raisin)",
+          "solution": "u",
+          "variantes": [
+            "u"
+          ],
+          "cat": "voyelles",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/u.mp3",
+          "audioExemple": "audio/u_ex.mp3",
+          "ttsLettre": "u",
+          "ttsExemple": "uva",
+          "note": "Se prononce [u] (le son « ou » français)."
+        },
+        {
+          "id": "alphabet_A1_20",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "vu",
+            "vi",
+            "v"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre V — ex. : vento (vent)",
+          "solution": "vu / vi",
+          "variantes": [
+            "vu",
+            "vi",
+            "v"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/v.mp3",
+          "audioExemple": "audio/v_ex.mp3",
+          "ttsLettre": "vu",
+          "ttsExemple": "vento",
+          "note": "Se prononce [v] comme en français."
+        },
+        {
+          "id": "alphabet_A1_21",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "z"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre Z — ex. : zio / pizza (oncle / pizza)",
+          "solution": "zeta",
+          "variantes": [
+            "z"
+          ],
+          "cat": "consonnes",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/z.mp3",
+          "audioExemple": "audio/z_ex.mp3",
+          "ttsLettre": "zeta",
+          "ttsExemple": "zio, pizza",
+          "note": "Se prononce [dz] (sonore, ex. : zero) ou [ts] (sourd, ex. : pizza)."
+        },
+        {
+          "id": "alphabet_A1_22",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "i lunga",
+            "j"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre J — ex. : jeans / jazz (jean / jazz)",
+          "solution": "i lunga",
+          "variantes": [
+            "i lunga",
+            "j"
+          ],
+          "cat": "etrangeres",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/j.mp3",
+          "audioExemple": "audio/j_ex.mp3",
+          "ttsLettre": "i lunga",
+          "ttsExemple": "jeans, jazz",
+          "note": "Lettre d'origine étrangère (« i lunga »)."
+        },
+        {
+          "id": "alphabet_A1_23",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "cappa",
+            "kappa",
+            "k"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre K — ex. : kiwi / chilometro (kiwi / kilomètre)",
+          "solution": "cappa",
+          "variantes": [
+            "cappa",
+            "kappa",
+            "k"
+          ],
+          "cat": "etrangeres",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/k.mp3",
+          "audioExemple": "audio/k_ex.mp3",
+          "ttsLettre": "cappa",
+          "ttsExemple": "kiwi, chilometro",
+          "note": "Lettre d'origine étrangère (« cappa »)."
+        },
+        {
+          "id": "alphabet_A1_24",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "vu doppia",
+            "doppia vu",
+            "vi doppia",
+            "doppia vi",
+            "w"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre W — ex. : web / weekend (web / week-end)",
+          "solution": "vu doppia / doppia vu",
+          "variantes": [
+            "vu doppia",
+            "doppia vu",
+            "vi doppia",
+            "doppia vi",
+            "w"
+          ],
+          "cat": "etrangeres",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/w.mp3",
+          "audioExemple": "audio/w_ex.mp3",
+          "ttsLettre": "vu doppia",
+          "ttsExemple": "web, weekend",
+          "note": "Lettre d'origine étrangère (« vu doppia » ou « doppia vu »)."
+        },
+        {
+          "id": "alphabet_A1_25",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "ics",
+            "x"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre X — ex. : taxi / xilofono (taxi / xylophone)",
+          "solution": "ics",
+          "variantes": [
+            "ics",
+            "x"
+          ],
+          "cat": "etrangeres",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/x.mp3",
+          "audioExemple": "audio/x_ex.mp3",
+          "ttsLettre": "ics",
+          "ttsExemple": "taxi, xilofono",
+          "note": "Lettre d'origine étrangère (« ics »), prononcée [ks]."
+        },
+        {
+          "id": "alphabet_A1_26",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [
+            "ipsilon",
+            "i greca",
+            "y"
+          ],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Lettre Y — ex. : yogurt / yoga (yaourt / yoga)",
+          "solution": "ipsilon / i greca",
+          "variantes": [
+            "ipsilon",
+            "i greca",
+            "y"
+          ],
+          "cat": "etrangeres",
+          "sousCat": "",
+          "cible": "Écris le nom de la lettre en italien (ex. : a, bi, acca, i lunga...)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "audio/y.mp3",
+          "audioExemple": "audio/y_ex.mp3",
+          "ttsLettre": "ipsilon",
+          "ttsExemple": "yogurt, yoga",
+          "note": "Lettre d'origine étrangère (« ipsilon » ou « i greca »)."
+        }
+      ]
+    },
+    {
+      "id": "imperatif_A2",
+      "activite": "imperatif",
+      "niveau": "A2",
+      "titre": "L'impératif italien (Informel & Formel)",
+      "description": "Transformation de l'impératif : formes informelles (noi, voi) et formelles (Lei, Loro), négation, irréguliers et placement des pronoms.",
+      "labelDepart": "Phrase de départ :",
+      "labelSaisie": "Phrase transformée attendue :",
+      "placeholder": "Écris la phrase attendue...",
+      "reglesHtml": "<h3>Repères de conjugaison</h3><p style='font-size:13px;'>Informel Tu : -are → -a, -ere/-ire → -i (pronom soudé après). Formel Lei : -are → -i, -ere/-ire → -a (pronom avant).</p>",
+      "categories": [
+        {
+          "valeur": "lei",
+          "label": "Formel (Lei)",
+          "sousCategories": []
+        },
+        {
+          "valeur": "loro",
+          "label": "Formel (Loro)",
+          "sousCategories": []
+        },
+        {
+          "valeur": "noi",
+          "label": "Nous (noi)",
+          "sousCategories": []
+        },
+        {
+          "valeur": "voi",
+          "label": "Vous (voi)",
+          "sousCategories": []
+        }
+      ],
+      "filtresBooleens": [
+        {
+          "cle": "neg",
+          "label": "Négatif"
+        },
+        {
+          "cle": "irreg",
+          "label": "Irréguliers"
+        },
+        {
+          "cle": "refl",
+          "label": "Réflexifs"
+        },
+        {
+          "cle": "pronom",
+          "label": "Avec pronoms"
+        }
+      ],
+      "items": [
+        {
+          "id": "imperatif_A2_1",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Chiudi la porta.",
+          "solution": "Chiuda la porta.",
+          "variantes": [],
+          "cat": "lei",
+          "sousCat": "",
+          "cible": "Forme à trouver : formel (Lei)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "chiudere → chiuda."
+        },
+        {
+          "id": "imperatif_A2_2",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Aspetta un momento.",
+          "solution": "Aspetti un momento.",
+          "variantes": [],
+          "cat": "lei",
+          "sousCat": "",
+          "cible": "Forme à trouver : formel (Lei)",
+          "neg": false,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "aspettare → aspetti."
+        },
+        {
+          "id": "imperatif_A2_3",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Siediti qui.",
+          "solution": "Si sieda qui.",
+          "variantes": [],
+          "cat": "lei",
+          "sousCat": "",
+          "cible": "Forme à trouver : formel (Lei)",
+          "neg": false,
+          "irreg": true,
+          "refl": true,
+          "pronom": true,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "sedersi → si sieda."
+        },
+        {
+          "id": "imperatif_A2_4",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Non parlare così forte.",
+          "solution": "Non parli così forte.",
+          "variantes": [],
+          "cat": "lei",
+          "sousCat": "",
+          "cible": "Forme à trouver : formel (Lei)",
+          "neg": true,
+          "irreg": false,
+          "refl": false,
+          "pronom": false,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "parlare → non parli."
+        },
+        {
+          "id": "imperatif_A2_5",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Dimmi la verità.",
+          "solution": "Mi dica la verità.",
+          "variantes": [],
+          "cat": "lei",
+          "sousCat": "",
+          "cible": "Forme à trouver : formel (Lei)",
+          "neg": false,
+          "irreg": true,
+          "refl": false,
+          "pronom": true,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "dire + mi → mi dica."
+        },
+        {
+          "id": "imperatif_A2_6",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Fermiamoci un attimo.",
+          "solution": "Fermiamoci un attimo!",
+          "variantes": [],
+          "cat": "noi",
+          "sousCat": "",
+          "cible": "Forme à trouver : nous (noi)",
+          "neg": false,
+          "irreg": false,
+          "refl": true,
+          "pronom": true,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "fermarsi (noi) → fermiamoci."
+        },
+        {
+          "id": "imperatif_A2_7",
+          "dateAjout": "",
+          "mot": "",
+          "traduction": "",
+          "variantesFr": [],
+          "variantesIt": [],
+          "phrase": "",
+          "traductionPhrase": "",
+          "accords": "",
+          "irreguliersConjugaison": "",
+          "depart": "Sedetevi qui.",
+          "solution": "Sedetevi qui.",
+          "variantes": [],
+          "cat": "voi",
+          "sousCat": "",
+          "cible": "Forme à trouver : vous (voi)",
+          "neg": false,
+          "irreg": false,
+          "refl": true,
+          "pronom": true,
+          "audioLettre": "",
+          "audioExemple": "",
+          "ttsLettre": "",
+          "ttsExemple": "",
+          "note": "sedersi (voi) → sedetevi."
+        }
+      ]
+    }
+  ]
+}

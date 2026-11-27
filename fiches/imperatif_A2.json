@@ -1,0 +1,126 @@
+{
+  "id": "imperatif_A2",
+  "activite": "imperatif",
+  "niveau": "A2",
+  "titre": "L'impératif italien (Informel & Formel)",
+  "description": "Transformation de l'impératif : formes informelles (noi, voi) et formelles (Lei, Loro), négation, irréguliers et placement des pronoms.",
+  "labelDepart": "Phrase de départ :",
+  "labelSaisie": "Phrase transformée attendue :",
+  "placeholder": "Écris la phrase attendue...",
+  "reglesHtml": "<h3>Repères de conjugaison</h3><p style='font-size:13px;'>Informel Tu : -are → -a, -ere/-ire → -i (pronom soudé après). Formel Lei : -are → -i, -ere/-ire → -a (pronom avant).</p>",
+  "categories": [
+    {
+      "valeur": "lei",
+      "label": "Formel (Lei)"
+    },
+    {
+      "valeur": "loro",
+      "label": "Formel (Loro)"
+    },
+    {
+      "valeur": "noi",
+      "label": "Nous (noi)"
+    },
+    {
+      "valeur": "voi",
+      "label": "Vous (voi)"
+    }
+  ],
+  "filtresBooleens": [
+    {
+      "cle": "neg",
+      "label": "Négatif"
+    },
+    {
+      "cle": "irreg",
+      "label": "Irréguliers"
+    },
+    {
+      "cle": "refl",
+      "label": "Réflexifs"
+    },
+    {
+      "cle": "pronom",
+      "label": "Avec pronoms"
+    }
+  ],
+  "items": [
+    {
+      "depart": "Chiudi la porta.",
+      "solution": "Chiuda la porta.",
+      "cat": "lei",
+      "cible": "Forme à trouver : formel (Lei)",
+      "neg": false,
+      "irreg": false,
+      "refl": false,
+      "pronom": false,
+      "note": "chiudere → chiuda."
+    },
+    {
+      "depart": "Aspetta un momento.",
+      "solution": "Aspetti un momento.",
+      "cat": "lei",
+      "cible": "Forme à trouver : formel (Lei)",
+      "neg": false,
+      "irreg": false,
+      "refl": false,
+      "pronom": false,
+      "note": "aspettare → aspetti."
+    },
+    {
+      "depart": "Siediti qui.",
+      "solution": "Si sieda qui.",
+      "cat": "lei",
+      "cible": "Forme à trouver : formel (Lei)",
+      "neg": false,
+      "irreg": true,
+      "refl": true,
+      "pronom": true,
+      "note": "sedersi → si sieda."
+    },
+    {
+      "depart": "Non parlare così forte.",
+      "solution": "Non parli così forte.",
+      "cat": "lei",
+      "cible": "Forme à trouver : formel (Lei)",
+      "neg": true,
+      "irreg": false,
+      "refl": false,
+      "pronom": false,
+      "note": "parlare → non parli."
+    },
+    {
+      "depart": "Dimmi la verità.",
+      "solution": "Mi dica la verità.",
+      "cat": "lei",
+      "cible": "Forme à trouver : formel (Lei)",
+      "neg": false,
+      "irreg": true,
+      "refl": false,
+      "pronom": true,
+      "note": "dire + mi → mi dica."
+    },
+    {
+      "depart": "Fermiamoci un attimo.",
+      "solution": "Fermiamoci un attimo!",
+      "cat": "noi",
+      "cible": "Forme à trouver : nous (noi)",
+      "neg": false,
+      "irreg": false,
+      "refl": true,
+      "pronom": true,
+      "note": "fermarsi (noi) → fermiamoci."
+    },
+    {
+      "depart": "Sedetevi qui.",
+      "solution": "Sedetevi qui.",
+      "cat": "voi",
+      "cible": "Forme à trouver : vous (voi)",
+      "neg": false,
+      "irreg": false,
+      "refl": true,
+      "pronom": true,
+      "note": "sedersi (voi) → sedetevi."
+    }
+  ]
+}
