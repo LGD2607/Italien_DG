@@ -10,13 +10,9 @@
     --bleu-fonce: #003366;
     --bleu-clair: #eef4fb;
     --vert-italie: #008c45;
-    --ambre: #8a5300;
-    --ambre-fond: #fff6df;
     --fond: #f4f6f9;
-    --carte: #ffffff;
     --bordure: #d5dde6;
 }
-
 body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--fond); margin: 0; padding: 0; color: #222; }
 header { background: var(--bleu-fonce); color: white; padding: 14px 20px; border-bottom: 4px solid var(--vert-italie); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 header h1 { margin: 0; font-size: 20px; }
@@ -46,24 +42,15 @@ select, input[type="text"], input[type="password"], input[type="date"], textarea
 .filtres-ligne { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
 .pill-check { background: #f5f7fa; border: 1px solid var(--bordure); padding: 6px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; font-size:13px; cursor:pointer; }
 #score { text-align: center; font-size: 22px; margin: 14px 0 16px 0; font-weight: bold; }
-.badge-mode { display: inline-block; background: #ffe8a1; color: #5a3e00; padding: 4px 10px; border-radius: 999px; font-size: 13px; margin-left: 8px; vertical-align: middle; }
 .container { display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap; padding: 0 14px 40px 14px; }
 .panel { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.1); width: 480px; max-width: 100%; box-sizing: border-box; }
 .consigne { font-size: 14px; color: #555; margin-bottom: 8px; text-align: center; }
 #phraseDepart { font-size: 23px; font-weight: bold; color: var(--bleu-fonce); text-align: center; background: var(--bleu-clair); padding: 14px; border-radius: 8px; margin-bottom: 10px; }
-.phrase-contexte-box { display: none; text-align: center; background: #f7faf8; border: 1px solid #cde2d4; color: #1f4d30; padding: 8px 12px; border-radius: 8px; font-size: 14px; font-style: italic; margin-bottom: 10px; }
 .forme-cible-box { text-align: center; background: #fff4d6; border: 1px solid #f0d080; color: #5c3d00; padding: 8px 12px; border-radius: 8px; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
-.tags-question { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; min-height: 22px; }
-.tag { font-size: 12px; padding: 2px 8px; border-radius: 10px; background: #eef1f5; color: #445; }
-.audio-box { background: #f5f8fc; border: 1px solid #cfe0f2; border-radius: 8px; padding: 10px 12px; margin-bottom: 14px; display: none; flex-direction: column; align-items: center; gap: 8px; }
-.audio-boutons { display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
-button.btn-audio { background: #ffffff; color: var(--bleu-fonce); border: 1px solid #9ab4cf; padding: 7px 12px; border-radius: 7px; font-size: 13px; font-weight: bold; cursor: pointer; }
-button.btn-audio:hover { background: #e3eef9; }
-.audio-voix-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #445; flex-wrap: wrap; justify-content: center; }
 input#reponse { width: 100%; box-sizing: border-box; padding: 12px; margin-top: 6px; margin-bottom: 16px; font-size: 16px; border-radius: 6px; border: 1px solid #bbb; }
 button.action-btn { padding: 10px 15px; margin: 4px 6px 4px 0; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #f9f9f9; font-size: 14px; }
 button.primary-btn { background: var(--vert-italie); color: white; border: none; font-weight: bold; }
-#message { min-height: 110px; margin-top: 18px; line-height: 1.45; }
+#message { min-height: 60px; margin-top: 18px; line-height: 1.45; }
 .success { color: #0b6e29; }
 .error { color: #b00000; }
 #revision { background: #fff8dc; padding: 14px; border-radius: 10px; border: 1px solid #f0dfa0; }
@@ -78,8 +65,8 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
 
 <header>
     <div>
-        <h1>Atelier Italien — PC &amp; Tablette</h1>
-        <div class="header-sub">Dictionnaire &amp; Exercices • Connecté à GitHub</div>
+        <h1>Atelier Italien</h1>
+        <div class="header-sub">Dictionnaire &amp; Grammaire • Connecté à GitHub</div>
     </div>
 </header>
 
@@ -111,7 +98,7 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
                     <button type="button" class="btn-mini" onclick="sauvegarderConfigApi()">Sauvegarder la clé</button>
                 </div>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-                    <select id="apiModelSelect" style="min-width:250px;">
+                    <select id="apiModelSelect" style="min-width:250px;" onchange="sauvegarderConfigApi()">
                         <option value="openrouter/free">openrouter/free (recommandé)</option>
                         <option value="google/gemma-4-31b-it:free">google/gemma-4-31b-it:free</option>
                         <option value="meta-llama/llama-3.3-70b-instruct:free">meta-llama/llama-3.3-70b-instruct:free</option>
@@ -147,7 +134,9 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
 
 <div class="nav-bar">
     <label for="selectFiche"><b>Activité :</b></label>
-    <select id="selectFiche" onchange="changerFiche()"></select>
+    <select id="selectFiche" onchange="changerFiche()">
+        <option value="">(Cliquez sur Charger depuis GitHub)</option>
+    </select>
     <button type="button" class="btn-mini" onclick="toggleDrawer('reglesBox')">Règles</button>
     <button type="button" class="btn-mini" onclick="toggleDrawer('listeCompleteBox')">Voir toute la fiche</button>
 </div>
@@ -219,7 +208,6 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
 </div>
 
 <script>
-// Structure des fiches sur GitHub
 const FICHIERS_GITHUB = [
     "fiches/dictionnaire.json",
     "fiches/alphabet_A1.json",
@@ -250,7 +238,6 @@ async function chargerDepuisGithub() {
     
     for (const fichier of FICHIERS_GITHUB) {
         try {
-            // Ajout d'un timestamp pour éviter le cache du navigateur
             const resp = await fetch(fichier + '?t=' + new Date().getTime());
             if (!resp.ok) continue;
             
@@ -264,7 +251,7 @@ async function chargerDepuisGithub() {
     }
     
     if (fiches.length === 0) {
-        statut.textContent = "Erreur : impossible de charger les fiches. Vérifiez le dossier fiches/ sur GitHub.";
+        statut.textContent = "Erreur : impossible de charger les fiches. Vérifiez vos fichiers sur GitHub.";
         return;
     }
 
@@ -290,22 +277,35 @@ function changerFiche() {
     if (!ficheActuelle) return;
 
     document.getElementById("ficheDescription").textContent = ficheActuelle.description;
-    document.getElementById("reglesBox").innerHTML = ficheActuelle.reglesHtml;
-    document.getElementById("labelDepart").textContent = ficheActuelle.labelDepart;
+    document.getElementById("reglesBox").innerHTML = ficheActuelle.reglesHtml || "<p>Aucune règle fournie.</p>";
+    document.getElementById("labelDepart").textContent = ficheActuelle.labelDepart || "Élément de départ :";
     
-    // Remplir les filtres
+    // Remplir les filtres de catégories
     const selCat = document.getElementById("filtreType");
     selCat.innerHTML = `<option value="TOUTES">Toutes</option>`;
-    ficheActuelle.categories.forEach(c => {
-        const opt = document.createElement("option");
-        opt.value = c.valeur;
-        opt.textContent = c.label;
-        selCat.appendChild(opt);
-    });
+    if (ficheActuelle.categories) {
+        ficheActuelle.categories.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.valeur;
+            opt.textContent = c.label;
+            selCat.appendChild(opt);
+        });
+    }
     
     // Masquer les filtres spécifiques si ce n'est pas le dictionnaire
     const estDico = ficheActuelle.activite === "dictionnaire";
     document.getElementById("blocSensRevision").style.display = estDico ? "inline-block" : "none";
+
+    // Générer le tableau "Voir toute la fiche"
+    let tableHtml = `<h3>Contenu complet de la fiche (${ficheActuelle.items.length} éléments)</h3><div style="overflow-x:auto;"><table class="regles-table"><thead><tr><th>Départ</th><th>Réponse</th><th>Note / Règle</th></tr></thead><tbody>`;
+    ficheActuelle.items.forEach(it => {
+        const dep = it.depart || it.traduction || "";
+        const sol = it.solution || it.mot || "";
+        const note = it.note || it.accords || "";
+        tableHtml += `<tr><td><b>${dep}</b></td><td>${sol}</td><td><i>${note}</i></td></tr>`;
+    });
+    tableHtml += `</tbody></table></div>`;
+    document.getElementById("listeCompleteBox").innerHTML = tableHtml;
     
     nouvelleQuestion();
 }
@@ -316,7 +316,6 @@ function nouvelleQuestion() {
         return;
     }
     
-    // Choix aléatoire d'un item
     const idx = Math.floor(Math.random() * ficheActuelle.items.length);
     courant = ficheActuelle.items[idx];
     
@@ -349,11 +348,9 @@ function verifier() {
 
     if (estDico) {
         const choixSens = document.getElementById("filtreSens").value;
-        // Si MIXTE, on détermine le sens actuel (simplification : on accepte les deux pour le moment)
         solPrincipale = courant.mot.toLowerCase();
         variantes = (courant.variantesIt || []).map(v => v.toLowerCase());
-        // Si la réponse correspond à la traduction française, c'est peut-être l'autre sens
-        if (rep === courant.traduction.toLowerCase()) {
+        if (choixSens === "IT_FR" || (choixSens === "MIXTE" && rep === courant.traduction.toLowerCase())) {
             solPrincipale = courant.traduction.toLowerCase();
         }
     } else {
@@ -375,7 +372,6 @@ function verifier() {
     } else {
         msg.className = "error";
         msg.textContent = `Attendu : ${solPrincipale}`;
-        // Ajouter aux erreurs
         if (!erreurs.find(e => e.id === courant.id)) {
             erreurs.push(courant);
             document.getElementById("nbErreurs").textContent = erreurs.length;
@@ -388,26 +384,29 @@ function verifier() {
 function ouvrirFormulaireAjoutDico() {
     const dico = fiches.find(f => f.activite === "dictionnaire");
     if (!dico) {
-        alert("Veuillez d'abord charger le dictionnaire depuis GitHub.");
+        alert("Veuillez d'abord cliquer sur 'Charger depuis GitHub'.");
         return;
     }
     
     const sel = document.getElementById("dicoCat");
     sel.innerHTML = "";
-    dico.categories.forEach(c => {
-        const opt = document.createElement("option");
-        opt.value = c.valeur;
-        opt.textContent = c.label;
-        sel.appendChild(opt);
-    });
+    if (dico.categories) {
+        dico.categories.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.valeur;
+            opt.textContent = c.label;
+            sel.appendChild(opt);
+        });
+    }
     actualiserSelectSousCatFormulaire();
     toggleDrawer("ajoutDicoBox");
 }
 
 function actualiserSelectSousCatFormulaire() {
     const dico = fiches.find(f => f.activite === "dictionnaire");
+    if (!dico) return;
     const catVal = document.getElementById("dicoCat").value;
-    const cat = dico.categories.find(c => c.valeur === catVal);
+    const cat = dico.categories?.find(c => c.valeur === catVal);
     const sc = document.getElementById("dicoSousCat");
     sc.innerHTML = '<option value="">(aucune)</option>';
     (cat?.sousCategories || []).forEach(s => {
@@ -443,9 +442,8 @@ function ajouterEntreeDictionnaire() {
     });
 
     document.getElementById("msgAjoutDico").textContent = `"${mot}" ajouté !`;
-    document.getElementById("statutSeance").textContent = "Mot ajouté en mémoire. N'oubliez pas de cliquer sur 'Télécharger la sauvegarde'.";
+    document.getElementById("statutSeance").textContent = "Mot ajouté en mémoire. Cliquez sur 'Télécharger la sauvegarde' pour sauvegarder.";
     
-    // Nettoyer le formulaire
     document.getElementById("dicoMotIt").value = "";
     document.getElementById("dicoTradFr").value = "";
     document.getElementById("dicoPhraseIt").value = "";
@@ -456,7 +454,10 @@ function ajouterEntreeDictionnaire() {
 // --- SAUVEGARDE ---
 function telechargerSauvegarde() {
     const dico = fiches.find(f => f.activite === "dictionnaire");
-    if (!dico) return;
+    if (!dico) {
+        alert("Aucun dictionnaire chargé.");
+        return;
+    }
     
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dico, null, 2));
     const a = document.createElement("a");
@@ -472,7 +473,6 @@ function sauvegarderConfigApi() {
     localStorage.setItem("atelier_model", document.getElementById("apiModelSelect").value);
 }
 
-// Charger la config au démarrage
 (function chargerConfig() {
     const token = localStorage.getItem("atelier_token");
     if (token) document.getElementById("apiTokenInput").value = token;
