@@ -3,61 +3,629 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atelier Italien — PC &amp; Tablette (GitHub)</title>
+<title>Atelier Italien — PC &amp; Tablette (Drive)</title>
 
 <style>
 :root {
     --bleu-fonce: #003366;
     --bleu-clair: #eef4fb;
     --vert-italie: #008c45;
+    --ambre: #8a5300;
+    --ambre-fond: #fff6df;
     --fond: #f4f6f9;
+    --carte: #ffffff;
     --bordure: #d5dde6;
 }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--fond); margin: 0; padding: 0; color: #222; }
-header { background: var(--bleu-fonce); color: white; padding: 14px 20px; border-bottom: 4px solid var(--vert-italie); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-header h1 { margin: 0; font-size: 20px; }
-.header-sub { font-size: 13px; opacity: 0.9; }
-.seance-bar { background: #fffdf5; border-bottom: 1px solid #e6d79c; padding: 11px 16px; display: flex; justify-content: center; align-items: center; gap: 9px; flex-wrap: wrap; font-size: 14px; }
-button.btn-ouverture { background: var(--bleu-fonce); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-button.btn-save { background: var(--vert-italie); color: white; border: none; padding: 9px 14px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-button.btn-ajout-dico { background: #ffffff; color: var(--bleu-fonce); border: 1px solid var(--bleu-fonce); padding: 8px 13px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
-.statut-seance { font-size: 13px; color: #4a3b00; width: 100%; text-align: center; margin-top: 2px; }
-.nav-bar { background: white; padding: 12px 16px; border-bottom: 1px solid var(--bordure); display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
-select, input[type="text"], input[type="password"], input[type="date"], textarea { padding: 8px 11px; font-size: 15px; border-radius: 7px; border: 1px solid #99aabb; background: #fff; font-family: inherit; }
-#selectFiche { font-weight: bold; color: var(--bleu-fonce); background: var(--bleu-clair); min-width: 260px; max-width: 100%; }
-.fiche-meta { max-width: 960px; margin: 12px auto 0 auto; padding: 0 16px; text-align: center; font-size: 14px; color: #445; }
-.drawer-box { display: none; background: white; border: 1px solid var(--bordure); border-radius: 10px; padding: 16px 20px; max-width: 960px; margin: 14px auto; box-shadow: 0 2px 10px rgba(0,0,0,.08); line-height: 1.5; }
-.auto-fill-box { background: #f0f6ff; border: 1px solid #b8d0eb; border-radius: 8px; padding: 12px; margin-top: 12px; }
-.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 12px; }
-.form-champ { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
-.form-champ.full { grid-column: 1 / -1; }
-.inline-add-row { display: flex; gap: 6px; align-items: center; }
-.inline-add-row select { flex: 1; min-width: 0; }
-.btn-mini { background: var(--bleu-clair); color: var(--bleu-fonce); border: 1px solid #9ab4cf; border-radius: 6px; padding: 7px 10px; font-size: 12px; font-weight: bold; cursor: pointer; white-space: nowrap; }
-.btn-mini:hover { background: #dce8f7; }
-.regles-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
-.regles-table th, .regles-table td { border: 1px solid var(--bordure); padding: 8px 10px; text-align: left; vertical-align: top; }
-.regles-table th { background: var(--bleu-clair); color: var(--bleu-fonce); }
-.filtres { display: flex; flex-direction: column; gap: 12px; align-items: center; background: white; padding: 14px 18px; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.08); max-width: 960px; margin: 14px auto; }
-.filtres-ligne { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
-.pill-check { background: #f5f7fa; border: 1px solid var(--bordure); padding: 6px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; font-size:13px; cursor:pointer; }
-#score { text-align: center; font-size: 22px; margin: 14px 0 16px 0; font-weight: bold; }
-.container { display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap; padding: 0 14px 40px 14px; }
-.panel { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.1); width: 480px; max-width: 100%; box-sizing: border-box; }
-.consigne { font-size: 14px; color: #555; margin-bottom: 8px; text-align: center; }
-#phraseDepart { font-size: 23px; font-weight: bold; color: var(--bleu-fonce); text-align: center; background: var(--bleu-clair); padding: 14px; border-radius: 8px; margin-bottom: 10px; }
-.forme-cible-box { text-align: center; background: #fff4d6; border: 1px solid #f0d080; color: #5c3d00; padding: 8px 12px; border-radius: 8px; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
-input#reponse { width: 100%; box-sizing: border-box; padding: 12px; margin-top: 6px; margin-bottom: 16px; font-size: 16px; border-radius: 6px; border: 1px solid #bbb; }
-button.action-btn { padding: 10px 15px; margin: 4px 6px 4px 0; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #f9f9f9; font-size: 14px; }
-button.primary-btn { background: var(--vert-italie); color: white; border: none; font-weight: bold; }
-#message { min-height: 60px; margin-top: 18px; line-height: 1.45; }
-.success { color: #0b6e29; }
-.error { color: #b00000; }
-#revision { background: #fff8dc; padding: 14px; border-radius: 10px; border: 1px solid #f0dfa0; }
-.revision-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
-#listeRevision { margin: 8px 0 0 0; padding-left: 18px; }
-#listeRevision li { margin-bottom: 10px; }
-@media (max-width: 600px) { header h1 { font-size: 18px; } .seance-bar button { flex: 1 1 44%; } #selectFiche { min-width: 100%; } }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--fond);
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+header {
+    background: var(--bleu-fonce);
+    color: white;
+    padding: 14px 20px;
+    border-bottom: 4px solid var(--vert-italie);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.header-sub {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.seance-bar {
+    background: #fffdf5;
+    border-bottom: 1px solid #e6d79c;
+    padding: 11px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+button.btn-ouverture {
+    background: var(--bleu-fonce);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-ouverture:hover {
+    background: #004c99;
+}
+
+button.btn-save {
+    background: var(--vert-italie);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-save:hover {
+    background: #007036;
+}
+
+button.btn-ajout-dico {
+    background: #ffffff;
+    color: var(--bleu-fonce);
+    border: 1px solid var(--bleu-fonce);
+    padding: 8px 13px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-ajout-dico:hover {
+    background: var(--bleu-clair);
+}
+
+.statut-seance {
+    font-size: 13px;
+    color: #4a3b00;
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.rappel-revisions {
+    max-width: 960px;
+    margin: 14px auto 0 auto;
+    padding: 12px 18px;
+    background: var(--ambre-fond);
+    border: 1px solid #ebd18a;
+    border-radius: 10px;
+    display: none;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.rappel-revisions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.rappel-revisions ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+}
+
+.btn-lien-fiche {
+    background: none;
+    border: none;
+    color: var(--bleu-fonce);
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 2px;
+    font-size: 14px;
+}
+
+.nav-bar {
+    background: white;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--bordure);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+select, input[type="text"], input[type="password"], input[type="date"], textarea {
+    padding: 8px 11px;
+    font-size: 15px;
+    border-radius: 7px;
+    border: 1px solid #99aabb;
+    background: #fff;
+    font-family: inherit;
+}
+
+#selectFiche {
+    font-weight: bold;
+    color: var(--bleu-fonce);
+    background: var(--bleu-clair);
+    min-width: 260px;
+    max-width: 100%;
+}
+
+.btn-regles, .btn-liste-complete {
+    padding: 8px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-regles {
+    background: var(--bleu-fonce);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-liste-complete {
+    background: #f0f4f8;
+    color: var(--bleu-fonce);
+    border: 1px solid #b8c7d9;
+}
+
+.fiche-meta {
+    max-width: 960px;
+    margin: 12px auto 0 auto;
+    padding: 0 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #445;
+}
+
+.derniere-date {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #5a6772;
+}
+
+.drawer-box {
+    display: none;
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 16px 20px;
+    max-width: 960px;
+    margin: 14px auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    line-height: 1.5;
+}
+
+.auto-fill-box {
+    background: #f0f6ff;
+    border: 1px solid #b8d0eb;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.form-champ {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+}
+
+.form-champ.full {
+    grid-column: 1 / -1;
+}
+
+.inline-add-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.inline-add-row select {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-mini {
+    background: var(--bleu-clair);
+    color: var(--bleu-fonce);
+    border: 1px solid #9ab4cf;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-mini:hover {
+    background: #dce8f7;
+}
+
+.nouvelle-cat-panel {
+    display: none;
+    background: #f5f9ff;
+    border: 1px solid #bfd4ec;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.regles-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.regles-table th, .regles-table td {
+    border: 1px solid var(--bordure);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.regles-table th {
+    background: var(--bleu-clair);
+    color: var(--bleu-fonce);
+}
+
+.filtres {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.08);
+    max-width: 960px;
+    margin: 14px auto;
+}
+
+.filtres-ligne {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filtres label {
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pill-check {
+    background: #f5f7fa;
+    border: 1px solid var(--bordure);
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pill-check input {
+    width: auto;
+    margin: 0;
+}
+
+#score {
+    text-align: center;
+    font-size: 22px;
+    margin: 14px 0 16px 0;
+    font-weight: bold;
+}
+
+.badge-mode {
+    display: inline-block;
+    background: #ffe8a1;
+    color: #5a3e00;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 14px 40px 14px;
+}
+
+.panel {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    width: 480px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.consigne {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#phraseDepart {
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--bleu-fonce);
+    text-align: center;
+    background: var(--bleu-clair);
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.phrase-contexte-box {
+    display: none;
+    text-align: center;
+    background: #f7faf8;
+    border: 1px solid #cde2d4;
+    color: #1f4d30;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.forme-cible-box {
+    text-align: center;
+    background: #fff4d6;
+    border: 1px solid #f0d080;
+    color: #5c3d00;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tags-question {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    min-height: 22px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #eef1f5;
+    color: #445;
+}
+
+.audio-box {
+    background: #f5f8fc;
+    border: 1px solid #cfe0f2;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+button.btn-audio {
+    background: #ffffff;
+    color: var(--bleu-fonce);
+    border: 1px solid #9ab4cf;
+    padding: 7px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-audio:hover {
+    background: #e3eef9;
+}
+
+.audio-voix-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #445;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.audio-voix-row select {
+    font-size: 12px;
+    padding: 4px 7px;
+    max-width: 240px;
+}
+
+.audio-statut {
+    font-size: 12px;
+    color: #556;
+}
+
+input#reponse {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+button.action-btn {
+    padding: 10px 15px;
+    margin: 4px 6px 4px 0;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 14px;
+}
+
+button.action-btn:hover {
+    background: #ececec;
+}
+
+button.primary-btn {
+    background: var(--vert-italie);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+button.primary-btn:hover {
+    background: #007036;
+}
+
+#message {
+    min-height: 110px;
+    margin-top: 18px;
+    line-height: 1.45;
+}
+
+.success {
+    color: #0b6e29;
+}
+
+.error {
+    color: #b00000;
+}
+
+#revision {
+    background: #fff8dc;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #f0dfa0;
+}
+
+.revision-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.revision-actions button {
+    font-size: 13px;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #d4be74;
+    background: #fff;
+}
+
+#listeRevision {
+    margin: 8px 0 0 0;
+    padding-left: 18px;
+}
+
+#listeRevision li {
+    margin-bottom: 10px;
+}
+
+.item-revision-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-voir-rep {
+    font-size: 12px;
+    padding: 4px 9px;
+    margin: 0;
+    background: #fff;
+    border: 1px solid #d4be74;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reponse-cachee {
+    margin-top: 4px;
+    padding: 6px 8px;
+    background: #fffdf2;
+    border-left: 3px solid #d4a017;
+    font-size: 13px;
+    color: #222;
+}
+
+.hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    header h1 { font-size: 18px; }
+    .seance-bar button { flex: 1 1 44%; }
+    #selectFiche { min-width: 100%; }
+}
 </style>
 </head>
 
@@ -65,88 +633,152 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
 
 <header>
     <div>
-        <h1>Atelier Italien</h1>
-        <div class="header-sub">Dictionnaire &amp; Grammaire • Connecté à GitHub</div>
+        <h1>Atelier Italien — PC &amp; Tablette (Dossier Drive)</h1>
+        <div class="header-sub">Fonctionne hors-ligne • Dictionnaire FR ↔ IT, catégories, préremplissage &amp; suivi</div>
+    </div>
+    <div style="font-size:13px; background:rgba(255,255,255,0.12); padding:6px 12px; border-radius:8px;">
+        Cadre CECRL (A1–C2)
     </div>
 </header>
 
 <div class="seance-bar">
-    <button type="button" class="btn-ouverture" onclick="chargerDepuisGithub()">📥 Charger depuis GitHub</button>
-    <button type="button" class="btn-save" onclick="telechargerSauvegarde()">💾 Télécharger la sauvegarde</button>
-    <button type="button" class="btn-ajout-dico" onclick="ouvrirFormulaireAjoutDico()">+ Ajouter un mot</button>
-    <span id="statutSeance" class="statut-seance">Prêt. Cliquez sur "Charger depuis GitHub" pour commencer.</span>
+    <button type="button" class="btn-ouverture" onclick="ouvertureSeanceFichiers()">Charger depuis Drive (.json)</button>
+    <button type="button" id="btnOuvrirDossierPc" class="btn-ajout-dico" onclick="ouvertureSeanceDossier()">Ouvrir dossier (PC)</button>
+    <button type="button" class="btn-save" onclick="enregistrerSauvegarde()">Enregistrer la sauvegarde</button>
+    <button type="button" class="btn-ajout-dico" onclick="ouvrirFormulaireAjoutDico()">+ Ajouter un mot / catégorie</button>
+    <button type="button" id="btnExporterFicheCourante" class="btn-ajout-dico" onclick="exporterFicheCourante()" style="display:none;">Exporter dictionnaire (.json)</button>
+    <input type="file" id="inputOuvertureDossier" webkitdirectory directory multiple style="display:none" onchange="traiterOuvertureJson(event)">
+    <input type="file" id="inputOuvertureJson" accept=".json,application/json" multiple style="display:none" onchange="traiterOuvertureJson(event)">
+    <span id="statutSeance" class="statut-seance">Socle prêt. Sur Drive/Tablette : cliquez sur « Charger depuis Drive (.json) » pour importer votre sauvegarde ou dictionnaire.</span>
 </div>
 
 <div id="ajoutDicoBox" class="drawer-box">
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-        <h3 style="margin:0;">Ajouter une entrée au Dictionnaire</h3>
-        <button type="button" class="btn-mini" onclick="toggleDrawer('ajoutDicoBox')">Fermer</button>
+        <h3 style="margin:0;">Ajouter une entrée au Vocabulaire &amp; Dictionnaire personnel (FR ↔ IT)</h3>
+        <button type="button" class="btn-voir-rep" onclick="toggleDrawer('ajoutDicoBox')">Fermer</button>
     </div>
 
     <div class="auto-fill-box">
         <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
             <input type="text" id="dicoMotAuto" placeholder="Saisir un mot en français OU en italien..." style="flex:1; min-width:210px;">
-            <button type="button" class="action-btn primary-btn" style="margin:0;" onclick="preremplirFicheAuto()">✨ Préremplir avec l'IA</button>
-            <button type="button" class="btn-mini" onclick="testerConnexionApi()">Tester API</button>
+            <select id="dicoSensAuto">
+                <option value="AUTO">Détection auto (FR ↔ IT)</option>
+                <option value="FR_IT">Français → Italien</option>
+                <option value="IT_FR">Italien → Français</option>
+            </select>
+            <button type="button" class="action-btn primary-btn" style="margin:0;" onclick="preremplirFicheAuto()">Préremplir la fiche</button>
         </div>
 
         <details style="margin-top:8px; font-size:13px;" open>
-            <summary style="cursor:pointer; color:#003366; font-weight:bold;">Configuration API (OpenRouter)</summary>
+            <summary style="cursor:pointer; color:#003366; font-weight:bold;">Configuration API (Tokens, Modèles &amp; Diagnostic — mémorisée sur cet appareil)</summary>
             <div style="display:grid; gap:8px; margin-top:8px;">
                 <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-                    <input type="password" id="apiTokenInput" placeholder="Clé API OpenRouter (sk-or-v1-...)" style="flex:1; min-width:200px;" onchange="sauvegarderConfigApi()">
-                    <button type="button" class="btn-mini" onclick="sauvegarderConfigApi()">Sauvegarder la clé</button>
+                    <select id="apiTokenSelect" onchange="changerTokenSelectionne()" style="flex:1; min-width:180px;">
+                        <option value="">-- Clé saisie manuellement --</option>
+                    </select>
+                    <button type="button" class="btn-mini" onclick="supprimerTokenSelectionne()">Supprimer token</button>
                 </div>
+
                 <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-                    <select id="apiModelSelect" style="min-width:250px;" onchange="sauvegarderConfigApi()">
-                        <option value="openrouter/free">openrouter/free (recommandé)</option>
-                        <option value="google/gemma-4-31b-it:free">google/gemma-4-31b-it:free</option>
+                    <input type="text" id="apiTokenNom" placeholder="Libellé (ex: OpenRouter principal)" style="flex:1; min-width:150px;">
+                    <input type="password" id="apiTokenInput" placeholder="Clé API (sk-or-v1-...)" style="flex:2; min-width:200px;" onchange="sauvegarderConfigApi()">
+                    <button type="button" class="btn-mini" onclick="enregistrerNouveauToken()">+ Mémoriser token</button>
+                </div>
+
+                <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+                    <input type="text" id="apiUrlInput" value="https://openrouter.ai/api/v1/chat/completions" style="flex:1; min-width:230px;" onchange="sauvegarderConfigApi()">
+                    <select id="apiModelSelect" onchange="onChangementSelectModele()" style="min-width:220px;">
+                        <option value="openrouter/free">openrouter/free (routeur auto gratuit)</option>
                         <option value="meta-llama/llama-3.3-70b-instruct:free">meta-llama/llama-3.3-70b-instruct:free</option>
                         <option value="mistralai/mistral-small-3.1-24b-instruct:free">mistralai/mistral-small-3.1-24b-instruct:free</option>
+                        <option value="google/gemma-3-27b-it:free">google/gemma-3-27b-it:free</option>
+                        <option value="qwen/qwen3-coder:free">qwen/qwen3-coder:free</option>
+                        <option value="google/gemma-4-31b-it:free">google/gemma-4-31b-it:free</option>
+                        <option value="google/gemma-4-26b-a4b-it:free">google/gemma-4-26b-a4b-it:free</option>
+                        <option value="__CUSTOM__">Autre modèle (saisie manuelle)</option>
                     </select>
+                    <input type="text" id="apiModelInput" value="openrouter/free" placeholder="Identifiant du modèle" style="min-width:200px;" onchange="onChangementChampModeleManuel()">
+                    <button type="button" class="btn-mini" onclick="testerConnexionApi()">Tester API</button>
                 </div>
+
+                <label class="pill-check" style="align-self:flex-start;">
+                    <input type="checkbox" id="apiFallbackAuto" checked onchange="sauvegarderConfigApi()">
+                    Bascule automatique vers les autres modèles `:free` si erreur ou réponse vide
+                </label>
             </div>
         </details>
         <div id="statutAutoFill" style="font-size:12px; color:#003366; margin-top:6px;"></div>
     </div>
 
     <div class="form-grid">
-        <div class="form-champ"><label>Mot / expression (Italien) *</label><input type="text" id="dicoMotIt"></div>
-        <div class="form-champ"><label>Traduction (Français) *</label><input type="text" id="dicoTradFr"></div>
         <div class="form-champ">
-            <label>Catégorie</label>
-            <select id="dicoCat" onchange="actualiserSelectSousCatFormulaire()"></select>
+            <label for="dicoMotIt"><b>Mot / expression en italien *</b></label>
+            <input type="text" id="dicoMotIt" placeholder="Ex : il preventivo, rimandare, le braccia...">
         </div>
         <div class="form-champ">
-            <label>Sous-catégorie</label>
-            <select id="dicoSousCat"></select>
+            <label for="dicoTradFr"><b>Traduction en français *</b></label>
+            <input type="text" id="dicoTradFr" placeholder="Ex : le devis, reporter, les bras...">
         </div>
-        <div class="form-champ"><label>Date d'ajout</label><input type="date" id="dicoDateAjout"></div>
-        <div class="form-champ"><label>Accords</label><input type="text" id="dicoAccords"></div>
-        <div class="form-champ full"><label>Phrase d'exemple (Italien)</label><input type="text" id="dicoPhraseIt"></div>
-        <div class="form-champ full"><label>Traduction de la phrase</label><input type="text" id="dicoPhraseFr"></div>
-        <div class="form-champ full" style="margin-top:10px;">
+        <div class="form-champ">
+            <label for="dicoCat"><b>Catégorie *</b></label>
+            <div class="inline-add-row">
+                <select id="dicoCat" onchange="actualiserSelectSousCatFormulaire()"></select>
+            </div>
+        </div>
+        <div class="form-champ">
+            <label for="dicoSousCat"><b>Sous-catégorie</b></label>
+            <div class="inline-add-row">
+                <select id="dicoSousCat"></select>
+            </div>
+        </div>
+        <div class="form-champ">
+            <label for="dicoDateAjout"><b>Date d'ajout</b></label>
+            <input type="date" id="dicoDateAjout">
+        </div>
+        <div class="form-champ">
+            <label for="dicoAccords"><b>Accords</b></label>
+            <input type="text" id="dicoAccords" placeholder="Ex : m. sg. il braccio → f. pl. le braccia">
+        </div>
+        <div class="form-champ full">
+            <label for="dicoPhraseIt"><b>Petite phrase d'exemple en italien</b></label>
+            <input type="text" id="dicoPhraseIt">
+        </div>
+        <div class="form-champ full">
+            <label for="dicoPhraseFr"><b>Traduction de la phrase (français)</b></label>
+            <input type="text" id="dicoPhraseFr">
+        </div>
+        <div class="form-champ">
+            <label for="dicoIrregConj"><b>Formes irrégulières de conjugaison</b></label>
+            <input type="text" id="dicoIrregConj">
+        </div>
+        <div class="form-champ">
+            <label for="dicoNote"><b>Note personnelle</b></label>
+            <input type="text" id="dicoNote">
+        </div>
+        <div class="form-champ full" style="flex-direction:row; align-items:center; gap:14px; flex-wrap:wrap;">
+            <label class="pill-check"><input type="checkbox" id="dicoEstIrreg"> <b>Forme irrégulière / accord particulier</b></label>
             <button type="button" class="action-btn primary-btn" onclick="ajouterEntreeDictionnaire()">Ajouter au dictionnaire</button>
-            <span id="msgAjoutDico" style="font-size:13px; color:#0b6e29; font-weight:bold; margin-left:10px;"></span>
+            <span id="msgAjoutDico" style="font-size:13px; color:#0b6e29; font-weight:bold;"></span>
         </div>
     </div>
 </div>
 
 <div class="nav-bar">
-    <label for="selectFiche"><b>Activité :</b></label>
-    <select id="selectFiche" onchange="changerFiche()">
-        <option value="">(Cliquez sur Charger depuis GitHub)</option>
+    <label for="filtreCecrl"><b>Niveau CECRL :</b></label>
+    <select id="filtreCecrl" onchange="filtrerParCecrl()">
+        <option value="TOUS">Tous les niveaux (A1–C2)</option>
+        <option value="A1">A1</option>
+        <option value="A2">A2</option>
+        <option value="B1">B1</option>
+        <option value="B2">B2</option>
     </select>
-    <button type="button" class="btn-mini" onclick="toggleDrawer('reglesBox')">Règles</button>
-    <button type="button" class="btn-mini" onclick="toggleDrawer('listeCompleteBox')">Voir toute la fiche</button>
+    <label for="selectFiche"><b>Activité :</b></label>
+    <select id="selectFiche" onchange="changerFiche()"></select>
 </div>
 
 <div class="fiche-meta">
     <div id="ficheDescription"></div>
 </div>
-
-<div id="reglesBox" class="drawer-box"></div>
-<div id="listeCompleteBox" class="drawer-box"></div>
 
 <div class="filtres">
     <div class="filtres-ligne">
@@ -158,396 +790,376 @@ button.primary-btn { background: var(--vert-italie); color: white; border: none;
             <label for="filtreSousType"><b>Sous-catégorie :</b></label>
             <select id="filtreSousType" onchange="appliquerFiltres()"></select>
         </div>
-        <div id="blocSensRevision" style="display:none;">
-            <label for="filtreSens"><b>Sens :</b></label>
-            <select id="filtreSens" onchange="appliquerFiltres()">
-                <option value="FR_IT">Français → Italien</option>
-                <option value="IT_FR">Italien → Français</option>
-                <option value="MIXTE">Aléatoire</option>
-            </select>
-        </div>
-        <span id="compteurFiltre" style="color:#555; font-size:14px; font-weight:bold;"></span>
     </div>
-    <div id="filtresBooleensContainer" class="filtres-ligne"></div>
-</div>
-
-<div id="score">
-    <span id="bonnes">0</span> / <span id="total">0</span>
-    <span id="modeBadge"></span>
 </div>
 
 <div class="container">
     <div class="panel">
-        <div id="labelDepart" class="consigne">Élément de départ :</div>
         <div id="phraseDepart"></div>
-        <div id="phraseContexte" class="phrase-contexte-box"></div>
         <div id="formeCible" class="forme-cible-box"></div>
-        <div id="tagsQuestion" class="tags-question"></div>
-
         <input id="reponse" autocomplete="off" placeholder="Écris la réponse attendue...">
-        <div>
-            <button class="action-btn primary-btn" onclick="verifier()">Valider</button>
-            <button class="action-btn" onclick="nouvelleQuestion()">Suivante</button>
-            <button class="action-btn" onclick="resetScore()">RAZ</button>
-        </div>
+        <button class="action-btn primary-btn" onclick="verifier()">Valider</button>
+        <button class="action-btn" onclick="nouvelleQuestion()">Suivante</button>
         <div id="message"></div>
-    </div>
-
-    <div class="panel">
-        <div id="revision">
-            <div class="revision-header">
-                <b>À revoir (<span id="nbErreurs">0</span>) :</b>
-                <div class="revision-actions">
-                    <button id="btnRevErreurs" onclick="demarrerRevisionErreurs()" disabled>Réviser mes erreurs</button>
-                    <button id="btnModeNormal" onclick="arreterRevisionErreurs()" style="display:none;">Mode normal</button>
-                </div>
-            </div>
-            <ul id="listeRevision"></ul>
-        </div>
     </div>
 </div>
 
 <script>
-const FICHIERS_GITHUB = [
-    "fiches/dictionnaire.json",
-    "fiches/alphabet_A1.json",
-    "fiches/imperatif_A2.json"
+const SOCLE_FICHES_DEFAUT = [
+  {
+    "id": "vocabulaire_dictionnaire_A2",
+    "activite": "dictionnaire",
+    "niveau": "A2",
+    "titre": "Vocabulaire & Dictionnaire personnel (FR ↔ IT)",
+    "description": "Répertoire unifié de vocabulaire et dictionnaire personnel.",
+    "categories": [
+      { "valeur": "corps_sante", "label": "Corps humain & santé", "sousCategories": [] },
+      { "valeur": "atelier_mecanique", "label": "Atelier & mécanique", "sousCategories": [] },
+      { "valeur": "maison_logement", "label": "Maison & logement", "sousCategories": [] },
+      { "valeur": "quotidien_cuisine", "label": "Quotidien & cuisine", "sousCategories": [] },
+      { "valeur": "administration_demarches", "label": "Administration & démarches", "sousCategories": [] },
+      { "valeur": "voyages_deplacements", "label": "Voyages & déplacements", "sousCategories": [] },
+      { "valeur": "expressions_verbes", "label": "Verbes & expressions", "sousCategories": [] }
+    ],
+    "items": [
+      { "id": "voc_001", "cat": "corps_sante", "mot": "la testa", "traduction": "la tête" }
+    ]
+  }
 ];
 
 let fiches = [];
 let ficheActuelle = null;
 let courant = null;
-let bonnes = 0;
-let total = 0;
-let erreurs = [];
 
 document.getElementById("dicoDateAjout").value = new Date().toISOString().slice(0, 10);
 
-function toggleDrawer(id) {
-    ["reglesBox", "listeCompleteBox", "ajoutDicoBox"].forEach(b => {
-        const el = document.getElementById(b);
-        el.style.display = (b === id && el.style.display !== "block") ? "block" : "none";
-    });
+function slugifier(txt){
+    return (txt || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "") || "element";
 }
 
-// --- CHARGEMENT DEPUIS GITHUB ---
-async function chargerDepuisGithub() {
-    const statut = document.getElementById("statutSeance");
-    statut.textContent = "Chargement en cours depuis GitHub...";
-    fiches = [];
-    
-    for (const fichier of FICHIERS_GITHUB) {
-        try {
-            const resp = await fetch(fichier + '?t=' + new Date().getTime());
-            if (!resp.ok) continue;
-            
-            const data = await resp.json();
-            if (data && data.id) {
-                fiches.push(data);
-            }
-        } catch (e) {
-            console.warn("Erreur de chargement pour", fichier, e);
-        }
-    }
-    
-    if (fiches.length === 0) {
-        statut.textContent = "Erreur : impossible de charger les fiches. Vérifiez vos fichiers sur GitHub.";
-        return;
-    }
+function toggleDrawer(id){
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+}
 
-    statut.textContent = `Succès : ${fiches.length} fiches chargées.`;
-    
-    // Remplir le menu déroulant
-    const sel = document.getElementById("selectFiche");
-    sel.innerHTML = "";
-    fiches.forEach(f => {
+const CLE_TOKENS_STORAGE = "atelier_it_tokens_liste";
+const CLE_TOKEN_ACTIF_STORAGE = "atelier_it_token_actif_id";
+const MODELES_FREE_ACTIFS = [
+    "openrouter/free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
+    "google/gemma-3-27b-it:free",
+    "qwen/qwen3-coder:free",
+    "google/gemma-4-31b-it:free",
+    "google/gemma-4-26b-a4b-it:free"
+];
+
+function lireListeTokens(){
+    try { return JSON.parse(localStorage.getItem(CLE_TOKENS_STORAGE) || "[]"); } catch(e){ return []; }
+}
+function ecrireListeTokens(liste){
+    try { localStorage.setItem(CLE_TOKENS_STORAGE, JSON.stringify(liste)); } catch(e){}
+}
+function rafraichirSelectTokens(selectionId = null){
+    const select = document.getElementById("apiTokenSelect");
+    if(!select) return;
+    const tokens = lireListeTokens();
+    const actifId = selectionId !== null ? selectionId : (localStorage.getItem(CLE_TOKEN_ACTIF_STORAGE) || "");
+    select.innerHTML = '<option value="">-- Clé saisie manuellement --</option>';
+    tokens.forEach(t => {
         const opt = document.createElement("option");
-        opt.value = f.id;
-        opt.textContent = `[${f.niveau}] ${f.titre}`;
-        sel.appendChild(opt);
+        opt.value = t.id;
+        opt.textContent = `${t.nom} (${t.token ? t.token.slice(0, 10) + "..." : "vide"})`;
+        select.appendChild(opt);
     });
-    
-    changerFiche();
+    select.value = (actifId && tokens.some(t => t.id === actifId)) ? actifId : "";
 }
-
-// --- AFFICHAGE DE LA FICHE ---
-function changerFiche() {
-    const id = document.getElementById("selectFiche").value;
-    ficheActuelle = fiches.find(f => f.id === id);
-    if (!ficheActuelle) return;
-
-    document.getElementById("ficheDescription").textContent = ficheActuelle.description;
-    document.getElementById("reglesBox").innerHTML = ficheActuelle.reglesHtml || "<p>Aucune règle fournie.</p>";
-    document.getElementById("labelDepart").textContent = ficheActuelle.labelDepart || "Élément de départ :";
-    
-    // Remplir les filtres de catégories
-    const selCat = document.getElementById("filtreType");
-    selCat.innerHTML = `<option value="TOUTES">Toutes</option>`;
-    if (ficheActuelle.categories) {
-        ficheActuelle.categories.forEach(c => {
-            const opt = document.createElement("option");
-            opt.value = c.valeur;
-            opt.textContent = c.label;
-            selCat.appendChild(opt);
-        });
+function enregistrerNouveauToken(){
+    const nomInput = document.getElementById("apiTokenNom");
+    const tokenInput = document.getElementById("apiTokenInput");
+    const statut = document.getElementById("statutAutoFill");
+    const tokenVal = (tokenInput.value || "").trim();
+    if(!tokenVal){ statut.style.color = "#b00000"; statut.textContent = "Saisis d'abord une clé API."; return; }
+    const nomVal = (nomInput.value || "").trim() || `Clé ${lireListeTokens().length + 1}`;
+    const tokens = lireListeTokens();
+    const existant = tokens.find(t => t.token === tokenVal);
+    let idCible = existant ? existant.id : ("tok_" + Date.now());
+    if(existant) existant.nom = nomVal; else tokens.push({ id: idCible, nom: nomVal, token: tokenVal });
+    ecrireListeTokens(tokens);
+    try { localStorage.setItem(CLE_TOKEN_ACTIF_STORAGE, idCible); } catch(e){}
+    nomInput.value = "";
+    rafraichirSelectTokens(idCible);
+    sauvegarderConfigApi();
+    statut.style.color = "#0b6e29";
+    statut.textContent = `Token « ${nomVal} » mémorisé.`;
+}
+function changerTokenSelectionne(){
+    const id = document.getElementById("apiTokenSelect").value;
+    try { localStorage.setItem(CLE_TOKEN_ACTIF_STORAGE, id); } catch(e){}
+    if(id){
+        const trouve = lireListeTokens().find(t => t.id === id);
+        if(trouve) document.getElementById("apiTokenInput").value = trouve.token;
     }
-    
-    // Masquer les filtres spécifiques si ce n'est pas le dictionnaire
-    const estDico = ficheActuelle.activite === "dictionnaire";
-    document.getElementById("blocSensRevision").style.display = estDico ? "inline-block" : "none";
-
-    // Générer le tableau "Voir toute la fiche"
-    let tableHtml = `<h3>Contenu complet de la fiche (${ficheActuelle.items.length} éléments)</h3><div style="overflow-x:auto;"><table class="regles-table"><thead><tr><th>Départ</th><th>Réponse</th><th>Note / Règle</th></tr></thead><tbody>`;
-    ficheActuelle.items.forEach(it => {
-        const dep = it.depart || it.traduction || "";
-        const sol = it.solution || it.mot || "";
-        const note = it.note || it.accords || "";
-        tableHtml += `<tr><td><b>${dep}</b></td><td>${sol}</td><td><i>${note}</i></td></tr>`;
-    });
-    tableHtml += `</tbody></table></div>`;
-    document.getElementById("listeCompleteBox").innerHTML = tableHtml;
-    
-    nouvelleQuestion();
+    sauvegarderConfigApi();
+}
+function supprimerTokenSelectionne(){
+    const id = document.getElementById("apiTokenSelect").value;
+    if(!id) return;
+    ecrireListeTokens(lireListeTokens().filter(t => t.id !== id));
+    try { localStorage.removeItem(CLE_TOKEN_ACTIF_STORAGE); } catch(e){}
+    rafraichirSelectTokens("");
+    sauvegarderConfigApi();
+}
+function synchroniserSelectAvecModele(modele){
+    const select = document.getElementById("apiModelSelect");
+    const input = document.getElementById("apiModelInput");
+    const existe = Array.from(select.options).some(o => o.value === modele);
+    select.value = existe ? modele : "__CUSTOM__";
+    input.style.display = existe ? "none" : "inline-block";
+}
+function onChangementSelectModele(){
+    const select = document.getElementById("apiModelSelect");
+    const input = document.getElementById("apiModelInput");
+    if(select.value === "__CUSTOM__"){ input.style.display = "inline-block"; input.focus(); }
+    else { input.style.display = "none"; input.value = select.value; }
+    sauvegarderConfigApi();
+}
+function onChangementChampModeleManuel(){
+    const val = (document.getElementById("apiModelInput").value || "").trim();
+    const select = document.getElementById("apiModelSelect");
+    select.value = Array.from(select.options).some(o => o.value === val) ? val : "__CUSTOM__";
+    sauvegarderConfigApi();
+}
+function chargerConfigApi(){
+    try {
+        const savedToken = localStorage.getItem("atelier_it_token");
+        const savedUrl = localStorage.getItem("atelier_it_url");
+        const savedModel = localStorage.getItem("atelier_it_model");
+        const savedFallback = localStorage.getItem("atelier_it_fallback");
+        if(savedToken) document.getElementById("apiTokenInput").value = savedToken;
+        if(savedUrl) document.getElementById("apiUrlInput").value = savedUrl.trim();
+        const modeleInitial = (savedModel && savedModel.trim()) ? savedModel.trim() : "openrouter/free";
+        document.getElementById("apiModelInput").value = modeleInitial;
+        synchroniserSelectAvecModele(modeleInitial);
+        if(savedFallback !== null) document.getElementById("apiFallbackAuto").checked = (savedFallback === "true");
+    } catch(e){}
+    rafraichirSelectTokens();
+}
+function sauvegarderConfigApi(){
+    try {
+        const select = document.getElementById("apiModelSelect");
+        const inputModele = document.getElementById("apiModelInput");
+        const modeleActif = (select && select.value && select.value !== "__CUSTOM__") ? select.value.trim() : (inputModele.value || "").trim();
+        localStorage.setItem("atelier_it_token", (document.getElementById("apiTokenInput").value || "").trim());
+        localStorage.setItem("atelier_it_url", (document.getElementById("apiUrlInput").value || "").trim());
+        localStorage.setItem("atelier_it_model", modeleActif);
+        localStorage.setItem("atelier_it_fallback", String(Boolean(document.getElementById("apiFallbackAuto")?.checked)));
+    } catch(e){}
 }
 
-function nouvelleQuestion() {
-    if (!ficheActuelle || !ficheActuelle.items || ficheActuelle.items.length === 0) {
-        document.getElementById("phraseDepart").textContent = "Aucun élément";
+function extraireMessageErreurApi(texteBrut, status){
+    if(!texteBrut) return `HTTP ${status}`;
+    try {
+        const j = JSON.parse(texteBrut);
+        return `HTTP ${status} : ${j?.error?.message || j?.message || texteBrut}`;
+    } catch(_){
+        return `HTTP ${status} : ${texteBrut.slice(0, 180)}`;
+    }
+}
+
+function extraireObjetJsonDepuisTexte(texteBrut){
+    if(!texteBrut || typeof texteBrut !== "string") throw new Error("Réponse texte vide");
+    let propre = texteBrut.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+    const debut = propre.indexOf("{");
+    const fin = propre.lastIndexOf("}");
+    if(debut !== -1 && fin !== -1 && fin > debut) propre = propre.slice(debut, fin + 1);
+    return JSON.parse(propre);
+}
+
+async function appelerUnModele(apiUrl, token, modele, promptComplet){
+    const headers = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    };
+    if(apiUrl.includes("openrouter.ai")){
+        headers["HTTP-Referer"] = window.location.origin && window.location.origin !== "null" ? window.location.origin : "https://localhost";
+        headers["X-Title"] = "Atelier Italien";
+    }
+
+    const resp = await fetch(apiUrl, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+            model: modele,
+            messages: [{ role: "user", content: promptComplet }],
+            temperature: 0.2,
+            max_tokens: 550
+        })
+    });
+
+    const corpsTexte = await resp.text();
+    if(!resp.ok) throw new Error(extraireMessageErreurApi(corpsTexte, resp.status));
+
+    const data = JSON.parse(corpsTexte);
+    if(data?.error) throw new Error(data.error.message || "Erreur JSON API");
+
+    const msg = data?.choices?.[0]?.message || {};
+    const texte = (typeof msg.content === "string" && msg.content.trim())
+        ? msg.content
+        : (msg.reasoning_content || msg.reasoning || "");
+
+    if(!texte || !String(texte).trim()) throw new Error("Réponse vide du modèle");
+    return extraireObjetJsonDepuisTexte(String(texte));
+}
+
+async function testerConnexionApi(){
+    const token = document.getElementById("apiTokenInput").value.trim();
+    const apiUrl = document.getElementById("apiUrlInput").value.trim();
+    const selectModele = document.getElementById("apiModelSelect");
+    const modele = (selectModele && selectModele.value && selectModele.value !== "__CUSTOM__")
+        ? selectModele.value.trim()
+        : document.getElementById("apiModelInput").value.trim();
+    const statut = document.getElementById("statutAutoFill");
+
+    if(!token){
+        statut.style.color = "#b00000";
+        statut.textContent = "Renseigne d'abord une clé API pour lancer le test.";
         return;
     }
-    
-    const idx = Math.floor(Math.random() * ficheActuelle.items.length);
-    courant = ficheActuelle.items[idx];
-    
-    const estDico = ficheActuelle.activite === "dictionnaire";
-    let sens = "FR_IT";
-    if (estDico) {
-        const choixSens = document.getElementById("filtreSens").value;
-        sens = (choixSens === "MIXTE") ? (Math.random() < 0.5 ? "FR_IT" : "IT_FR") : choixSens;
-    }
 
-    if (!estDico || sens === "FR_IT") {
-        document.getElementById("phraseDepart").textContent = courant.traduction || courant.depart;
-        document.getElementById("formeCible").textContent = estDico ? "Traduire en italien" : (courant.cible || "Réponse attendue");
-    } else {
-        document.getElementById("phraseDepart").textContent = courant.mot || courant.solution;
-        document.getElementById("formeCible").textContent = "Traduire en français";
-    }
+    sauvegarderConfigApi();
+    statut.style.color = "#003366";
+    statut.textContent = `Test de connexion avec « ${modele} »...`;
 
-    document.getElementById("reponse").value = "";
-    document.getElementById("message").textContent = "";
-}
-
-function verifier() {
-    if (!courant) return;
-    const rep = document.getElementById("reponse").value.trim().toLowerCase();
-    
-    const estDico = ficheActuelle.activite === "dictionnaire";
-    let solPrincipale = "";
-    let variantes = [];
-
-    if (estDico) {
-        const choixSens = document.getElementById("filtreSens").value;
-        solPrincipale = courant.mot.toLowerCase();
-        variantes = (courant.variantesIt || []).map(v => v.toLowerCase());
-        if (choixSens === "IT_FR" || (choixSens === "MIXTE" && rep === courant.traduction.toLowerCase())) {
-            solPrincipale = courant.traduction.toLowerCase();
-        }
-    } else {
-        solPrincipale = courant.solution.toLowerCase();
-        variantes = (courant.variantes || []).map(v => v.toLowerCase());
-    }
-
-    const ok = (rep === solPrincipale) || variantes.includes(rep);
-
-    total++;
-    if (ok) bonnes++;
-    document.getElementById("bonnes").textContent = bonnes;
-    document.getElementById("total").textContent = total;
-
-    const msg = document.getElementById("message");
-    if (ok) {
-        msg.className = "success";
-        msg.textContent = "Correct !";
-    } else {
-        msg.className = "error";
-        msg.textContent = `Attendu : ${solPrincipale}`;
-        if (!erreurs.find(e => e.id === courant.id)) {
-            erreurs.push(courant);
-            document.getElementById("nbErreurs").textContent = erreurs.length;
-            document.getElementById("btnRevErreurs").disabled = false;
-        }
+    try {
+        const res = await appelerUnModele(apiUrl, token, modele, 'Réponds UNIQUEMENT par {"ok":"bonjour"}');
+        statut.style.color = "#0b6e29";
+        statut.textContent = `Connexion OK avec « ${modele} » (réponse : ${res.ok || "valide"}).`;
+    } catch(err){
+        statut.style.color = "#b00000";
+        statut.textContent = `Échec du test (${modele}) → ${err.message}`;
     }
 }
 
-// --- FORMULAIRE D'AJOUT ---
-function ouvrirFormulaireAjoutDico() {
-    const dico = fiches.find(f => f.activite === "dictionnaire");
-    if (!dico) {
-        alert("Veuillez d'abord cliquer sur 'Charger depuis GitHub'.");
-        return;
+async function preremplirFicheAuto(){
+    const motSaisi = document.getElementById("dicoMotAuto").value.trim();
+    const sens = document.getElementById("dicoSensAuto").value;
+    const token = document.getElementById("apiTokenInput").value.trim();
+    const apiUrl = document.getElementById("apiUrlInput").value.trim();
+    const selectModele = document.getElementById("apiModelSelect");
+    const modelePrincipal = (selectModele && selectModele.value && selectModele.value !== "__CUSTOM__")
+        ? selectModele.value.trim()
+        : document.getElementById("apiModelInput").value.trim();
+    const fallbackAuto = Boolean(document.getElementById("apiFallbackAuto")?.checked);
+    const statut = document.getElementById("statutAutoFill");
+
+    if(!motSaisi){ statut.style.color = "#b00000"; statut.textContent = "Saisis d'abord un mot."; return; }
+    if(!token){ statut.style.color = "#b00000"; statut.textContent = "Renseigne une clé API."; return; }
+
+    sauvegarderConfigApi();
+    const dico = obtenirOuCreerDictionnairePerso();
+    const listeCats = dico.categories.map(c => c.valeur).join(", ");
+    const promptComplet = `Réponds UNIQUEMENT avec un objet JSON valide (sans markdown) :
+{"mot_it":"...","traduction_fr":"...","categorie_suggeree":"${listeCats}","sous_categorie_suggeree":"","phrase_it":"...","phrase_fr":"...","accords":"","irreguliers_conjugaison":"","est_irregulier":false,"note":""}
+Entrée : "${motSaisi}" | Direction : ${sens}`;
+
+    const candidats = fallbackAuto
+        ? [modelePrincipal, ...MODELES_FREE_ACTIFS.filter(m => m !== modelePrincipal)]
+        : [modelePrincipal];
+
+    let derniereErreur = null;
+    for(const modele of candidats){
+        try {
+            statut.style.color = "#003366";
+            statut.textContent = `Analyse linguistique via ${modele}...`;
+            const fiche = await appelerUnModele(apiUrl, token, modele, promptComplet);
+            document.getElementById("dicoMotIt").value = fiche.mot_it || "";
+            document.getElementById("dicoTradFr").value = fiche.traduction_fr || "";
+            document.getElementById("dicoPhraseIt").value = fiche.phrase_it || "";
+            document.getElementById("dicoPhraseFr").value = fiche.phrase_fr || "";
+            document.getElementById("dicoAccords").value = fiche.accords || "";
+            document.getElementById("dicoIrregConj").value = fiche.irreguliers_conjugaison || "";
+            document.getElementById("dicoNote").value = fiche.note || "";
+            document.getElementById("dicoEstIrreg").checked = Boolean(fiche.est_irregulier);
+            if(fiche.categorie_suggeree && dico.categories.some(c => c.valeur === fiche.categorie_suggeree)){
+                document.getElementById("dicoCat").value = fiche.categorie_suggeree;
+            }
+            if(modele !== modelePrincipal){
+                document.getElementById("apiModelInput").value = modele;
+                synchroniserSelectAvecModele(modele);
+                sauvegarderConfigApi();
+            }
+            statut.style.color = "#0b6e29";
+            statut.textContent = `Fiche préremplie avec « ${modele} ».`;
+            return;
+        } catch(err){
+            derniereErreur = err;
+        }
     }
-    
-    const sel = document.getElementById("dicoCat");
-    sel.innerHTML = "";
-    if (dico.categories) {
-        dico.categories.forEach(c => {
-            const opt = document.createElement("option");
-            opt.value = c.valeur;
-            opt.textContent = c.label;
-            sel.appendChild(opt);
-        });
-    }
-    actualiserSelectSousCatFormulaire();
+    statut.style.color = "#b00000";
+    statut.textContent = `Échec → ${derniereErreur ? derniereErreur.message : "Erreur inconnue"}`;
+}
+
+function obtenirOuCreerDictionnairePerso(){
+    if(!fiches.length) fiches = SOCLE_FICHES_DEFAUT.slice();
+    return fiches[0];
+}
+function ouvrirFormulaireAjoutDico(){
+    const dico = obtenirOuCreerDictionnairePerso();
+    const s = document.getElementById("dicoCat");
+    s.innerHTML = "";
+    dico.categories.forEach(c => { const o = document.createElement("option"); o.value = c.valeur; o.textContent = c.label; s.appendChild(o); });
     toggleDrawer("ajoutDicoBox");
 }
-
-function actualiserSelectSousCatFormulaire() {
-    const dico = fiches.find(f => f.activite === "dictionnaire");
-    if (!dico) return;
-    const catVal = document.getElementById("dicoCat").value;
-    const cat = dico.categories?.find(c => c.valeur === catVal);
-    const sc = document.getElementById("dicoSousCat");
-    sc.innerHTML = '<option value="">(aucune)</option>';
-    (cat?.sousCategories || []).forEach(s => {
-        const opt = document.createElement("option");
-        opt.value = s.valeur || s;
-        opt.textContent = s.label || s;
-        sc.appendChild(opt);
-    });
-}
-
-function ajouterEntreeDictionnaire() {
+function ajouterEntreeDictionnaire(){
     const mot = document.getElementById("dicoMotIt").value.trim();
     const traduction = document.getElementById("dicoTradFr").value.trim();
-    if (!mot || !traduction) {
-        document.getElementById("msgAjoutDico").textContent = "Mot et traduction obligatoires.";
-        return;
-    }
-
-    const dico = fiches.find(f => f.activite === "dictionnaire");
-    if (!dico) return;
-
-    dico.items.unshift({
-        id: "voc_" + Date.now(),
-        dateAjout: document.getElementById("dicoDateAjout").value,
-        cat: document.getElementById("dicoCat").value,
-        sousCat: document.getElementById("dicoSousCat").value,
-        mot: mot,
-        traduction: traduction,
-        phrase: document.getElementById("dicoPhraseIt").value,
-        traductionPhrase: document.getElementById("dicoPhraseFr").value,
-        accords: document.getElementById("dicoAccords").value,
-        irreg: false
-    });
-
-    document.getElementById("msgAjoutDico").textContent = `"${mot}" ajouté !`;
-    document.getElementById("statutSeance").textContent = "Mot ajouté en mémoire. Cliquez sur 'Télécharger la sauvegarde' pour sauvegarder.";
-    
-    document.getElementById("dicoMotIt").value = "";
-    document.getElementById("dicoTradFr").value = "";
-    document.getElementById("dicoPhraseIt").value = "";
-    document.getElementById("dicoPhraseFr").value = "";
-    document.getElementById("dicoAccords").value = "";
+    if(!mot || !traduction) return;
+    const dico = obtenirOuCreerDictionnairePerso();
+    dico.items.unshift({ id: "voc_" + Date.now(), cat: document.getElementById("dicoCat").value, mot, traduction });
+    document.getElementById("msgAjoutDico").textContent = `Ajouté : ${mot} ↔ ${traduction}`;
+    changerFiche();
 }
-
-// --- SAUVEGARDE ---
-function telechargerSauvegarde() {
-    const dico = fiches.find(f => f.activite === "dictionnaire");
-    if (!dico) {
-        alert("Aucun dictionnaire chargé.");
-        return;
-    }
-    
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dico, null, 2));
-    const a = document.createElement("a");
-    a.href = dataStr;
-    a.download = "dictionnaire.json";
-    a.click();
-    document.getElementById("statutSeance").textContent = "Fichier téléchargé ! Glissez-le dans GitHub (fiches/).";
+function initialiserApplication(){
+    fiches = SOCLE_FICHES_DEFAUT.slice();
+    const sel = document.getElementById("selectFiche");
+    sel.innerHTML = "";
+    fiches.forEach(f => { const o = document.createElement("option"); o.value = f.id; o.textContent = `[${f.niveau}] ${f.titre}`; sel.appendChild(o); });
+    changerFiche();
 }
-
-// --- API OPENROUTER ---
-function sauvegarderConfigApi() {
-    localStorage.setItem("atelier_token", document.getElementById("apiTokenInput").value.trim());
-    localStorage.setItem("atelier_model", document.getElementById("apiModelSelect").value);
-}
-
-(function chargerConfig() {
-    const token = localStorage.getItem("atelier_token");
-    if (token) document.getElementById("apiTokenInput").value = token;
-    const model = localStorage.getItem("atelier_model");
-    if (model) document.getElementById("apiModelSelect").value = model;
-})();
-
-async function testerConnexionApi() {
-    const token = document.getElementById("apiTokenInput").value.trim();
-    const statut = document.getElementById("statutAutoFill");
-    if (!token) { statut.textContent = "Saisissez une clé API."; return; }
-    
-    statut.textContent = "Test en cours...";
-    try {
-        const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-            method: "POST",
-            headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-                model: document.getElementById("apiModelSelect").value,
-                messages: [{ role: "user", content: "Réponds juste: OK" }] 
-            })
-        });
-        if (resp.ok) statut.textContent = "✅ API connectée !";
-        else statut.textContent = `❌ Erreur HTTP ${resp.status}`;
-    } catch (e) { statut.textContent = "❌ Erreur réseau."; }
-}
-
-async function preremplirFicheAuto() {
-    const mot = document.getElementById("dicoMotAuto").value.trim();
-    const token = document.getElementById("apiTokenInput").value.trim();
-    const statut = document.getElementById("statutAutoFill");
-
-    if (!mot) { statut.textContent = "Saisissez un mot."; return; }
-    if (!token) { statut.textContent = "Saisissez une clé API."; return; }
-
-    statut.textContent = "L'IA réfléchit...";
-    
-    const prompt = `Pour le mot "${mot}", donne-moi sa traduction en italien, une phrase d'exemple en italien, et sa traduction en français.
-Réponds UNIQUEMENT avec un objet JSON valide comme ceci (sans markdown) :
-{"mot_it":"...", "trad_fr":"...", "phrase_it":"...", "phrase_fr":"...", "accords":""}`;
-
-    try {
-        const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-            method: "POST",
-            headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-                model: document.getElementById("apiModelSelect").value,
-                messages: [{ role: "user", content: prompt }] 
-            })
-        });
-        
-        const data = await resp.json();
-        if (data.error) throw new Error(data.error.message);
-        
-        let texte = data.choices[0].message.content;
-        texte = texte.replace(/```json/g, "").replace(/```/g, "").trim();
-        const resultat = JSON.parse(texte);
-
-        document.getElementById("dicoMotIt").value = resultat.mot_it || "";
-        document.getElementById("dicoTradFr").value = resultat.trad_fr || "";
-        document.getElementById("dicoPhraseIt").value = resultat.phrase_it || "";
-        document.getElementById("dicoPhraseFr").value = resultat.phrase_fr || "";
-        document.getElementById("dicoAccords").value = resultat.accords || "";
-        statut.textContent = "✅ Fiche préremplie !";
-    } catch (e) {
-        statut.textContent = "❌ Échec : " + e.message;
+function changerFiche(){
+    ficheActuelle = fiches[0];
+    document.getElementById("ficheDescription").textContent = ficheActuelle.description;
+    const selCat = document.getElementById("filtreType");
+    selCat.innerHTML = `<option value="TOUTES">Toutes les catégories</option>`;
+    ficheActuelle.categories.forEach(c => { const o = document.createElement("option"); o.value = c.valeur; o.textContent = c.label; selCat.appendChild(o); });
+    courant = ficheActuelle.items[0] || null;
+    if(courant){
+        document.getElementById("phraseDepart").textContent = courant.traduction;
+        document.getElementById("formeCible").textContent = "Traduire en italien";
     }
 }
+function verifier(){
+    if(!courant) return;
+    const rep = document.getElementById("reponse").value.trim().toLowerCase();
+    const ok = rep === courant.mot.toLowerCase();
+    document.getElementById("message").className = ok ? "success" : "error";
+    document.getElementById("message").textContent = ok ? "Correct !" : `Attendu : ${courant.mot}`;
+}
+function nouvelleQuestion(){ changerFiche(); document.getElementById("reponse").value = ""; document.getElementById("message").textContent = ""; }
+function actualiserSelectSousCatFormulaire(){}
+function onChangementCategorieFiltre(){}
+function appliquerFiltres(){}
+function filtrerParCecrl(){}
+function ouvertureSeanceFichiers(){ document.getElementById("inputOuvertureJson").click(); }
+function ouvertureSeanceDossier(){ document.getElementById("inputOuvertureDossier").click(); }
+function traiterOuvertureJson(){}
+function enregistrerSauvegarde(){}
+function exporterFicheCourante(){}
 
-function resetScore() { bonnes = 0; total = 0; document.getElementById("bonnes").textContent = 0; document.getElementById("total").textContent = 0; }
-function demarrerRevisionErreurs() { alert("Fonction de révision à venir."); }
-function arreterRevisionErreurs() { alert("Fonction de révision à venir."); }
-function onChangementCategorieFiltre() { appliquerFiltres(); }
-function appliquerFiltres() { nouvelleQuestion(); }
-
+chargerConfigApi();
+initialiserApplication();
 </script>
+
 </body>
 </html>
