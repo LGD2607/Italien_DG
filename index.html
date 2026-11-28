@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#003366">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>Atelier Italien — GitHub, PC &amp; Tablette</title>
 
 <style>
@@ -345,6 +348,12 @@ button.primary-btn {
     border-radius: 5px;
     cursor: pointer;
 }
+.barre-rapide{position:sticky;top:0;z-index:50;display:flex;gap:6px;flex-wrap:wrap;align-items:center;background:#fff;padding:8px 12px;border-bottom:2px solid #003366;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.barre-rapide input{flex:1;min-width:160px;padding:10px;font-size:16px}
+.barre-rapide button,.audio-bar button{padding:10px 14px;font-size:15px;min-height:44px;border:1px solid #003366;background:#eef3fa;border-radius:8px;cursor:pointer}
+.audio-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.voix-box{margin:6px 0;font-size:14px}.voix-box select{max-width:100%;margin:2px 0}
+@media (max-width:700px){input,select,textarea{font-size:16px!important}button{min-height:44px}header{flex-wrap:wrap;gap:8px}.panel{padding:12px}#phraseDepart{font-size:1.3em}}
 </style>
 </head>
 
@@ -359,6 +368,20 @@ button.primary-btn {
         Cadre CECRL (A1–C2)
     </div>
 </header>
+
+<div class="barre-rapide">
+    <input id="rapideMot" placeholder="Mot entendu ou à retenir…" autocomplete="off" autocapitalize="none" autocorrect="off">
+    <button type="button" onclick="ajoutRapide()">＋ Noter</button>
+    <button type="button" onclick="completerEnAttente()">✨ Compléter (<span id="nbAttente">0</span>)</button>
+    <span id="statutRapide" style="font-size:13px;"></span>
+</div>
+<details class="voix-box" style="padding:6px 12px;"><summary>☁ Synchronisation entre appareils</summary>
+    <input type="password" id="ghTokenInput" placeholder="Jeton GitHub (droit « gist » uniquement)" autocomplete="off" style="width:100%;padding:8px;box-sizing:border-box;">
+    <button type="button" class="btn-mini" onclick="memoriserTokenGh()">Activer</button>
+    <button type="button" class="btn-mini" onclick="syncGist()">Synchroniser maintenant</button>
+    <button type="button" class="btn-mini" onclick="oublierSync()">Oublier le jeton</button>
+    <div id="statutSync" style="font-size:13px;"></div>
+</details>
 
 <div class="seance-bar">
     <button type="button" class="btn-ouverture" onclick="chargerJsonDepuisGitHub()">Sync GitHub (.json)</button>
@@ -546,6 +569,18 @@ button.primary-btn {
     <div class="panel">
         <div id="phraseDepart"></div>
         <div id="formeCible" class="forme-cible-box"></div>
+        <div class="audio-bar">
+            <button type="button" onclick="parler('mot')">🔊 Mot</button>
+            <button type="button" onclick="parler('phrase')">🔊 Phrase</button>
+            <button type="button" onclick="parler('fr')">🔊 FR</button>
+            <button type="button" id="btnVoix" onclick="basculerVoix()">Voix 1</button>
+            <label style="font-size:14px;"><input type="checkbox" id="audioAuto"> lecture auto</label>
+        </div>
+        <details class="voix-box"><summary>Réglages des voix</summary>
+            <div>Italien : <select id="voix_it_1" onchange="memoVoix()"></select> <select id="voix_it_2" onchange="memoVoix()"></select></div>
+            <div>Français : <select id="voix_fr_1" onchange="memoVoix()"></select> <select id="voix_fr_2" onchange="memoVoix()"></select></div>
+            <small>Voix 1 = féminine, Voix 2 = masculine quand l'appareil les propose ; sinon choisissez-les ici.</small>
+        </details>
         <input id="reponse" autocomplete="off" placeholder="Écris la réponse attendue...">
         <button class="action-btn primary-btn" onclick="verifier()">Valider</button>
         <button class="action-btn" onclick="nouvelleQuestion()">Suivante</button>
@@ -669,9 +704,11 @@ function normaliserFicheJson(raw){
             traductionPhrase: it.traductionPhrase || "",
             accords: it.accords || "",
             irreguliersConjugaison: it.irreguliersConjugaison || "",
-            note: it.note || ""
+            note: it.note || "",
+            dateAjout: it.dateAjout || "",
+            aCompleter: Boolean(it.aCompleter)
         };
-    }).filter(it => (it.depart && it.solution) || (it.mot && it.traduction));
+    }).filter(it => it.aCompleter || (it.depart && it.solution) || (it.mot && it.traduction));
 
     if(!items.length) return null;
     return {
@@ -687,7 +724,13 @@ function normaliserFicheJson(raw){
 
 function ajouterOuRemplacerFiche(ficheNorm){
     const idx = fiches.findIndex(f => f.id === ficheNorm.id);
-    if(idx !== -1) fiches[idx] = ficheNorm;
+    if(idx !== -1){
+        if(ficheNorm.activite === "dictionnaire"){
+            ficheNorm.items = fusionnerItemsDico(fiches[idx].items, ficheNorm.items);
+            fiches[idx] = ficheNorm;
+            sauverLocal();
+        } else fiches[idx] = ficheNorm;
+    }
     else fiches.push(ficheNorm);
 }
 
@@ -899,6 +942,7 @@ function appliquerFiltres(){
     itemsFiltres = (ficheActuelle.items || []).filter(it => {
         if(catVal !== "TOUTES" && it.cat !== catVal) return false;
         if(sousVal !== "TOUTES" && it.sousCat !== sousVal) return false;
+        if(it.aCompleter) return false;
         return true;
     });
 
@@ -978,6 +1022,7 @@ function verifier(){
     msg.innerHTML = ok
         ? `<b>Correct !</b> (${attendues[0]})${extra ? "<br>" + extra : ""}`
         : `<b>Attendu :</b> ${attendues.join(" / ")}${extra ? "<br>" + extra : ""}`;
+    if(document.getElementById("audioAuto")?.checked) parler("mot");
 }
 
 // ============================================================================
@@ -1418,8 +1463,10 @@ function ajouterEntreeDictionnaire(){
         traductionPhrase: document.getElementById("dicoPhraseFr").value.trim(),
         accords: document.getElementById("dicoAccords").value.trim(),
         irreguliersConjugaison: document.getElementById("dicoIrregConj").value.trim(),
-        note: document.getElementById("dicoNote").value.trim()
+        note: document.getElementById("dicoNote").value.trim(),
+        dateAjout: document.getElementById("dicoDateAjout").value || new Date().toISOString().slice(0, 10)
     });
+    sauverLocal();
 
     document.getElementById("msgAjoutDico").textContent = `Ajouté : ${mot} ↔ ${traduction}`;
     peuplerSelectFiches();
@@ -1430,15 +1477,275 @@ document.getElementById("reponse").addEventListener("keydown", function(e){
     if(e.key === "Enter") verifier();
 });
 
+// ============================================================================
+// SAUVEGARDE LOCALE, AJOUT RAPIDE, AUDIO
+// ============================================================================
+const CLE_DICO_LOCAL = "atelier_it_dico_v1";
+const CLE_VOIX = "atelier_it_voix";
+const FEM = /elsa|isabella|alice|federica|paola|elena|emma|samantha|karen|victoria|zira|aria|jenny|hazel|susan|am[eé]lie|audrey|julie|hortense|denise|female|femme/i;
+const MASC = /diego|luca|cosimo|giorgio|daniel|alex|david|mark|guy|ryan|thomas|paul|henri|claude|male|homme/i;
+
+function fusionnerItemsDico(existants, entrants){
+    const res = existants.slice();
+    const cle = i => normaliser((i.mot || "") + "|" + (i.traduction || ""));
+    entrants.forEach(e => {
+        const k = res.findIndex(x => x.id === e.id || (cle(x) === cle(e) && cle(e) !== "|"));
+        if(k === -1) res.push(e);
+        else if(res[k].aCompleter && !e.aCompleter) res[k] = e;
+    });
+    return res;
+}
+function sauverLocal(){
+    try {
+        const d = fiches.find(f => f.activite === "dictionnaire");
+        if(d) localStorage.setItem(CLE_DICO_LOCAL, JSON.stringify(d));
+    } catch(e){}
+    majBadgeRapide();
+    planifierSync();
+}
+function chargerLocal(){
+    try {
+        const raw = localStorage.getItem(CLE_DICO_LOCAL);
+        if(!raw) return;
+        const n = normaliserFicheJson(JSON.parse(raw));
+        if(n) ajouterOuRemplacerFiche(n);
+    } catch(e){}
+}
+function majBadgeRapide(){
+    const d = fiches.find(f => f.activite === "dictionnaire");
+    const n = d ? d.items.filter(i => i.aCompleter).length : 0;
+    const el = document.getElementById("nbAttente");
+    if(el) el.textContent = String(n);
+}
+function statutRapide(txt, couleur){
+    const el = document.getElementById("statutRapide");
+    if(el){ el.textContent = txt; el.style.color = couleur || "#333"; }
+}
+function ajoutRapide(){
+    const inp = document.getElementById("rapideMot");
+    const txt = inp.value.trim();
+    if(!txt) return;
+    const dico = obtenirOuCreerDictionnairePerso();
+    if(dico.items.some(i => normaliser(i.mot || "") === normaliser(txt))){
+        statutRapide("Déjà présent : " + txt, "#b36b00");
+        inp.value = "";
+        return;
+    }
+    dico.items.unshift({
+        id: "voc_" + Date.now(), cat: dico.categories[0].valeur, sousCat: "",
+        mot: txt, traduction: "", depart: "", solution: "", phrase: "", traductionPhrase: "",
+        accords: "", irreguliersConjugaison: "", note: "", variantesFr: [], variantesIt: [],
+        dateAjout: new Date().toISOString().slice(0, 10), aCompleter: true
+    });
+    inp.value = "";
+    sauverLocal();
+    statutRapide("Noté : " + txt, "#0b6e29");
+    inp.focus();
+}
+async function completerEnAttente(){
+    const dico = obtenirOuCreerDictionnairePerso();
+    const liste = dico.items.filter(i => i.aCompleter);
+    if(!liste.length){ statutRapide("Rien à compléter.", "#555"); return; }
+    const token = document.getElementById("apiTokenInput").value.trim();
+    const apiUrl = document.getElementById("apiUrlInput").value.trim();
+    if(!token){ statutRapide("Renseigne d'abord une clé API (section « Ajouter un mot »).", "#b00000"); return; }
+    const fallbackAuto = Boolean(document.getElementById("apiFallbackAuto")?.checked);
+    const delaiMs = Number(document.getElementById("apiDelaiFallback")?.value || "1000");
+    const candidats = construireCandidatsOrdonnes(modeleActuelSaisi(), fallbackAuto);
+    const listeCats = dico.categories.map(c => c.valeur).join(", ");
+    let ok = 0, ko = 0, derniereErr = "";
+    for(let k = 0; k < liste.length; k++){
+        const it = liste[k];
+        statutRapide(`Complétion ${k + 1}/${liste.length} : ${it.mot}…`, "#003366");
+        const prompt = `Réponds UNIQUEMENT avec un objet JSON valide (sans markdown) :
+{"mot_it":"...","traduction_fr":"...","categorie_suggeree":"${listeCats}","sous_categorie_suggeree":"","phrase_it":"...","phrase_fr":"...","accords":"","irreguliers_conjugaison":"","est_irregulier":false,"note":""}
+Si l'entrée est en français, donne sa traduction italienne dans mot_it. Si elle est en italien, donne la traduction française.
+Entrée : "${it.mot}"`;
+        try {
+            const { resultat: f } = await executerAvecSequenceFree(apiUrl, token, candidats, prompt, delaiMs);
+            if(!f.mot_it || !f.traduction_fr) throw new Error("Réponse incomplète");
+            it.mot = f.mot_it; it.traduction = f.traduction_fr;
+            it.depart = it.traduction; it.solution = it.mot;
+            it.phrase = f.phrase_it || ""; it.traductionPhrase = f.phrase_fr || "";
+            it.accords = f.accords || ""; it.irreguliersConjugaison = f.irreguliers_conjugaison || "";
+            it.note = f.note || "";
+            if(f.categorie_suggeree && dico.categories.some(c => c.valeur === f.categorie_suggeree)) it.cat = f.categorie_suggeree;
+            it.aCompleter = false;
+            ok++;
+            sauverLocal();
+        } catch(e){ ko++; derniereErr = e.message; }
+        await pauseMs(300);
+    }
+    statutRapide(`${ok} complété(s)` + (ko ? `, ${ko} échec(s) → ${derniereErr}` : ""), ko ? "#b00000" : "#0b6e29");
+    peuplerSelectFiches();
+    changerFiche();
+}
+
+// --- Audio : 2 voix par langue (1 = féminine, 2 = masculine si l'appareil les propose)
+let voixCache = [];
+let slotVoix = 1;
+function lireVoixPrefs(){ try { return JSON.parse(localStorage.getItem(CLE_VOIX) || "{}"); } catch(e){ return {}; } }
+function genreVoix(v){ return FEM.test(v.name) ? "F" : (MASC.test(v.name) ? "H" : "?"); }
+function voixDeLangue(l2){ return voixCache.filter(v => v.lang.toLowerCase().replace("_", "-").startsWith(l2)); }
+function peuplerSelectsVoix(){
+    const prefs = lireVoixPrefs();
+    ["it", "fr"].forEach(l2 => {
+        const vs = voixDeLangue(l2);
+        [1, 2].forEach(n => {
+            const sel = document.getElementById(`voix_${l2}_${n}`);
+            if(!sel) return;
+            sel.innerHTML = "";
+            vs.forEach(v => {
+                const o = document.createElement("option");
+                o.value = v.name; o.textContent = `${v.name} [${genreVoix(v)}]`;
+                sel.appendChild(o);
+            });
+            let choix = prefs[`${l2}_${n}`];
+            if(!choix || !vs.some(v => v.name === choix)){
+                const voulu = n === 1 ? "F" : "H";
+                const t = vs.find(v => genreVoix(v) === voulu) || vs[n - 1] || vs[0];
+                choix = t ? t.name : "";
+            }
+            sel.value = choix;
+        });
+    });
+}
+function memoVoix(){
+    const prefs = {};
+    ["it", "fr"].forEach(l2 => [1, 2].forEach(n => {
+        const sel = document.getElementById(`voix_${l2}_${n}`);
+        if(sel) prefs[`${l2}_${n}`] = sel.value;
+    }));
+    try { localStorage.setItem(CLE_VOIX, JSON.stringify(prefs)); } catch(e){}
+}
+function basculerVoix(){
+    slotVoix = slotVoix === 1 ? 2 : 1;
+    document.getElementById("btnVoix").textContent = "Voix " + slotVoix;
+}
+function parlerTexte(txt, l2){
+    if(!txt || !("speechSynthesis" in window)) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(txt);
+    const nom = document.getElementById(`voix_${l2}_${slotVoix}`)?.value;
+    const v = voixCache.find(x => x.name === nom);
+    if(v){ u.voice = v; u.lang = v.lang; } else u.lang = l2 === "it" ? "it-IT" : "fr-FR";
+    u.rate = 0.9;
+    speechSynthesis.speak(u);
+}
+function parler(quoi){
+    if(!courant) return;
+    if(quoi === "mot") parlerTexte(courant.mot || courant.solution, "it");
+    else if(quoi === "phrase") parlerTexte(courant.phrase, "it");
+    else parlerTexte(courant.traduction, "fr");
+}
+if("speechSynthesis" in window){
+    speechSynthesis.onvoiceschanged = () => { voixCache = speechSynthesis.getVoices(); peuplerSelectsVoix(); };
+    voixCache = speechSynthesis.getVoices();
+    peuplerSelectsVoix();
+}
+document.getElementById("rapideMot").addEventListener("keydown", e => { if(e.key === "Enter") ajoutRapide(); });
+
+// --- Synchronisation entre appareils (Gist GitHub secret)
+const CLE_GH_TOKEN = "atelier_it_gh_token";
+const CLE_GIST_ID = "atelier_it_gist_id";
+const DESC_GIST = "Atelier Italien dictionnaire";
+const FICHIER_GIST = "dictionnaire.json";
+let enSync = false, minuterieSync = null;
+
+function statutSync(t, c){
+    const e = document.getElementById("statutSync");
+    if(e){ e.textContent = t; e.style.color = c || "#333"; }
+}
+function planifierSync(){
+    if(enSync || !localStorage.getItem(CLE_GH_TOKEN)) return;
+    clearTimeout(minuterieSync);
+    minuterieSync = setTimeout(syncGist, 3000);
+}
+async function ghFetch(url, opts = {}){
+    const r = await fetch(url, { ...opts, headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": "Bearer " + localStorage.getItem(CLE_GH_TOKEN),
+        "Content-Type": "application/json" } });
+    if(!r.ok){
+        const e = new Error(r.status === 401 ? "jeton refusé (401)" : "GitHub HTTP " + r.status);
+        e.status = r.status;
+        throw e;
+    }
+    return r.json();
+}
+function memoriserTokenGh(){
+    const champ = document.getElementById("ghTokenInput");
+    const v = champ.value.trim();
+    if(!v){ statutSync("Colle d'abord le jeton.", "#b00000"); return; }
+    try { localStorage.setItem(CLE_GH_TOKEN, v); localStorage.removeItem(CLE_GIST_ID); } catch(e){}
+    champ.value = "";
+    syncGist();
+}
+function oublierSync(){
+    try { localStorage.removeItem(CLE_GH_TOKEN); localStorage.removeItem(CLE_GIST_ID); } catch(e){}
+    statutSync("Synchronisation désactivée sur cet appareil.", "#555");
+}
+async function syncGist(){
+    if(enSync || !localStorage.getItem(CLE_GH_TOKEN)) return;
+    if(!navigator.onLine){ statutSync("Hors ligne : synchro à la reconnexion.", "#b36b00"); return; }
+    enSync = true;
+    statutSync("Synchronisation…", "#003366");
+    try {
+        let id = localStorage.getItem(CLE_GIST_ID);
+        if(!id){
+            const liste = await ghFetch("https://api.github.com/gists?per_page=100");
+            const g = liste.find(x => x.description === DESC_GIST && x.files && x.files[FICHIER_GIST]);
+            if(g){ id = g.id; localStorage.setItem(CLE_GIST_ID, id); }
+        }
+        const dico = obtenirOuCreerDictionnairePerso();
+        let distant = { categories: [], items: [] };
+        if(id){
+            const g = await ghFetch("https://api.github.com/gists/" + id);
+            const f = g.files[FICHIER_GIST];
+            if(f){
+                let txt = f.content;
+                if(f.truncated) txt = await (await fetch(f.raw_url)).text();
+                try { distant = JSON.parse(txt); } catch(e){}
+            }
+        }
+        const cle = a => JSON.stringify(a.map(i => [i.id, !!i.aCompleter, i.mot, i.traduction]).sort());
+        const avantLocal = cle(dico.items);
+        const n = normaliserFicheJson({ id: dico.id, activite: "dictionnaire", categories: distant.categories, items: distant.items });
+        if(n){
+            dico.items = fusionnerItemsDico(dico.items, n.items);
+            n.categories.forEach(c => { if(!dico.categories.some(x => x.valeur === c.valeur)) dico.categories.push(c); });
+        }
+        if(cle(dico.items) !== cle(distant.items || [])){
+            const contenu = JSON.stringify({ version: 1, maj: new Date().toISOString(), categories: dico.categories, items: dico.items }, null, 1);
+            const corps = JSON.stringify({ description: DESC_GIST, public: false, files: { [FICHIER_GIST]: { content: contenu } } });
+            if(id) await ghFetch("https://api.github.com/gists/" + id, { method: "PATCH", body: corps });
+            else {
+                const cree = await ghFetch("https://api.github.com/gists", { method: "POST", body: corps });
+                localStorage.setItem(CLE_GIST_ID, cree.id);
+            }
+        }
+        sauverLocal();
+        if(cle(dico.items) !== avantLocal){ peuplerSelectFiches(); changerFiche(); }
+        statutSync("Synchronisé ✓ " + new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }), "#0b6e29");
+    } catch(e){
+        statutSync("Échec synchro : " + e.message, "#b00000");
+    } finally { enSync = false; }
+}
+document.addEventListener("visibilitychange", () => { if(!document.hidden) syncGist(); });
+window.addEventListener("online", syncGist);
+
 function initialiserApplication(){
     fiches = SOCLE_FICHES_DEFAUT.map(normaliserFicheJson).filter(Boolean);
+    chargerLocal();
+    majBadgeRapide();
     peuplerSelectFiches();
     changerFiche();
 }
 
 chargerConfigApi();
 initialiserApplication();
-chargerJsonDepuisGitHub();
+chargerJsonDepuisGitHub().then(() => { chargerLocal(); majBadgeRapide(); peuplerSelectFiches(); changerFiche(); syncGist(); }).catch(() => { syncGist(); });
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("sw.js").catch(() => {});
 </script>
 
 </body>
