@@ -1,0 +1,1124 @@
+{
+ "id": "imperatif_A2",
+ "activite": "imperatif",
+ "niveau": "A2",
+ "titre": "L'impératif italien (Informel & Formel)",
+ "description": "Transformation de l'impératif : formes informelles (noi, voi) et formelles (Lei, Loro), négation, irréguliers et placement des pronoms.",
+ "labelDepart": "Phrase de départ :",
+ "labelSaisie": "Phrase transformée attendue :",
+ "placeholder": "Écris la phrase attendue...",
+ "reglesHtml": "<h3>Repères de conjugaison</h3><p style='font-size:13px;'>Informel Tu : -are → -a, -ere/-ire → -i (pronom soudé après). Formel Lei : -are → -i, -ere/-ire → -a (pronom avant).</p>",
+ "cours": {
+  "titre": "Cours : l'impératif italien",
+  "sections": [
+   {
+    "titre": "À quoi sert l'impératif ?",
+    "texte": "L'impératif sert à **donner un ordre**, un conseil, une consigne, ou à inviter quelqu'un (« Allons-y ! »). En italien, il existe cinq personnes : **tu**, **noi**, **voi** (registre informel) et **Lei**, **Loro** (registre formel, politesse).",
+    "exemples": [
+     {
+      "it": "Chiudi la porta!",
+      "fr": "Ferme la porte !"
+     },
+     {
+      "it": "Andiamo al mare!",
+      "fr": "Allons à la mer !"
+     },
+     {
+      "it": "Prenda un caffè!",
+      "fr": "Prenez un café ! (Lei)"
+     }
+    ]
+   },
+   {
+    "titre": "Informel : tu, noi, voi",
+    "texte": "À **tu**, les verbes en **-are** prennent **-a**, et les verbes en **-ere** et **-ire** prennent **-i**. Pour **noi** et **voi**, l'impératif est identique à la forme du présent de l'indicatif.",
+    "tableau": {
+     "entetes": [
+      "Verbe",
+      "tu",
+      "noi",
+      "voi"
+     ],
+     "lignes": [
+      [
+       "parlare",
+       "parla",
+       "parliamo",
+       "parlate"
+      ],
+      [
+       "scrivere",
+       "scrivi",
+       "scriviamo",
+       "scrivete"
+      ],
+      [
+       "dormire",
+       "dormi",
+       "dormiamo",
+       "dormite"
+      ],
+      [
+       "finire",
+       "finisci",
+       "finiamo",
+       "finite"
+      ]
+     ]
+    },
+    "astuce": "Les verbes en -ire comme **finire**, **capire**, **preferire** prennent -isc- à tu (**finisci**), mais pas à noi ni à voi.",
+    "exemples": [
+     {
+      "it": "Parla più piano!",
+      "fr": "Parle plus doucement !"
+     },
+     {
+      "it": "Scrivete il vostro nome!",
+      "fr": "Écrivez votre nom !"
+     },
+     {
+      "it": "Dormi bene!",
+      "fr": "Dors bien !"
+     }
+    ]
+   },
+   {
+    "titre": "Formel : Lei et Loro",
+    "texte": "Pour vouvoyer une personne (**Lei**) ou plusieurs (**Loro**, très formel, rare à l'oral), on emploie les formes du **subjonctif présent**. Les terminaisons sont **inversées** par rapport à tu : **-are → -i**, **-ere / -ire → -a**.",
+    "tableau": {
+     "entetes": [
+      "Verbe",
+      "Lei",
+      "Loro"
+     ],
+     "lignes": [
+      [
+       "parlare",
+       "parli",
+       "parlino"
+      ],
+      [
+       "scrivere",
+       "scriva",
+       "scrivano"
+      ],
+      [
+       "dormire",
+       "dorma",
+       "dormano"
+      ],
+      [
+       "finire",
+       "finisca",
+       "finiscano"
+      ]
+     ]
+    },
+    "astuce": "Piège classique : « parla » (tu) mais « **parli** » (Lei) ; « scrivi » (tu) mais « **scriva** » (Lei). À l'oral, on utilise souvent **voi** à la place de Loro.",
+    "exemples": [
+     {
+      "it": "Parli con il direttore!",
+      "fr": "Parlez avec le directeur !"
+     },
+     {
+      "it": "Scriva il suo indirizzo, per favore.",
+      "fr": "Écrivez votre adresse, s'il vous plaît."
+     }
+    ]
+   },
+   {
+    "titre": "La négation",
+    "points": [
+     "**tu** : non + **infinitif** → Non parlare ! Non scrivere !",
+     "**noi, voi** : non + la même forme → Non parliamo ! Non parlate !",
+     "**Lei, Loro** : non + la même forme → Non parli ! Non parlino !"
+    ],
+    "astuce": "Seul **tu** change à la forme négative : on utilise l'infinitif.",
+    "exemples": [
+     {
+      "it": "Non parlare in classe!",
+      "fr": "Ne parle pas en classe !"
+     },
+     {
+      "it": "Non scrivete qui!",
+      "fr": "N'écrivez pas ici !"
+     },
+     {
+      "it": "Non fumi qui, per favore.",
+      "fr": "Ne fumez pas ici, s'il vous plaît."
+     }
+    ]
+   },
+   {
+    "titre": "Les verbes irréguliers",
+    "texte": "Quelques verbes très courants ont un impératif irrégulier, surtout à **tu** et à **Lei**. Les formes de **noi** et **voi** suivent généralement le présent.",
+    "tableau": {
+     "entetes": [
+      "Verbe",
+      "tu",
+      "Lei",
+      "noi",
+      "voi"
+     ],
+     "lignes": [
+      [
+       "andare",
+       "va'",
+       "vada",
+       "andiamo",
+       "andate"
+      ],
+      [
+       "fare",
+       "fa'",
+       "faccia",
+       "facciamo",
+       "fate"
+      ],
+      [
+       "dire",
+       "di'",
+       "dica",
+       "diciamo",
+       "dite"
+      ],
+      [
+       "dare",
+       "da'",
+       "dia",
+       "diamo",
+       "date"
+      ],
+      [
+       "stare",
+       "sta'",
+       "stia",
+       "stiamo",
+       "state"
+      ],
+      [
+       "essere",
+       "sii",
+       "sia",
+       "siamo",
+       "siate"
+      ],
+      [
+       "avere",
+       "abbi",
+       "abbia",
+       "abbiamo",
+       "abbiate"
+      ],
+      [
+       "venire",
+       "vieni",
+       "venga",
+       "veniamo",
+       "venite"
+      ],
+      [
+       "uscire",
+       "esci",
+       "esca",
+       "usciamo",
+       "uscite"
+      ],
+      [
+       "bere",
+       "bevi",
+       "beva",
+       "beviamo",
+       "bevete"
+      ]
+     ]
+    },
+    "astuce": "Pour andare, fare, dare et stare, on rencontre aussi à tu les formes **vai, fai, dai, stai**.",
+    "exemples": [
+     {
+      "it": "Va' via!",
+      "fr": "Va-t'en !"
+     },
+     {
+      "it": "Fai attenzione!",
+      "fr": "Fais attention !"
+     },
+     {
+      "it": "Sii gentile!",
+      "fr": "Sois gentil !"
+     },
+     {
+      "it": "Venga qui!",
+      "fr": "Venez ici !"
+     }
+    ]
+   },
+   {
+    "titre": "Les pronoms : où les placer ?",
+    "texte": "Avec les pronoms compléments et réfléchis, la place dépend de la forme.",
+    "points": [
+     "**tu, noi, voi (affirmatif)** : pronom **soudé après** le verbe → Dimmi ! Mangiamolo ! Alzatevi !",
+     "**Lei, Loro** : pronom **avant** le verbe → Mi dica ! Si sieda !",
+     "**tu (négatif)** : avant l'infinitif ou soudé à lui → Non lo fare ! / Non farlo !",
+     "**noi, voi (négatif)** : avant ou soudé → Non lo fate ! / Non fatelo !"
+    ],
+    "astuce": "Après **va', fa', di', da', sta'**, la première lettre du pronom est **doublée** : di' + mi = **dimmi**, da' + mi = **dammi**, fa' + lo = **fallo**. Exception : **gli** (di' + gli = **digli**).",
+    "exemples": [
+     {
+      "it": "Dammi il libro!",
+      "fr": "Donne-moi le livre !"
+     },
+     {
+      "it": "Alzatevi, per favore!",
+      "fr": "Levez-vous, s'il vous plaît !"
+     },
+     {
+      "it": "Si sieda qui!",
+      "fr": "Asseyez-vous ici !"
+     },
+     {
+      "it": "Non farlo!",
+      "fr": "Ne le fais pas !"
+     }
+    ]
+   },
+   {
+    "titre": "À retenir",
+    "points": [
+     "**tu** : -a (verbes en -are), -i (verbes en -ere / -ire) ; négatif = non + infinitif",
+     "**noi, voi** : identiques au présent de l'indicatif",
+     "**Lei, Loro** : subjonctif présent, terminaisons inversées (-i / -a)",
+     "Irréguliers essentiels : andare, fare, dire, dare, stare, essere, avere",
+     "Pronoms soudés après tu / noi / voi, placés avant le verbe avec Lei / Loro"
+    ]
+   }
+  ]
+ },
+ "categories": [
+  {
+   "valeur": "tu",
+   "label": "Toi (tu)",
+   "rappel": "**tu** : -are → **-a**, -ere/-ire → **-i**. Irréguliers : va', fa', di', da', sta', **sii**, **abbi**, vieni, esci, bevi."
+  },
+  {
+   "valeur": "lei",
+   "label": "Formel (Lei)",
+   "rappel": "**Lei** (subjonctif) : -are → **-i**, -ere/-ire → **-a**. Pronoms **avant** le verbe. Irréguliers : vada, faccia, dica, dia, stia, sia, abbia, venga, esca, beva."
+  },
+  {
+   "valeur": "loro",
+   "label": "Formel (Loro)",
+   "rappel": "**Loro** : -are → **-ino**, -ere/-ire → **-ano**. Irréguliers : vadano, facciano, dicano, diano, siano, vengano, escano."
+  },
+  {
+   "valeur": "noi",
+   "label": "Nous (noi)",
+   "rappel": "**noi** : identique au présent (**-iamo**). Pronoms soudés : alziamoci, facciamolo. Irréguliers : andiamo, facciamo, diciamo, usciamo."
+  },
+  {
+   "valeur": "voi",
+   "label": "Vous (voi)",
+   "rappel": "**voi** : identique au présent (-ate, -ete, -ite). Pronoms soudés : alzatevi, datemi. Irréguliers : siate, abbiate."
+  },
+  {
+   "valeur": "neg",
+   "label": "Négation",
+   "rappel": "**tu** : non + **infinitif**. **noi, voi, Lei** : non + la même forme. Pronoms : non farlo / non lo fare."
+  }
+ ],
+ "filtresBooleens": [
+  {
+   "cle": "neg",
+   "label": "Négatif"
+  },
+  {
+   "cle": "irreg",
+   "label": "Irréguliers"
+  },
+  {
+   "cle": "refl",
+   "label": "Réflexifs"
+  },
+  {
+   "cle": "pronom",
+   "label": "Avec pronoms"
+  }
+ ],
+ "items": [
+  {
+   "depart": "Fa' attenzione.",
+   "solution": "Faccia attenzione.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "fare → faccia (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Chiudi la porta.",
+   "solution": "Chiuda la porta.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "chiudere → chiuda.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Aspetta un momento.",
+   "solution": "Aspetti un momento.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "aspettare → aspetti.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Vieni con me.",
+   "solution": "Venga con me.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "venire → venga (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Di' la verità.",
+   "solution": "Dica la verità.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "dire → dica (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Da' il libro al direttore.",
+   "solution": "Dia il libro al direttore.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "dare → dia (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Sii paziente.",
+   "solution": "Sia paziente.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "essere → sia (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Abbi pazienza.",
+   "solution": "Abbia pazienza.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "avere → abbia (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Esci subito.",
+   "solution": "Esca subito.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "uscire → esca (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Bevi un po' d'acqua.",
+   "solution": "Beva un po' d'acqua.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "bere → beva (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Dammi il libro.",
+   "solution": "Mi dia il libro.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "dare + mi → mi dia (pronom avant le verbe).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Dillo a tutti.",
+   "solution": "Lo dica a tutti.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "dire + lo → lo dica.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Siediti qui.",
+   "solution": "Si sieda qui.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "sedersi → si sieda.",
+   "neg": false,
+   "irreg": true,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Alzati presto.",
+   "solution": "Si alzi presto.",
+   "cat": "lei",
+   "cible": "Mets à l'impératif formel (Lei) :",
+   "note": "alzarsi → si alzi.",
+   "neg": false,
+   "irreg": false,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Finire il lavoro.",
+   "solution": "Finisca il lavoro.",
+   "cat": "lei",
+   "cible": "Conjugue à l'impératif formel (Lei) :",
+   "note": "finire → finisca (-isc-).",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Andare a casa.",
+   "solution": "Vada a casa.",
+   "cat": "lei",
+   "cible": "Conjugue à l'impératif formel (Lei) :",
+   "note": "andare → vada (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Stare tranquillo.",
+   "solution": "Stia tranquillo.",
+   "cat": "lei",
+   "cible": "Conjugue à l'impératif formel (Lei) :",
+   "note": "stare → stia (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Prendere un caffè.",
+   "solution": "Prenda un caffè.",
+   "cat": "lei",
+   "cible": "Conjugue à l'impératif formel (Lei) :",
+   "note": "prendere → prenda.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Dites-moi la vérité.",
+   "solution": "Mi dica la verità.",
+   "cat": "lei",
+   "cible": "Traduis en italien (Lei) :",
+   "note": "dire → dica ; pronom mi avant le verbe.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Fermez la porte, s'il vous plaît.",
+   "solution": "Chiuda la porta, per favore.",
+   "cat": "lei",
+   "cible": "Traduis en italien (Lei) :",
+   "note": "chiudere → chiuda.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Asseyez-vous ici.",
+   "solution": "Si sieda qui.",
+   "cat": "lei",
+   "cible": "Traduis en italien (Lei) :",
+   "note": "sedersi → si sieda.",
+   "neg": false,
+   "irreg": true,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Parla più piano, signora.",
+   "solution": "Parli più piano, signora.",
+   "cat": "lei",
+   "cible": "Corrige la phrase (Lei) :",
+   "note": "Avec Lei, -are → -i.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Scrivi il suo indirizzo, per favore.",
+   "solution": "Scriva il suo indirizzo, per favore.",
+   "cat": "lei",
+   "cible": "Corrige la phrase (Lei) :",
+   "note": "Avec Lei, -ere → -a.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Parlate piano.",
+   "solution": "Parlino piano.",
+   "cat": "loro",
+   "cible": "Mets à l'impératif formel (Loro) :",
+   "note": "parlare → parlino.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Scrivete qui.",
+   "solution": "Scrivano qui.",
+   "cat": "loro",
+   "cible": "Mets à l'impératif formel (Loro) :",
+   "note": "scrivere → scrivano.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Andate a casa.",
+   "solution": "Vadano a casa.",
+   "cat": "loro",
+   "cible": "Mets à l'impératif formel (Loro) :",
+   "note": "andare → vadano (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Fate attenzione.",
+   "solution": "Facciano attenzione.",
+   "cat": "loro",
+   "cible": "Mets à l'impératif formel (Loro) :",
+   "note": "fare → facciano (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Siate gentili.",
+   "solution": "Siano gentili.",
+   "cat": "loro",
+   "cible": "Mets à l'impératif formel (Loro) :",
+   "note": "essere → siano (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Venire subito.",
+   "solution": "Vengano subito.",
+   "cat": "loro",
+   "cible": "Conjugue à l'impératif formel (Loro) :",
+   "note": "venire → vengano (irrégulier).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Entrez, messieurs.",
+   "solution": "Entrino, signori.",
+   "cat": "loro",
+   "cible": "Traduis en italien (Loro) :",
+   "note": "entrare → entrino.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Parla con lui.",
+   "solution": "Parliamo con lui.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "Noi : comme le présent.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Vai al mare.",
+   "solution": "Andiamo al mare.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "andare → andiamo.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Fa' una pausa.",
+   "solution": "Facciamo una pausa.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "fare → facciamo.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Di' la verità.",
+   "solution": "Diciamo la verità.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "dire → diciamo.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Esci stasera.",
+   "solution": "Usciamo stasera.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "uscire → usciamo.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Alzati presto.",
+   "solution": "Alziamoci presto.",
+   "cat": "noi",
+   "cible": "Mets à l'impératif (noi) :",
+   "note": "Pronom soudé : alziamoci.",
+   "neg": false,
+   "irreg": false,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Finire il lavoro.",
+   "solution": "Finiamo il lavoro.",
+   "cat": "noi",
+   "cible": "Conjugue à l'impératif (noi) :",
+   "note": "finire → finiamo (pas de -isc-).",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Mangeons ensemble !",
+   "solution": "Mangiamo insieme.",
+   "cat": "noi",
+   "cible": "Traduis en italien (noi) :",
+   "note": "mangiare → mangiamo.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Faisons-le tout de suite !",
+   "solution": "Facciamolo subito.",
+   "cat": "noi",
+   "cible": "Traduis en italien (noi) :",
+   "note": "fare + lo → facciamolo.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Aspetta qui.",
+   "solution": "Aspettate qui.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "aspettare → aspettate.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Vieni domani.",
+   "solution": "Venite domani.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "venire → venite.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Siediti qui.",
+   "solution": "Sedetevi qui.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "sedersi → sedetevi.",
+   "neg": false,
+   "irreg": true,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Di' la verità.",
+   "solution": "Dite la verità.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "dire → dite.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Sii puntuale.",
+   "solution": "Siate puntuali.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "essere → siate.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Alzati subito.",
+   "solution": "Alzatevi subito.",
+   "cat": "voi",
+   "cible": "Mets à l'impératif (voi) :",
+   "note": "Pronom soudé : alzatevi.",
+   "neg": false,
+   "irreg": false,
+   "refl": true,
+   "pronom": true
+  },
+  {
+   "depart": "Uscire presto.",
+   "solution": "Uscite presto.",
+   "cat": "voi",
+   "cible": "Conjugue à l'impératif (voi) :",
+   "note": "uscire → uscite.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Écrivez votre nom.",
+   "solution": "Scrivete il vostro nome.",
+   "cat": "voi",
+   "cible": "Traduis en italien (voi) :",
+   "note": "scrivere → scrivete.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Donnez-moi le livre.",
+   "solution": "Datemi il libro.",
+   "cat": "voi",
+   "cible": "Traduis en italien (voi) :",
+   "note": "dare + mi → datemi.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Andare via.",
+   "solution": "Va' via.",
+   "cat": "tu",
+   "cible": "Conjugue à l'impératif (tu) :",
+   "variantesIt": [
+    "Vai via."
+   ],
+   "note": "andare → va' (ou vai).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Fare attenzione.",
+   "solution": "Fa' attenzione.",
+   "cat": "tu",
+   "cible": "Conjugue à l'impératif (tu) :",
+   "variantesIt": [
+    "Fai attenzione."
+   ],
+   "note": "fare → fa' (ou fai).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Dire la verità.",
+   "solution": "Di' la verità.",
+   "cat": "tu",
+   "cible": "Conjugue à l'impératif (tu) :",
+   "note": "dire → di'.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Essere gentile.",
+   "solution": "Sii gentile.",
+   "cat": "tu",
+   "cible": "Conjugue à l'impératif (tu) :",
+   "note": "essere → sii.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Uscire adesso.",
+   "solution": "Esci adesso.",
+   "cat": "tu",
+   "cible": "Conjugue à l'impératif (tu) :",
+   "note": "uscire → esci.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Prends un café !",
+   "solution": "Prendi un caffè.",
+   "cat": "tu",
+   "cible": "Traduis en italien (tu) :",
+   "note": "prendere → prendi.",
+   "neg": false,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Viens avec moi !",
+   "solution": "Vieni con me.",
+   "cat": "tu",
+   "cible": "Traduis en italien (tu) :",
+   "note": "venire → vieni.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Donne-moi le livre !",
+   "solution": "Dammi il libro.",
+   "cat": "tu",
+   "cible": "Traduis en italien (tu) :",
+   "note": "da' + mi → dammi (consonne doublée).",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Sois patient !",
+   "solution": "Sii paziente.",
+   "cat": "tu",
+   "cible": "Traduis en italien (tu) :",
+   "note": "essere → sii.",
+   "neg": false,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Dillo a tutti.",
+   "solution": "Non dirlo a tutti.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (tu) :",
+   "variantesIt": [
+    "Non lo dire a tutti."
+   ],
+   "note": "Négatif tu : non + infinitif.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Fallo adesso.",
+   "solution": "Non farlo adesso.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (tu) :",
+   "variantesIt": [
+    "Non lo fare adesso."
+   ],
+   "note": "Négatif tu : non + infinitif.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": true
+  },
+  {
+   "depart": "Parla forte.",
+   "solution": "Non parlare forte.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (tu) :",
+   "note": "Négatif tu : non + infinitif.",
+   "neg": true,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Mangia troppo.",
+   "solution": "Non mangiare troppo.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (tu) :",
+   "note": "Négatif tu : non + infinitif.",
+   "neg": true,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Vieni qui.",
+   "solution": "Non venire qui.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (tu) :",
+   "note": "venire → non venire.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Parlate adesso.",
+   "solution": "Non parlate adesso.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (voi) :",
+   "note": "Négatif voi : non + même forme.",
+   "neg": true,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Fumi qui.",
+   "solution": "Non fumi qui.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (Lei) :",
+   "note": "Négatif Lei : non + même forme.",
+   "neg": true,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Parliamo adesso.",
+   "solution": "Non parliamo adesso.",
+   "cat": "neg",
+   "cible": "Mets à la forme négative (noi) :",
+   "note": "Négatif noi : non + même forme.",
+   "neg": true,
+   "irreg": false,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Ne bois pas trop !",
+   "solution": "Non bere troppo.",
+   "cat": "neg",
+   "cible": "Traduis en italien (tu, négatif) :",
+   "note": "bere → non bere.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Ne va pas là-bas !",
+   "solution": "Non andare là.",
+   "cat": "neg",
+   "cible": "Traduis en italien (tu, négatif) :",
+   "variantesIt": [
+    "Non andare lì."
+   ],
+   "note": "andare → non andare.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "N'aie pas peur !",
+   "solution": "Non avere paura.",
+   "cat": "neg",
+   "cible": "Traduis en italien (tu, négatif) :",
+   "note": "avere → non avere.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  },
+  {
+   "depart": "Ne sois pas en retard !",
+   "solution": "Non essere in ritardo.",
+   "cat": "neg",
+   "cible": "Traduis en italien (tu, négatif) :",
+   "note": "essere → non essere.",
+   "neg": true,
+   "irreg": true,
+   "refl": false,
+   "pronom": false
+  }
+ ],
+ "consigne": "Transforme ou traduis la phrase à l'impératif demandé."
+}
