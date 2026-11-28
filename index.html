@@ -999,6 +999,26 @@ function reinitialiserListeFree(){
     sauvegarderConfigApi();
 }
 
+const URL_OPENROUTER = "https://openrouter.ai/api/v1/chat/completions";
+const URL_HUGGINGFACE = "https://router.huggingface.co/v1/chat/completions";
+const MODELE_HF_PAR_DEFAUT = "meta-llama/Llama-3.3-70B-Instruct";
+
+function deduireUrlDepuisToken(token){
+    const t = (token || "").trim();
+    if(t.startsWith("hf_")) return URL_HUGGINGFACE;
+    return URL_OPENROUTER;
+}
+function nomFournisseur(url){
+    const u = (url || "").toLowerCase();
+    if(u.includes("huggingface")) return "Hugging Face";
+    if(u.includes("openrouter")) return "OpenRouter";
+    return "Autre";
+}
+function modeleActuelSaisi(){
+    const select = document.getElementById("apiModelSelect");
+    const input = document.getElementById("apiModelInput");
+    return (select && select.value && select.value !== "__CUSTOM__") ? select.value.trim() : (input.value || "").trim();
+}
 function lireListeTokens(){
     try { return JSON.parse(localStorage.getItem(CLE_TOKENS_STORAGE) || "[]"); } catch(e){ return []; }
 }
@@ -1014,7 +1034,7 @@ function rafraichirSelectTokens(selectionId = null){
     tokens.forEach(t => {
         const opt = document.createElement("option");
         opt.value = t.id;
-        opt.textContent = `${t.nom} (${t.token ? t.token.slice(0, 10) + "..." : "vide"})`;
+        opt.textContent = `${t.nom} · ${nomFournisseur(t.url || deduireUrlDepuisToken(t.token))} (${t.token ? t.token.slice(0, 8) + "..." : "vide"})`;
         select.appendChild(opt);
     });
     select.value = (actifId && tokens.some(t => t.id === actifId)) ? actifId : "";
@@ -1029,7 +1049,10 @@ function enregistrerNouveauToken(){
     const tokens = lireListeTokens();
     const existant = tokens.find(t => t.token === tokenVal);
     let idCible = existant ? existant.id : ("tok_" + Date.now());
-    if(existant) existant.nom = nomVal; else tokens.push({ id: idCible, nom: nomVal, token: tokenVal });
+    const urlVal = (document.getElementById("apiUrlInput").value || "").trim() || deduireUrlDepuisToken(tokenVal);
+    const modeleVal = modeleActuelSaisi();
+    if(existant){ existant.nom = nomVal; existant.url = urlVal; existant.modele = modeleVal; }
+    else tokens.push({ id: idCible, nom: nomVal, token: tokenVal, url: urlVal, modele: modeleVal });
     ecrireListeTokens(tokens);
     try { localStorage.setItem(CLE_TOKEN_ACTIF_STORAGE, idCible); } catch(e){}
     nomInput.value = "";
@@ -1043,7 +1066,17 @@ function changerTokenSelectionne(){
     try { localStorage.setItem(CLE_TOKEN_ACTIF_STORAGE, id); } catch(e){}
     if(id){
         const trouve = lireListeTokens().find(t => t.id === id);
-        if(trouve) document.getElementById("apiTokenInput").value = trouve.token;
+        if(trouve){
+            document.getElementById("apiTokenInput").value = trouve.token;
+            const urlT = trouve.url || deduireUrlDepuisToken(trouve.token);
+            document.getElementById("apiUrlInput").value = urlT;
+            let modT = trouve.modele;
+            if(!modT || (urlT === URL_HUGGINGFACE && modT.includes(":free")) || (urlT === URL_HUGGINGFACE && modT === "openrouter/free")){
+                modT = (urlT === URL_HUGGINGFACE) ? MODELE_HF_PAR_DEFAUT : "openrouter/free";
+            }
+            document.getElementById("apiModelInput").value = modT;
+            synchroniserSelectAvecModele(modT);
+        }
     }
     sauvegarderConfigApi();
 }
@@ -1099,6 +1132,8 @@ function chargerConfigApi(){
         if(ta) ta.value = LISTE_MODELES_FREE_PAR_DEFAUT.join("\n");
     }
     rafraichirSelectTokens();
+    const selTok = document.getElementById("apiTokenSelect");
+    if(selTok && selTok.value) changerTokenSelectionne();
 }
 function sauvegarderConfigApi(){
     try {
@@ -1111,6 +1146,16 @@ function sauvegarderConfigApi(){
         localStorage.setItem("atelier_it_fallback", String(Boolean(document.getElementById("apiFallbackAuto")?.checked)));
         localStorage.setItem("atelier_it_delai_fallback", document.getElementById("apiDelaiFallback")?.value || "1000");
         localStorage.setItem("atelier_it_liste_free", document.getElementById("apiListeFreeTextarea")?.value || "");
+        const idActif = document.getElementById("apiTokenSelect")?.value;
+        if(idActif){
+            const tokens = lireListeTokens();
+            const t = tokens.find(x => x.id === idActif);
+            if(t){
+                t.url = (document.getElementById("apiUrlInput").value || "").trim();
+                t.modele = modeleActif;
+                ecrireListeTokens(tokens);
+            }
+        }
     } catch(e){}
 }
 
@@ -1171,13 +1216,15 @@ async function appelerUnModele(apiUrl, token, modele, promptComplet){
 
 function construireCandidatsOrdonnes(modelePrincipal, fallbackAuto){
     const listeFree = obtenirListeModelesFree();
-    if(!fallbackAuto) return [modelePrincipal];
+    const urlActuelle = (document.getElementById("apiUrlInput").value || "");
+    if(!fallbackAuto || !urlActuelle.includes("openrouter.ai")) return [modelePrincipal];
     const fusion = [modelePrincipal, ...listeFree];
     return fusion.filter((m, idx) => m && fusion.indexOf(m) === idx);
 }
 
 async function executerAvecSequenceFree(apiUrl, token, candidats, promptComplet, delaiMs, onEtape){
     let derniereErreur = null;
+    const erreurs = [];
     for(let i = 0; i < candidats.length; i++){
         const modele = candidats[i];
         if(onEtape) onEtape(i + 1, candidats.length, modele);
@@ -1186,11 +1233,13 @@ async function executerAvecSequenceFree(apiUrl, token, candidats, promptComplet,
             return { resultat, modeleUtilise: modele };
         } catch(err){
             derniereErreur = err;
+            erreurs.push(`${modele} → ${err.message}`);
             if(i < candidats.length - 1 && delaiMs > 0){
                 await pauseMs(delaiMs);
             }
         }
     }
+    if(erreurs.length > 1) throw new Error(erreurs.slice(0, 3).join(" | ") + (erreurs.length > 3 ? ` | (+${erreurs.length - 3} autres)` : ""));
     throw derniereErreur || new Error("Aucun modèle disponible");
 }
 
