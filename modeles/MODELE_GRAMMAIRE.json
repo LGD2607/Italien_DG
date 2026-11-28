@@ -1,0 +1,63 @@
+{
+ "_aide": "Modèle de fiche de grammaire. Copiez ce fichier dans le dossier « fiches », changez l'id (unique), puis remplissez. Le bloc « cours » est facultatif : chaque section peut avoir texte, points, tableau, exemples (avec audio) et astuce. **gras** est accepté dans les textes.",
+ "id": "exemple_A2",
+ "activite": "exemple",
+ "niveau": "A2",
+ "titre": "Titre de la fiche",
+ "description": "Une phrase pour dire ce que l'on travaille.",
+ "cours": {
+  "titre": "Cours : sujet",
+  "sections": [
+   {
+    "titre": "Titre de la section",
+    "texte": "Paragraphe avec du **gras**.\n\nDeuxième paragraphe.",
+    "points": [
+     "Premier point",
+     "Deuxième point"
+    ],
+    "tableau": {
+     "entetes": [
+      "Colonne 1",
+      "Colonne 2"
+     ],
+     "lignes": [
+      [
+       "a",
+       "b"
+      ],
+      [
+       "c",
+       "d"
+      ]
+     ]
+    },
+    "exemples": [
+     {
+      "it": "Phrase en italien.",
+      "fr": "Traduction française."
+     }
+    ],
+    "astuce": "Un piège ou un moyen mnémotechnique."
+   }
+  ]
+ },
+ "categories": [
+  {
+   "valeur": "cat1",
+   "label": "Catégorie 1"
+  },
+  {
+   "valeur": "cat2",
+   "label": "Catégorie 2"
+  }
+ ],
+ "items": [
+  {
+   "depart": "Phrase de départ",
+   "solution": "Réponse attendue",
+   "cat": "cat1",
+   "cible": "Forme à trouver : ...",
+   "note": "Explication affichée après la réponse."
+  }
+ ]
+}
